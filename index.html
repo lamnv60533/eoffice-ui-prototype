@@ -1367,155 +1367,578 @@
 
       <!-- ===== ISO SCREEN ===== -->
       <div id="content-iso" class="flex-1 overflow-hidden flex fade-in" style="display:none">
-        <!-- ISO Folder tree -->
-        <div class="w-56 border-r border-ms-gray200 bg-white flex flex-col flex-shrink-0">
-          <div class="px-3 py-3 border-b border-ms-gray200 flex items-center justify-between">
-            <span class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide">Cây thư mục</span>
-            <button class="btn-ghost p-1 text-ms-gray500">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-            </button>
+        <!-- ISO Sidebar / Folder tree -->
+        <div class="w-60 border-r border-ms-gray200 bg-white flex flex-col flex-shrink-0">
+          <div class="px-3 py-3 border-b border-ms-gray200">
+            <span class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide">Danh mục tài liệu</span>
           </div>
           <div class="flex-1 overflow-y-auto p-2 space-y-0.5">
-            <div class="tree-item active">
-              <svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg>
-              <span class="text-xs">Tất cả tài liệu</span>
+            <!-- ISO Tabs -->
+            <div class="tree-item active" onclick="showIsoTab('iso-dashboard')" id="iso-nav-dashboard">
+              <svg class="w-4 h-4 text-ms-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+              <span class="text-xs font-medium">Tổng quan ISO</span>
             </div>
-            <div class="ml-3 space-y-0.5">
-              <div class="tree-item">
-                <svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg>
-                <span class="text-xs">Phòng Kỹ thuật</span>
-              </div>
-              <div class="ml-3 space-y-0.5">
-                <div class="tree-item">
-                  <svg class="w-3.5 h-3.5 text-ms-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                  <span class="text-xs">Quy trình</span>
-                </div>
-                <div class="tree-item">
-                  <svg class="w-3.5 h-3.5 text-ms-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                  <span class="text-xs">Hướng dẫn công việc</span>
-                </div>
-              </div>
-              <div class="tree-item">
-                <svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg>
-                <span class="text-xs">Phòng Kinh doanh</span>
-              </div>
-              <div class="tree-item">
-                <svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg>
-                <span class="text-xs">Phòng Sản xuất</span>
-              </div>
+            <div class="tree-item" onclick="showIsoTab('iso-docs')" id="iso-nav-docs">
+              <svg class="w-4 h-4 text-ms-gray500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span class="text-xs">Danh sách tài liệu</span>
+            </div>
+            <div class="tree-item" onclick="showIsoTab('iso-approval')" id="iso-nav-approval">
+              <svg class="w-4 h-4 text-ms-gray500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+              <span class="text-xs">Luồng phê duyệt</span>
+              <span class="ml-auto badge badge-yellow" style="font-size:10px;padding:1px 5px">2</span>
+            </div>
+            <div class="tree-item" onclick="showIsoTab('iso-version')" id="iso-nav-version">
+              <svg class="w-4 h-4 text-ms-gray500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-xs">Lịch sử phiên bản</span>
+            </div>
+            <div class="tree-item" onclick="showIsoTab('iso-review')" id="iso-nav-review">
+              <svg class="w-4 h-4 text-ms-gray500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span class="text-xs">Lịch xem xét định kỳ</span>
+            </div>
+            <div class="tree-item" onclick="showIsoTab('iso-distribute')" id="iso-nav-distribute">
+              <svg class="w-4 h-4 text-ms-gray500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span class="text-xs">Phân phối & Xác nhận đọc</span>
+            </div>
+            <div class="tree-item" onclick="showIsoTab('iso-report')" id="iso-nav-report">
+              <svg class="w-4 h-4 text-ms-gray500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              <span class="text-xs">Báo cáo & Thống kê</span>
+            </div>
+            <div class="tree-item" onclick="showIsoTab('iso-ai')" id="iso-nav-ai">
+              <svg class="w-4 h-4 text-ms-gray500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              <span class="text-xs">AI Assistant ISO</span>
+            </div>
+            <div class="mt-3 pt-3 border-t border-ms-gray200">
+              <p class="text-xs font-semibold text-ms-gray500 uppercase tracking-wide px-2 mb-1">Theo loại tài liệu</p>
+              <div class="tree-item"><span class="w-4 h-4 flex-shrink-0 text-center text-xs font-bold text-ms-purple">QP</span><span class="text-xs">Quy trình (12)</span></div>
+              <div class="tree-item"><span class="w-4 h-4 flex-shrink-0 text-center text-xs font-bold text-ms-blue">HD</span><span class="text-xs">Hướng dẫn (28)</span></div>
+              <div class="tree-item"><span class="w-4 h-4 flex-shrink-0 text-center text-xs font-bold text-ms-teal">BM</span><span class="text-xs">Biểu mẫu (45)</span></div>
+              <div class="tree-item"><span class="w-4 h-4 flex-shrink-0 text-center text-xs font-bold text-ms-orange">QĐ</span><span class="text-xs">Quy định (8)</span></div>
+              <div class="tree-item"><span class="w-4 h-4 flex-shrink-0 text-center text-xs font-bold text-ms-green">KH</span><span class="text-xs">Kế hoạch CL (5)</span></div>
             </div>
           </div>
         </div>
 
-        <!-- ISO content -->
-        <div class="flex-1 overflow-y-auto p-6 space-y-4">
-          <div class="flex items-center justify-between">
-            <div>
-              <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
-                <span>e-Office</span>
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span class="text-ms-gray700">Tài liệu ISO</span>
-              </div>
-              <h1 class="text-xl font-semibold text-ms-gray900">Tài liệu ISO</h1>
-            </div>
-            <button class="btn-primary flex items-center gap-2 text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-              Tạo tài liệu mới
-            </button>
-          </div>
+        <!-- ISO Main Content -->
+        <div class="flex-1 overflow-y-auto">
 
-          <!-- Pending approvals widget -->
-          <div class="ms-card p-4 border-l-4 border-ms-purple">
-            <div class="flex items-center gap-3 mb-3">
-              <svg class="w-5 h-5 text-ms-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <h3 class="font-semibold text-sm text-ms-gray900">Chờ phê duyệt của bạn</h3>
-              <span class="badge badge-purple">2 tài liệu</span>
+          <!-- ===== ISO DASHBOARD TAB ===== -->
+          <div id="iso-dashboard" class="p-6 space-y-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1"><span>e-Office</span><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-ms-gray700">Tài liệu ISO</span></div>
+                <h1 class="text-xl font-semibold text-ms-gray900">Tổng quan Hệ thống ISO</h1>
+              </div>
+              <button class="btn-primary flex items-center gap-2 text-sm" onclick="openModal('isoNewDocModal')">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                Tạo tài liệu mới
+              </button>
             </div>
-            <div class="flex gap-3">
-              <div class="flex-1 bg-ms-gray50 rounded p-3 border border-ms-gray200">
-                <p class="text-sm font-medium text-ms-blue">QP-KT-001 Rev.3</p>
-                <p class="text-xs text-ms-gray500 mt-0.5">Quy trình kiểm tra chất lượng thép</p>
-                <div class="flex gap-2 mt-2">
-                  <button class="btn-primary text-xs py-1 px-3">Phê duyệt</button>
-                  <button class="btn-secondary text-xs py-1 px-3">Từ chối</button>
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-4 gap-4">
+              <div class="ms-card p-4 border-t-4 border-ms-green">
+                <p class="text-xs text-ms-gray500 font-medium">Tài liệu hiệu lực</p>
+                <p class="text-3xl font-semibold text-ms-gray900 mt-1">93</p>
+                <p class="text-xs text-ms-green mt-1">↑ 5 tài liệu mới tháng này</p>
+              </div>
+              <div class="ms-card p-4 border-t-4 border-ms-yellow">
+                <p class="text-xs text-ms-gray500 font-medium">Chờ phê duyệt</p>
+                <p class="text-3xl font-semibold text-ms-gray900 mt-1">5</p>
+                <p class="text-xs text-ms-yellow mt-1">2 quá hạn xử lý</p>
+              </div>
+              <div class="ms-card p-4 border-t-4 border-ms-orange">
+                <p class="text-xs text-ms-gray500 font-medium">Sắp đến hạn xem xét</p>
+                <p class="text-3xl font-semibold text-ms-gray900 mt-1">8</p>
+                <p class="text-xs text-ms-orange mt-1">Trong 30 ngày tới</p>
+              </div>
+              <div class="ms-card p-4 border-t-4 border-ms-red">
+                <p class="text-xs text-ms-gray500 font-medium">Hết hiệu lực / Thu hồi</p>
+                <p class="text-3xl font-semibold text-ms-gray900 mt-1">3</p>
+                <p class="text-xs text-ms-red mt-1">Cần cập nhật ngay</p>
+              </div>
+            </div>
+            <!-- Charts row -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="ms-card p-4">
+                <h3 class="text-sm font-semibold text-ms-gray900 mb-3">Phân bố tài liệu theo loại</h3>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2"><span class="text-xs w-8 font-bold text-ms-purple">QP</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-purple rounded-full flex items-center pl-2" style="width:12%"><span class="text-white text-xs">12</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-8 font-bold text-ms-blue">HD</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-blue rounded-full flex items-center pl-2" style="width:28%"><span class="text-white text-xs">28</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-8 font-bold text-ms-teal">BM</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-teal rounded-full flex items-center pl-2" style="width:45%"><span class="text-white text-xs">45</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-8 font-bold text-ms-orange">QĐ</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-orange rounded-full flex items-center pl-2" style="width:8%"><span class="text-white text-xs">8</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-8 font-bold text-ms-green">KH</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-green rounded-full flex items-center pl-2" style="width:5%"><span class="text-white text-xs">5</span></div></div></div>
                 </div>
               </div>
-              <div class="flex-1 bg-ms-gray50 rounded p-3 border border-ms-gray200">
-                <p class="text-sm font-medium text-ms-blue">HD-SX-015 Rev.1</p>
-                <p class="text-xs text-ms-gray500 mt-0.5">Hướng dẫn vận hành lò luyện</p>
-                <div class="flex gap-2 mt-2">
-                  <button class="btn-primary text-xs py-1 px-3">Phê duyệt</button>
-                  <button class="btn-secondary text-xs py-1 px-3">Từ chối</button>
+              <div class="ms-card p-4">
+                <h3 class="text-sm font-semibold text-ms-gray900 mb-3">Tài liệu sắp đến hạn xem xét</h3>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between p-2 bg-red-50 border border-red-200 rounded">
+                    <div><p class="text-xs font-medium text-ms-gray900">QP-KT-001</p><p class="text-xs text-ms-gray500">Quy trình kiểm tra CL thép</p></div>
+                    <span class="badge badge-red text-xs">Còn 3 ngày</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 bg-orange-50 border border-orange-200 rounded">
+                    <div><p class="text-xs font-medium text-ms-gray900">HD-SX-003</p><p class="text-xs text-ms-gray500">Hướng dẫn vận hành cán thép</p></div>
+                    <span class="badge badge-yellow text-xs">Còn 12 ngày</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 bg-ms-gray50 border border-ms-gray200 rounded">
+                    <div><p class="text-xs font-medium text-ms-gray900">BM-KD-012</p><p class="text-xs text-ms-gray500">Biểu mẫu báo giá khách hàng</p></div>
+                    <span class="badge badge-gray text-xs">Còn 25 ngày</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 bg-ms-gray50 border border-ms-gray200 rounded">
+                    <div><p class="text-xs font-medium text-ms-gray900">QĐ-HC-005</p><p class="text-xs text-ms-gray500">Quy định sử dụng thiết bị VP</p></div>
+                    <span class="badge badge-gray text-xs">Còn 28 ngày</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Recent activity -->
+            <div class="ms-card p-4">
+              <h3 class="text-sm font-semibold text-ms-gray900 mb-3">Hoạt động gần đây</h3>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-ms-green flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><div><p class="text-sm text-ms-gray900"><span class="font-medium">QT-KD-003 Rev.2</span> đã được phê duyệt và phát hành</p><p class="text-xs text-ms-gray500">Nguyễn Văn A · 10/03/2026 14:32</p></div></div>
+                <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-ms-blue flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></div><div><p class="text-sm text-ms-gray900"><span class="font-medium">QP-KT-001 Rev.3</span> đã được gửi lên để phê duyệt</p><p class="text-xs text-ms-gray500">Trần Thị Hoa · 12/03/2026 09:15</p></div></div>
+                <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-ms-yellow flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div><div><p class="text-sm text-ms-gray900"><span class="font-medium">HD-SX-015</span> sắp đến hạn xem xét định kỳ (15/03/2026)</p><p class="text-xs text-ms-gray500">Hệ thống · Nhắc nhở tự động</p></div></div>
+                <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-ms-purple flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></div><div><p class="text-sm text-ms-gray900"><span class="font-medium">BM-HC-009</span> tài liệu mới được tạo</p><p class="text-xs text-ms-gray500">Lê Thanh · 13/03/2026 16:00</p></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== ISO DOCS LIST TAB ===== -->
+          <div id="iso-docs" class="p-6 space-y-4" style="display:none">
+            <div class="flex items-center justify-between">
+              <h1 class="text-xl font-semibold text-ms-gray900">Danh sách tài liệu ISO</h1>
+              <button class="btn-primary flex items-center gap-2 text-sm" onclick="openModal('isoNewDocModal')">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                Tạo tài liệu mới
+              </button>
+            </div>
+            <div class="ms-card">
+              <div class="command-bar px-4">
+                <select class="text-xs border border-ms-gray300 rounded px-2 py-1 text-ms-gray700"><option>Tất cả loại</option><option>QP - Quy trình</option><option>HD - Hướng dẫn</option><option>BM - Biểu mẫu</option><option>QĐ - Quy định</option></select>
+                <select class="text-xs border border-ms-gray300 rounded px-2 py-1 text-ms-gray700"><option>Tất cả phòng ban</option><option>Phòng Kỹ thuật</option><option>Phòng Kinh doanh</option><option>Phòng Sản xuất</option><option>Phòng Hành chính</option></select>
+                <select class="text-xs border border-ms-gray300 rounded px-2 py-1 text-ms-gray700"><option>Tất cả trạng thái</option><option>Hiệu lực</option><option>Chờ duyệt</option><option>Hết hiệu lực</option></select>
+                <div class="flex-1"></div>
+                <div class="ms-search w-56"><svg class="w-4 h-4 text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" placeholder="Tìm tài liệu ISO..."/></div>
+                <button class="btn-ghost text-xs"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Xuất Excel</button>
+              </div>
+              <table class="ms-table">
+                <thead><tr><th><input type="checkbox"/></th><th>Mã tài liệu</th><th>Tên tài liệu</th><th>Loại</th><th>Phiên bản</th><th>Phòng ban</th><th>Ngày hiệu lực</th><th>Xem xét tiếp</th><th>Trạng thái</th><th class="w-20">Thao tác</th></tr></thead>
+                <tbody>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')">
+                    <td onclick="event.stopPropagation()"><input type="checkbox"/></td>
+                    <td class="text-ms-blue font-medium">QP-KT-001</td>
+                    <td>Quy trình kiểm tra chất lượng thép</td>
+                    <td><span class="badge badge-purple">QP</span></td>
+                    <td><span class="badge badge-yellow">Rev.3</span></td>
+                    <td class="text-ms-gray600">Phòng Kỹ thuật</td>
+                    <td class="text-ms-gray500">01/01/2026</td>
+                    <td class="text-red-600 font-medium">17/03/2026 ⚠</td>
+                    <td><span class="badge badge-yellow">Chờ duyệt</span></td>
+                    <td class="flex gap-1">
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Lịch sử" onclick="event.stopPropagation();showIsoTab('iso-version')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></button>
+                    </td>
+                  </tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')">
+                    <td onclick="event.stopPropagation()"><input type="checkbox"/></td>
+                    <td class="text-ms-blue font-medium">HD-SX-015</td>
+                    <td>Hướng dẫn vận hành lò luyện thép</td>
+                    <td><span class="badge badge-blue">HD</span></td>
+                    <td><span class="badge badge-yellow">Rev.1</span></td>
+                    <td class="text-ms-gray600">Phòng Sản xuất</td>
+                    <td class="text-ms-gray500">15/02/2026</td>
+                    <td class="text-orange-500 font-medium">15/03/2026 !</td>
+                    <td><span class="badge badge-yellow">Chờ duyệt</span></td>
+                    <td class="flex gap-1">
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Lịch sử" onclick="event.stopPropagation();showIsoTab('iso-version')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></button>
+                    </td>
+                  </tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')">
+                    <td onclick="event.stopPropagation()"><input type="checkbox"/></td>
+                    <td class="text-ms-blue font-medium">QT-KD-003</td>
+                    <td>Quy trình bán hàng và ký kết hợp đồng</td>
+                    <td><span class="badge badge-purple">QP</span></td>
+                    <td><span class="badge badge-gray">Rev.2</span></td>
+                    <td class="text-ms-gray600">Phòng Kinh doanh</td>
+                    <td class="text-ms-gray500">01/12/2025</td>
+                    <td class="text-ms-gray500">01/12/2026</td>
+                    <td><span class="badge badge-green">Hiệu lực</span></td>
+                    <td class="flex gap-1">
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Lịch sử" onclick="event.stopPropagation();showIsoTab('iso-version')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></button>
+                    </td>
+                  </tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')">
+                    <td onclick="event.stopPropagation()"><input type="checkbox"/></td>
+                    <td class="text-ms-blue font-medium">BM-HC-008</td>
+                    <td>Biểu mẫu đề xuất mua sắm vật tư</td>
+                    <td><span class="badge badge-teal">BM</span></td>
+                    <td><span class="badge badge-gray">Rev.4</span></td>
+                    <td class="text-ms-gray600">Phòng Hành chính</td>
+                    <td class="text-ms-gray500">01/01/2025</td>
+                    <td class="text-ms-gray500">01/01/2026</td>
+                    <td><span class="badge badge-green">Hiệu lực</span></td>
+                    <td class="flex gap-1">
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Lịch sử" onclick="event.stopPropagation();showIsoTab('iso-version')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></button>
+                    </td>
+                  </tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')">
+                    <td onclick="event.stopPropagation()"><input type="checkbox"/></td>
+                    <td class="text-ms-blue font-medium">QĐ-NS-002</td>
+                    <td>Quy định tuyển dụng và thử việc</td>
+                    <td><span class="badge badge-orange">QĐ</span></td>
+                    <td><span class="badge badge-gray">Rev.1</span></td>
+                    <td class="text-ms-gray600">Phòng Nhân sự</td>
+                    <td class="text-ms-gray500">01/06/2025</td>
+                    <td class="text-ms-gray500">01/06/2026</td>
+                    <td><span class="badge badge-green">Hiệu lực</span></td>
+                    <td class="flex gap-1">
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                      <button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue" title="Lịch sử" onclick="event.stopPropagation();showIsoTab('iso-version')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="px-4 py-3 border-t border-ms-gray200 flex items-center justify-between">
+                <span class="text-xs text-ms-gray500">Hiển thị 1-5 / 98 tài liệu</span>
+                <div class="flex gap-1">
+                  <button class="btn-ghost text-xs px-3 py-1">‹ Trước</button>
+                  <button class="btn-primary text-xs px-3 py-1">1</button>
+                  <button class="btn-ghost text-xs px-3 py-1">2</button>
+                  <button class="btn-ghost text-xs px-3 py-1">3</button>
+                  <button class="btn-ghost text-xs px-3 py-1">Sau ›</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- ISO doc table -->
-          <div class="ms-card">
-            <div class="command-bar px-4">
-              <button class="btn-ghost text-xs"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg> Lọc</button>
-              <div class="flex-1"></div>
-              <div class="ms-search w-56">
-                <svg class="w-4 h-4 text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                <input type="text" placeholder="Tìm tài liệu ISO..." />
+          <!-- ===== ISO APPROVAL TAB ===== -->
+          <div id="iso-approval" class="p-6 space-y-4" style="display:none">
+            <h1 class="text-xl font-semibold text-ms-gray900">Luồng phê duyệt tài liệu ISO</h1>
+            <p class="text-sm text-ms-gray500">Luồng phê duyệt 4 bước theo chuẩn ISO 9001: Soạn thảo → Kiểm soát (QMR) → Phê duyệt (BLĐ) → Phát hành</p>
+            <!-- Approval pipeline cards -->
+            <div class="space-y-4">
+              <!-- Card 1 -->
+              <div class="ms-card p-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-ms-blue font-semibold">QP-KT-001 Rev.3</span>
+                      <span class="badge badge-yellow">Bước 2/4: Kiểm soát QMR</span>
+                    </div>
+                    <p class="text-sm text-ms-gray600 mt-0.5">Quy trình kiểm tra chất lượng thép cuộn</p>
+                    <p class="text-xs text-ms-gray500 mt-0.5">Người soạn: Trần Thị Hoa · Ngày gửi: 12/03/2026 · Hạn duyệt: 17/03/2026</p>
+                  </div>
+                  <span class="badge badge-red text-xs">Còn 3 ngày</span>
+                </div>
+                <!-- Progress steps -->
+                <div class="flex items-center gap-0 mb-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-ms-green flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
+                    <span class="text-xs text-ms-green mt-1">Soạn thảo</span>
+                  </div>
+                  <div class="flex-1 h-0.5 bg-ms-green"></div>
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-ms-yellow flex items-center justify-center"><span class="text-white text-xs font-bold">2</span></div>
+                    <span class="text-xs text-ms-yellow mt-1 font-medium">KS QMR</span>
+                  </div>
+                  <div class="flex-1 h-0.5 bg-ms-gray200"></div>
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-ms-gray200 flex items-center justify-center"><span class="text-ms-gray500 text-xs font-bold">3</span></div>
+                    <span class="text-xs text-ms-gray500 mt-1">PD BLĐ</span>
+                  </div>
+                  <div class="flex-1 h-0.5 bg-ms-gray200"></div>
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-ms-gray200 flex items-center justify-center"><span class="text-ms-gray500 text-xs font-bold">4</span></div>
+                    <span class="text-xs text-ms-gray500 mt-1">Phát hành</span>
+                  </div>
+                </div>
+                <div class="bg-ms-gray50 rounded p-3 mb-3">
+                  <p class="text-xs font-medium text-ms-gray700 mb-1">Ghi chú từ bước trước (Soạn thảo):</p>
+                  <p class="text-xs text-ms-gray600">Đã cập nhật theo yêu cầu của phòng kỹ thuật, bổ sung thêm bước kiểm tra độ cứng bề mặt theo tiêu chuẩn TCVN 7571.</p>
+                </div>
+                <div class="flex gap-2">
+                  <button class="btn-primary text-sm" onclick="openModal('isoApproveModal')">✓ Chuyển sang Bước 3 (Phê duyệt BLĐ)</button>
+                  <button class="btn-secondary text-sm" onclick="openModal('isoRejectModal')">✗ Yêu cầu chỉnh sửa</button>
+                  <button class="btn-ghost text-sm">Xem tài liệu</button>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="ms-card p-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-ms-blue font-semibold">HD-SX-015 Rev.1</span>
+                      <span class="badge badge-blue">Bước 3/4: Phê duyệt BLĐ</span>
+                    </div>
+                    <p class="text-sm text-ms-gray600 mt-0.5">Hướng dẫn vận hành lò luyện thép</p>
+                    <p class="text-xs text-ms-gray500 mt-0.5">Người soạn: Nguyễn Minh · Ngày gửi: 08/03/2026 · Hạn duyệt: 15/03/2026</p>
+                  </div>
+                  <span class="badge badge-orange text-xs">Còn 1 ngày</span>
+                </div>
+                <div class="flex items-center gap-0 mb-4">
+                  <div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-ms-green flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><span class="text-xs text-ms-green mt-1">Soạn thảo</span></div>
+                  <div class="flex-1 h-0.5 bg-ms-green"></div>
+                  <div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-ms-green flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><span class="text-xs text-ms-green mt-1">KS QMR</span></div>
+                  <div class="flex-1 h-0.5 bg-ms-green"></div>
+                  <div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-ms-blue flex items-center justify-center"><span class="text-white text-xs font-bold">3</span></div><span class="text-xs text-ms-blue mt-1 font-medium">PD BLĐ</span></div>
+                  <div class="flex-1 h-0.5 bg-ms-gray200"></div>
+                  <div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-ms-gray200 flex items-center justify-center"><span class="text-ms-gray500 text-xs font-bold">4</span></div><span class="text-xs text-ms-gray500 mt-1">Phát hành</span></div>
+                </div>
+                <div class="flex gap-2">
+                  <button class="btn-primary text-sm" onclick="openModal('isoApproveModal')">✓ Phê duyệt & Phát hành</button>
+                  <button class="btn-secondary text-sm" onclick="openModal('isoRejectModal')">✗ Yêu cầu chỉnh sửa</button>
+                  <button class="btn-ghost text-sm">Xem tài liệu</button>
+                </div>
               </div>
             </div>
-            <table class="ms-table">
-              <thead>
-                <tr>
-                  <th>Mã tài liệu</th>
-                  <th>Tên tài liệu</th>
-                  <th>Phiên bản</th>
-                  <th>Phòng ban</th>
-                  <th>Ngày hiệu lực</th>
-                  <th>Trạng thái</th>
-                  <th class="w-16"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
-                  <td class="text-ms-blue font-medium">QP-KT-001</td>
-                  <td>Quy trình kiểm tra chất lượng thép</td>
-                  <td><span class="badge badge-purple">Rev.3</span></td>
-                  <td class="text-ms-gray600">Phòng Kỹ thuật</td>
-                  <td class="text-ms-gray500">01/01/2026</td>
-                  <td><span class="badge badge-yellow">Chờ duyệt</span></td>
-                  <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
-                </tr>
-                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
-                  <td class="text-ms-blue font-medium">HD-SX-015</td>
-                  <td>Hướng dẫn vận hành lò luyện thép</td>
-                  <td><span class="badge badge-purple">Rev.1</span></td>
-                  <td class="text-ms-gray600">Phòng Sản xuất</td>
-                  <td class="text-ms-gray500">15/02/2026</td>
-                  <td><span class="badge badge-yellow">Chờ duyệt</span></td>
-                  <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
-                </tr>
-                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
-                  <td class="text-ms-blue font-medium">QT-KD-003</td>
-                  <td>Quy trình bán hàng và ký kết hợp đồng</td>
-                  <td><span class="badge badge-gray">Rev.2</span></td>
-                  <td class="text-ms-gray600">Phòng Kinh doanh</td>
-                  <td class="text-ms-gray500">01/12/2025</td>
-                  <td><span class="badge badge-green">Hiệu lực</span></td>
-                  <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor
-" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
-                </tr>
-                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
-                  <td class="text-ms-blue font-medium">BM-HC-008</td>
-                  <td>Biểu mẫu đề xuất mua sắm vật tư</td>
-                  <td><span class="badge badge-gray">Rev.4</span></td>
-                  <td class="text-ms-gray600">Phòng Hành chính</td>
-                  <td class="text-ms-gray500">01/01/2025</td>
-                  <td><span class="badge badge-green">Hiệu lực</span></td>
-                  <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-        </div>
-      </div>
+
+          <!-- ===== ISO VERSION HISTORY TAB ===== -->
+          <div id="iso-version" class="p-6 space-y-4" style="display:none">
+            <h1 class="text-xl font-semibold text-ms-gray900">Lịch sử phiên bản tài liệu</h1>
+            <div class="ms-card p-4">
+              <div class="flex items-center gap-3 mb-4">
+                <select class="text-sm border border-ms-gray300 rounded px-3 py-1.5 text-ms-gray700"><option>QP-KT-001 — Quy trình kiểm tra chất lượng thép</option><option>HD-SX-015 — Hướng dẫn vận hành lò luyện</option><option>QT-KD-003 — Quy trình bán hàng</option></select>
+                <span class="text-xs text-ms-gray500">Chọn tài liệu để xem lịch sử phiên bản</span>
+              </div>
+              <!-- Version timeline -->
+              <div class="relative pl-8">
+                <div class="absolute left-3 top-0 bottom-0 w-0.5 bg-ms-gray200"></div>
+                <!-- Rev 3 - current -->
+                <div class="relative mb-6">
+                  <div class="absolute -left-5 w-4 h-4 rounded-full bg-ms-blue border-2 border-white"></div>
+                  <div class="ms-card p-3 border-l-4 border-ms-blue">
+                    <div class="flex items-center justify-between mb-1">
+                      <div class="flex items-center gap-2"><span class="badge badge-yellow">Rev.3</span><span class="badge badge-blue">Hiện tại</span></div>
+                      <span class="text-xs text-ms-gray500">12/03/2026</span>
+                    </div>
+                    <p class="text-sm font-medium text-ms-gray900">Cập nhật bước kiểm tra độ cứng bề mặt</p>
+                    <p class="text-xs text-ms-gray500 mt-0.5">Người sửa: Trần Thị Hoa · Lý do: Bổ sung theo TCVN 7571:2025</p>
+                    <div class="flex gap-2 mt-2">
+                      <button class="btn-ghost text-xs py-1 px-2">Xem nội dung</button>
+                      <button class="btn-ghost text-xs py-1 px-2">So sánh với Rev.2</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Rev 2 -->
+                <div class="relative mb-6">
+                  <div class="absolute -left-5 w-4 h-4 rounded-full bg-ms-gray300 border-2 border-white"></div>
+                  <div class="ms-card p-3">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="badge badge-gray">Rev.2</span>
+                      <span class="text-xs text-ms-gray500">05/09/2025</span>
+                    </div>
+                    <p class="text-sm font-medium text-ms-gray900">Bổ sung quy trình lấy mẫu ngẫu nhiên</p>
+                    <p class="text-xs text-ms-gray500 mt-0.5">Người sửa: Nguyễn Văn A · Lý do: Kết quả đánh giá nội bộ ISO tháng 8/2025</p>
+                    <div class="flex gap-2 mt-2">
+                      <button class="btn-ghost text-xs py-1 px-2">Xem nội dung</button>
+                      <button class="btn-ghost text-xs py-1 px-2">So sánh với Rev.1</button>
+                      <button class="btn-ghost text-xs py-1 px-2">Khôi phục phiên bản này</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Rev 1 -->
+                <div class="relative mb-6">
+                  <div class="absolute -left-5 w-4 h-4 rounded-full bg-ms-gray300 border-2 border-white"></div>
+                  <div class="ms-card p-3">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="badge badge-gray">Rev.1</span>
+                      <span class="text-xs text-ms-gray500">01/01/2024</span>
+                    </div>
+                    <p class="text-sm font-medium text-ms-gray900">Phiên bản ban đầu</p>
+                    <p class="text-xs text-ms-gray500 mt-0.5">Người tạo: Phòng Kỹ thuật · Lý do: Tài liệu mới theo yêu cầu ISO 9001:2015</p>
+                    <div class="flex gap-2 mt-2">
+                      <button class="btn-ghost text-xs py-1 px-2">Xem nội dung</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== ISO REVIEW SCHEDULE TAB ===== -->
+          <div id="iso-review" class="p-6 space-y-4" style="display:none">
+            <div class="flex items-center justify-between">
+              <h1 class="text-xl font-semibold text-ms-gray900">Lịch xem xét định kỳ</h1>
+              <div class="flex gap-2">
+                <button class="btn-secondary text-sm">Gửi nhắc nhở hàng loạt</button>
+                <button class="btn-primary text-sm">Xuất lịch xem xét</button>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="ms-card p-4 border-t-4 border-red-500">
+                <p class="text-xs text-ms-gray500">Quá hạn xem xét</p>
+                <p class="text-2xl font-semibold text-red-600">2</p>
+              </div>
+              <div class="ms-card p-4 border-t-4 border-ms-orange">
+                <p class="text-xs text-ms-gray500">Trong 30 ngày tới</p>
+                <p class="text-2xl font-semibold text-ms-orange">8</p>
+              </div>
+              <div class="ms-card p-4 border-t-4 border-ms-green">
+                <p class="text-xs text-ms-gray500">Đã xem xét tháng này</p>
+                <p class="text-2xl font-semibold text-ms-green">5</p>
+              </div>
+            </div>
+            <div class="ms-card">
+              <div class="command-bar px-4">
+                <select class="text-xs border border-ms-gray300 rounded px-2 py-1"><option>Tất cả</option><option>Quá hạn</option><option>Trong 30 ngày</option><option>Trong 60 ngày</option></select>
+                <div class="flex-1"></div>
+                <div class="ms-search w-48"><svg class="w-4 h-4 text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" placeholder="Tìm tài liệu..."/></div>
+              </div>
+              <table class="ms-table">
+                <thead><tr><th>Mã tài liệu</th><th>Tên tài liệu</th><th>Phiên bản</th><th>Ngày xem xét cuối</th><th>Ngày xem xét tiếp</th><th>Người phụ trách</th><th>Trạng thái</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td class="text-ms-blue font-medium">QP-KT-001</td><td>Quy trình kiểm tra CL thép</td><td><span class="badge badge-yellow">Rev.3</span></td><td class="text-ms-gray500">17/03/2025</td><td class="text-red-600 font-medium">17/03/2026</td><td>Trần Thị Hoa</td><td><span class="badge badge-red">Quá hạn</span></td><td><button class="btn-primary text-xs py-1 px-3">Tạo task xem xét</button></td></tr>
+                  <tr><td class="text-ms-blue font-medium">HD-SX-015</td><td>Hướng dẫn vận hành lò luyện</td><td><span class="badge badge-yellow">Rev.1</span></td><td class="text-ms-gray500">15/03/2025</td><td class="text-orange-500 font-medium">15/03/2026</td><td>Nguyễn Minh</td><td><span class="badge badge-orange">Sắp đến hạn</span></td><td><button class="btn-primary text-xs py-1 px-3">Tạo task xem xét</button></td></tr>
+                  <tr><td class="text-ms-blue font-medium">BM-KD-012</td><td>Biểu mẫu báo giá khách hàng</td><td><span class="badge badge-gray">Rev.2</span></td><td class="text-ms-gray500">08/02/2025</td><td class="text-ms-gray700">08/04/2026</td><td>Lê Thanh</td><td><span class="badge badge-yellow">Sắp đến hạn</span></td><td><button class="btn-secondary text-xs py-1 px-3">Gửi nhắc nhở</button></td></tr>
+                  <tr><td class="text-ms-blue font-medium">QT-KD-003</td><td>Quy trình bán hàng</td><td><span class="badge badge-gray">Rev.2</span></td><td class="text-ms-gray500">01/12/2025</td><td class="text-ms-gray500">01/12/2026</td><td>Nguyễn Văn A</td><td><span class="badge badge-green">Bình thường</span></td><td><button class="btn-ghost text-xs py-1 px-3">Xem</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ===== ISO DISTRIBUTE TAB ===== -->
+          <div id="iso-distribute" class="p-6 space-y-4" style="display:none">
+            <h1 class="text-xl font-semibold text-ms-gray900">Phân phối & Xác nhận đã đọc</h1>
+            <div class="ms-card p-4">
+              <div class="flex items-center gap-3 mb-4">
+                <select class="text-sm border border-ms-gray300 rounded px-3 py-1.5 flex-1"><option>QP-KT-001 Rev.3 — Quy trình kiểm tra chất lượng thép</option><option>HD-SX-015 Rev.1 — Hướng dẫn vận hành lò luyện</option></select>
+                <button class="btn-primary text-sm">Gửi thông báo đọc</button>
+                <button class="btn-secondary text-sm">Nhắc nhở chưa đọc</button>
+              </div>
+              <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="bg-ms-green bg-opacity-10 border border-ms-green rounded p-3 text-center">
+                  <p class="text-2xl font-semibold text-ms-green">18</p>
+                  <p class="text-xs text-ms-gray600">Đã xác nhận đọc</p>
+                </div>
+                <div class="bg-ms-yellow bg-opacity-10 border border-ms-yellow rounded p-3 text-center">
+                  <p class="text-2xl font-semibold text-ms-yellow">7</p>
+                  <p class="text-xs text-ms-gray600">Chưa đọc</p>
+                </div>
+                <div class="bg-ms-gray100 border border-ms-gray200 rounded p-3 text-center">
+                  <p class="text-2xl font-semibold text-ms-gray700">25</p>
+                  <p class="text-xs text-ms-gray600">Tổng cần đọc</p>
+                </div>
+              </div>
+              <div class="w-full bg-ms-gray200 rounded-full h-2 mb-4">
+                <div class="bg-ms-green h-2 rounded-full" style="width:72%"></div>
+              </div>
+              <table class="ms-table">
+                <thead><tr><th>Nhân viên</th><th>Phòng ban</th><th>Ngày gửi</th><th>Trạng thái</th><th>Ngày xác nhận</th></tr></thead>
+                <tbody>
+                  <tr><td class="flex items-center gap-2"><div class="persona bg-ms-blue text-xs" style="width:28px;height:28px">NVA</div>Nguyễn Văn A</td><td class="text-ms-gray600">Phòng Kỹ thuật</td><td class="text-ms-gray500">12/03/2026</td><td><span class="badge badge-green">Đã đọc</span></td><td class="text-ms-gray500">12/03/2026 09:15</td></tr>
+                  <tr><td class="flex items-center gap-2"><div class="persona bg-ms-teal text-xs" style="width:28px;height:28px">TTH</div>Trần Thị Hoa</td><td class="text-ms-gray600">Phòng Kế toán</td><td class="text-ms-gray500">12/03/2026</td><td><span class="badge badge-green">Đã đọc</span></td><td class="text-ms-gray500">13/03/2026 14:22</td></tr>
+                  <tr><td class="flex items-center gap-2"><div class="persona bg-ms-purple text-xs" style="width:28px;height:28px">NM</div>Nguyễn Minh</td><td class="text-ms-gray600">Phòng Kỹ thuật</td><td class="text-ms-gray500">12/03/2026</td><td><span class="badge badge-yellow">Chưa đọc</span></td><td class="text-ms-gray500">—</td></tr>
+                  <tr><td class="flex items-center gap-2"><div class="persona bg-ms-orange text-xs" style="width:28px;height:28px">LT</div>Lê Thanh</td><td class="text-ms-gray600">Phòng Sản xuất</td><td class="text-ms-gray500">12/03/2026</td><td><span class="badge badge-yellow">Chưa đọc</span></td><td class="text-ms-gray500">—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ===== ISO REPORT TAB ===== -->
+          <div id="iso-report" class="p-6 space-y-4" style="display:none">
+            <div class="flex items-center justify-between">
+              <h1 class="text-xl font-semibold text-ms-gray900">Báo cáo & Thống kê ISO</h1>
+              <button class="btn-primary text-sm">Xuất báo cáo Audit</button>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="ms-card p-4">
+                <h3 class="text-sm font-semibold text-ms-gray900 mb-3">Tỷ lệ tài liệu theo trạng thái</h3>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-ms-green flex-shrink-0"></div><span class="text-xs flex-1">Hiệu lực</span><div class="w-32 bg-ms-gray100 rounded-full h-4 overflow-hidden"><div class="h-full bg-ms-green rounded-full" style="width:88%"></div></div><span class="text-xs font-medium w-8 text-right">88%</span></div>
+                  <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-ms-yellow flex-shrink-0"></div><span class="text-xs flex-1">Chờ duyệt</span><div class="w-32 bg-ms-gray100 rounded-full h-4 overflow-hidden"><div class="h-full bg-ms-yellow rounded-full" style="width:5%"></div></div><span class="text-xs font-medium w-8 text-right">5%</span></div>
+                  <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-ms-red flex-shrink-0"></div><span class="text-xs flex-1">Hết hiệu lực</span><div class="w-32 bg-ms-gray100 rounded-full h-4 overflow-hidden"><div class="h-full bg-ms-red rounded-full" style="width:4%"></div></div><span class="text-xs font-medium w-8 text-right">4%</span></div>
+                  <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-ms-gray400 flex-shrink-0"></div><span class="text-xs flex-1">Thu hồi</span><div class="w-32 bg-ms-gray100 rounded-full h-4 overflow-hidden"><div class="h-full bg-ms-gray400 rounded-full" style="width:3%"></div></div><span class="text-xs font-medium w-8 text-right">3%</span></div>
+                </div>
+              </div>
+              <div class="ms-card p-4">
+                <h3 class="text-sm font-semibold text-ms-gray900 mb-3">Số lần sửa đổi theo phòng ban (2025-2026)</h3>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2"><span class="text-xs w-28 text-ms-gray600">Phòng Kỹ thuật</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-blue rounded-full flex items-center pl-2" style="width:75%"><span class="text-white text-xs">15</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-28 text-ms-gray600">Phòng Sản xuất</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-teal rounded-full flex items-center pl-2" style="width:55%"><span class="text-white text-xs">11</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-28 text-ms-gray600">Phòng Kinh doanh</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-purple rounded-full flex items-center pl-2" style="width:40%"><span class="text-white text-xs">8</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-28 text-ms-gray600">Phòng Hành chính</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-orange rounded-full flex items-center pl-2" style="width:25%"><span class="text-white text-xs">5</span></div></div></div>
+                  <div class="flex items-center gap-2"><span class="text-xs w-28 text-ms-gray600">Phòng Nhân sự</span><div class="flex-1 bg-ms-gray100 rounded-full h-5 overflow-hidden"><div class="h-full bg-ms-green rounded-full flex items-center pl-2" style="width:15%"><span class="text-white text-xs">3</span></div></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="ms-card p-4">
+              <h3 class="text-sm font-semibold text-ms-gray900 mb-3">Chuẩn bị cho đợt đánh giá ISO (Audit Checklist)</h3>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 p-2 bg-ms-green bg-opacity-10 rounded"><svg class="w-4 h-4 text-ms-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-ms-gray700">Tất cả tài liệu bắt buộc đã được phê duyệt và phát hành</span><span class="ml-auto badge badge-green">Đạt</span></div>
+                <div class="flex items-center gap-3 p-2 bg-ms-green bg-opacity-10 rounded"><svg class="w-4 h-4 text-ms-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-ms-gray700">Lịch sử phiên bản đầy đủ và có thể truy xuất</span><span class="ml-auto badge badge-green">Đạt</span></div>
+                <div class="flex items-center gap-3 p-2 bg-ms-yellow bg-opacity-10 rounded"><svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm text-ms-gray700">2 tài liệu quá hạn xem xét định kỳ cần xử lý</span><span class="ml-auto badge badge-yellow">Cần xử lý</span></div>
+                <div class="flex items-center gap-3 p-2 bg-ms-yellow bg-opacity-10 rounded"><svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm text-ms-gray700">7 nhân viên chưa xác nhận đọc tài liệu QP-KT-001</span><span class="ml-auto badge badge-yellow">Cần xử lý</span></div>
+                <div class="flex items-center gap-3 p-2 bg-ms-green bg-opacity-10 rounded"><svg class="w-4 h-4 text-ms-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-ms-gray700">Hồ sơ đào tạo nhân viên về ISO đầy đủ</span><span class="ml-auto badge badge-green">Đạt</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== ISO AI ASSISTANT TAB ===== -->
+          <div id="iso-ai" class="p-6 space-y-4" style="display:none">
+            <h1 class="text-xl font-semibold text-ms-gray900">AI Assistant — Hỏi đáp tài liệu ISO</h1>
+            <p class="text-sm text-ms-gray500">Trợ lý AI có thể tìm kiếm, tóm tắt và trả lời câu hỏi về toàn bộ hệ thống tài liệu ISO của công ty.</p>
+            <div class="ms-card" style="height:480px;display:flex;flex-direction:column">
+              <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                <!-- AI message -->
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-ms-blue flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">AI</span></div>
+                  <div class="bg-ms-gray50 rounded-lg p-3 max-w-lg">
+                    <p class="text-sm text-ms-gray900">Xin chào! Tôi là trợ lý AI ISO của e-Office. Tôi có thể giúp bạn:</p>
+                    <ul class="text-sm text-ms-gray700 mt-2 space-y-1">
+                      <li>• Tìm kiếm và tóm tắt nội dung tài liệu ISO</li>
+                      <li>• Trả lời câu hỏi về quy trình, hướng dẫn công việc</li>
+                      <li>• Phát hiện mâu thuẫn giữa các tài liệu</li>
+                      <li>• Gợi ý cập nhật dựa trên lịch sử thay đổi</li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- User message -->
+                <div class="flex items-start gap-3 flex-row-reverse">
+                  <div class="persona bg-ms-blue text-xs flex-shrink-0" style="width:32px;height:32px">NVA</div>
+                  <div class="bg-ms-blue text-white rounded-lg p-3 max-w-lg">
+                    <p class="text-sm">Quy trình kiểm tra chất lượng thép cuộn gồm mấy bước?</p>
+                  </div>
+                </div>
+                <!-- AI response -->
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-ms-blue flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">AI</span></div>
+                  <div class="bg-ms-gray50 rounded-lg p-3 max-w-lg">
+                    <p class="text-sm text-ms-gray900 font-medium mb-1">Theo QP-KT-001 Rev.3, quy trình gồm 6 bước:</p>
+                    <ol class="text-sm text-ms-gray700 space-y-1">
+                      <li>1. Tiếp nhận và kiểm tra ngoại quan lô hàng</li>
+                      <li>2. Lấy mẫu ngẫu nhiên theo TCVN 7571:2025</li>
+                      <li>3. Kiểm tra thành phần hóa học</li>
+                      <li>4. Kiểm tra cơ tính (kéo, uốn, độ cứng bề mặt)</li>
+                      <li>5. Đánh giá kết quả và ra quyết định</li>
+                      <li>6. Lưu hồ sơ kiểm tra và cấp chứng chỉ CL</li>
+                    </ol>
+                    <p class="text-xs text-ms-gray500 mt-2">Nguồn: QP-KT-001 Rev.3 · Phòng Kỹ thuật · 01/01/2026</p>
+                    <button class="btn-ghost text-xs mt-2 py-1 px-2">Xem tài liệu gốc</button>
+                  </div>
+                </div>
+              </div>
+              <div class="border-t border-ms-gray200 p-3 flex gap-2">
+                <input type="text" class="flex-1 border border-ms-gray300 rounded px-3 py-2 text-sm" placeholder="Hỏi về quy trình, tài liệu ISO..." />
+                <button class="btn-primary text-sm px-4">Gửi</button>
+              </div>
+            </div>
+            <div class="ms-card p-4">
+              <h3 class="text-sm font-semibold text-ms-gray900 mb-2">Câu hỏi gợi ý</h3>
+              <div class="flex flex-wrap gap-2">
+                <button class="btn-ghost text-xs py-1 px-3">Tóm tắt QP-KT-001</button>
+                <button class="btn-ghost text-xs py-1 px-3">Quy trình bán hàng gồm mấy bước?</button>
+                <button class="btn-ghost text-xs py-1 px-3">Tài liệu nào sắp hết hạn?</button>
+                <button class="btn-ghost text-xs py-1 px-3">So sánh Rev.2 và Rev.3 của QP-KT-001</button>
+                <button class="btn-ghost text-xs py-1 px-3">Danh sách biểu mẫu Phòng Kỹ thuật</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end ISO Main Content -->
+      </div><!-- end content-iso -->
 
       <!-- ===== SALARY SCREEN ===== -->
       <div id="content-salary" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none;flex-direction:column">
@@ -2777,6 +3200,145 @@
   </div>
 </div>
 
+<!-- ISO New Document Modal -->
+<div id="isoNewDocModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('isoNewDocModal')">
+  <div class="modal-box" style="width:560px">
+    <div class="modal-header">
+      <h2 class="text-base font-semibold text-ms-gray900">Tạo tài liệu ISO mới</h2>
+      <button class="btn-ghost p-1" onclick="closeModal('isoNewDocModal')"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body space-y-4">
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Loại tài liệu <span class="text-red-500">*</span></label><select class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm"><option>QP - Quy trình</option><option>HD - Hướng dẫn công việc</option><option>BM - Biểu mẫu</option><option>QĐ - Quy định</option><option>KH - Kế hoạch chất lượng</option></select></div>
+        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Mã tài liệu <span class="text-red-500">*</span></label><input type="text" class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" placeholder="VD: QP-KT-005"/></div>
+      </div>
+      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Tên tài liệu <span class="text-red-500">*</span></label><input type="text" class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" placeholder="Nhập tên tài liệu..."/></div>
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Phòng ban phụ trách</label><select class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm"><option>Phòng Kỹ thuật</option><option>Phòng Kinh doanh</option><option>Phòng Sản xuất</option><option>Phòng Hành chính</option><option>Phòng Nhân sự</option></select></div>
+        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Chu kỳ xem xét</label><select class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm"><option>6 tháng</option><option>1 năm</option><option>2 năm</option></select></div>
+      </div>
+      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Mô tả / Phạm vi áp dụng</label><textarea class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" rows="3" placeholder="Mô tả ngắn về tài liệu và phạm vi áp dụng..."></textarea></div>
+      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Đính kèm file tài liệu</label><div class="border-2 border-dashed border-ms-gray300 rounded p-4 text-center"><p class="text-sm text-ms-gray500">Kéo thả file hoặc <span class="text-ms-blue cursor-pointer">chọn file</span></p><p class="text-xs text-ms-gray400 mt-1">Hỗ trợ: .docx, .pdf, .xlsx (tối đa 20MB)</p></div></div>
+      <div class="bg-ms-gray50 rounded p-3">
+        <p class="text-xs font-medium text-ms-gray700 mb-2">Luồng phê duyệt sẽ được áp dụng:</p>
+        <div class="flex items-center gap-2 text-xs text-ms-gray600">
+          <span class="badge badge-blue">1. Soạn thảo</span><span>→</span><span class="badge badge-gray">2. KS QMR</span><span>→</span><span class="badge badge-gray">3. PD BLĐ</span><span>→</span><span class="badge badge-gray">4. Phát hành</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('isoNewDocModal')">Hủy</button>
+      <button class="btn-primary" onclick="closeModal('isoNewDocModal')">Tạo & Gửi duyệt</button>
+    </div>
+  </div>
+</div>
+
+<!-- ISO Document Detail Modal -->
+<div id="isoDocDetailModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('isoDocDetailModal')">
+  <div class="modal-box" style="width:680px">
+    <div class="modal-header">
+      <div>
+        <div class="flex items-center gap-2">
+          <h2 class="text-base font-semibold text-ms-gray900">QP-KT-001 — Quy trình kiểm tra chất lượng thép</h2>
+          <span class="badge badge-yellow">Rev.3</span>
+          <span class="badge badge-yellow">Chờ duyệt</span>
+        </div>
+        <p class="text-xs text-ms-gray500 mt-0.5">Phòng Kỹ thuật · Ngày tạo: 12/03/2026 · Người soạn: Trần Thị Hoa</p>
+      </div>
+      <button class="btn-ghost p-1" onclick="closeModal('isoDocDetailModal')"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <!-- Tabs -->
+      <div class="flex border-b border-ms-gray200 mb-4">
+        <button class="px-4 py-2 text-sm font-medium text-ms-blue border-b-2 border-ms-blue">Thông tin</button>
+        <button class="px-4 py-2 text-sm text-ms-gray600 hover:text-ms-gray900">Nội dung</button>
+        <button class="px-4 py-2 text-sm text-ms-gray600 hover:text-ms-gray900">Lịch sử phiên bản</button>
+        <button class="px-4 py-2 text-sm text-ms-gray600 hover:text-ms-gray900">Phân phối</button>
+      </div>
+      <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+        <div><span class="text-ms-gray500">Mã tài liệu:</span> <span class="font-medium">QP-KT-001</span></div>
+        <div><span class="text-ms-gray500">Phiên bản:</span> <span class="font-medium">Rev.3</span></div>
+        <div><span class="text-ms-gray500">Loại:</span> <span class="badge badge-purple">QP - Quy trình</span></div>
+        <div><span class="text-ms-gray500">Phòng ban:</span> <span class="font-medium">Phòng Kỹ thuật</span></div>
+        <div><span class="text-ms-gray500">Ngày hiệu lực:</span> <span class="font-medium">01/01/2026</span></div>
+        <div><span class="text-ms-gray500">Xem xét tiếp:</span> <span class="font-medium text-red-600">17/03/2026 ⚠</span></div>
+        <div><span class="text-ms-gray500">Người phụ trách:</span> <span class="font-medium">Trần Thị Hoa</span></div>
+        <div><span class="text-ms-gray500">Chu kỳ xem xét:</span> <span class="font-medium">1 năm</span></div>
+      </div>
+      <!-- Approval flow -->
+      <div class="bg-ms-gray50 rounded p-3 mb-4">
+        <p class="text-xs font-semibold text-ms-gray700 mb-2">Trạng thái luồng phê duyệt</p>
+        <div class="flex items-center gap-0">
+          <div class="flex flex-col items-center"><div class="w-7 h-7 rounded-full bg-ms-green flex items-center justify-center"><svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><span class="text-xs text-ms-green mt-1">Soạn thảo</span></div>
+          <div class="flex-1 h-0.5 bg-ms-green"></div>
+          <div class="flex flex-col items-center"><div class="w-7 h-7 rounded-full bg-ms-yellow flex items-center justify-center"><span class="text-white text-xs font-bold">2</span></div><span class="text-xs text-ms-yellow mt-1 font-medium">KS QMR</span></div>
+          <div class="flex-1 h-0.5 bg-ms-gray200"></div>
+          <div class="flex flex-col items-center"><div class="w-7 h-7 rounded-full bg-ms-gray200 flex items-center justify-center"><span class="text-ms-gray500 text-xs">3</span></div><span class="text-xs text-ms-gray500 mt-1">PD BLĐ</span></div>
+          <div class="flex-1 h-0.5 bg-ms-gray200"></div>
+          <div class="flex flex-col items-center"><div class="w-7 h-7 rounded-full bg-ms-gray200 flex items-center justify-center"><span class="text-ms-gray500 text-xs">4</span></div><span class="text-xs text-ms-gray500 mt-1">Phát hành</span></div>
+        </div>
+      </div>
+      <!-- Files -->
+      <div>
+        <p class="text-xs font-semibold text-ms-gray700 mb-2">File đính kèm</p>
+        <div class="flex items-center gap-3 p-2 border border-ms-gray200 rounded hover:bg-ms-gray50 cursor-pointer">
+          <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 17v-1h8v1H8zm0-3v-1h8v1H8zm0-3V10h5v1H8z"/></svg>
+          <div class="flex-1"><p class="text-sm font-medium text-ms-gray900">QP-KT-001_Rev3.docx</p><p class="text-xs text-ms-gray500">245 KB · Cập nhật 12/03/2026</p></div>
+          <button class="btn-ghost text-xs py-1 px-2">Tải xuống</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeModal('isoDocDetailModal')">Đóng</button>
+      <button class="btn-secondary" onclick="closeModal('isoDocDetailModal');showIsoTab('iso-version')">Lịch sử phiên bản</button>
+      <button class="btn-primary" onclick="closeModal('isoDocDetailModal');showIsoTab('iso-approval')">Xem luồng duyệt</button>
+    </div>
+  </div>
+</div>
+
+<!-- ISO Approve Modal -->
+<div id="isoApproveModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('isoApproveModal')">
+  <div class="modal-box" style="width:480px">
+    <div class="modal-header">
+      <h2 class="text-base font-semibold text-ms-gray900">Xác nhận chuyển bước phê duyệt</h2>
+      <button class="btn-ghost p-1" onclick="closeModal('isoApproveModal')"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body space-y-3">
+      <div class="bg-ms-green bg-opacity-10 border border-ms-green rounded p-3">
+        <p class="text-sm font-medium text-ms-green">✓ Chuyển QP-KT-001 Rev.3 sang Bước 3: Phê duyệt BLĐ</p>
+      </div>
+      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Ghi chú (tùy chọn)</label><textarea class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" rows="3" placeholder="Nhập ghi chú hoặc yêu cầu bổ sung..."></textarea></div>
+      <p class="text-xs text-ms-gray500">Hệ thống sẽ tự động thông báo cho người phê duyệt bước tiếp theo qua Zalo và email.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('isoApproveModal')">Hủy</button>
+      <button class="btn-primary" onclick="closeModal('isoApproveModal')">Xác nhận chuyển bước</button>
+    </div>
+  </div>
+</div>
+
+<!-- ISO Reject Modal -->
+<div id="isoRejectModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('isoRejectModal')">
+  <div class="modal-box" style="width:480px">
+    <div class="modal-header">
+      <h2 class="text-base font-semibold text-ms-gray900">Yêu cầu chỉnh sửa tài liệu</h2>
+      <button class="btn-ghost p-1" onclick="closeModal('isoRejectModal')"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body space-y-3">
+      <div class="bg-red-50 border border-red-200 rounded p-3">
+        <p class="text-sm font-medium text-red-700">✗ Trả lại QP-KT-001 Rev.3 để chỉnh sửa</p>
+      </div>
+      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Lý do yêu cầu chỉnh sửa <span class="text-red-500">*</span></label><textarea class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" rows="4" placeholder="Mô tả chi tiết những điểm cần chỉnh sửa..."></textarea></div>
+      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Hạn chỉnh sửa</label><input type="date" class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm"/></div>
+      <p class="text-xs text-ms-gray500">Tài liệu sẽ được trả về cho người soạn thảo kèm theo ghi chú yêu cầu chỉnh sửa.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('isoRejectModal')">Hủy</button>
+      <button class="btn-primary" style="background:#D13438" onclick="closeModal('isoRejectModal')">Gửi yêu cầu chỉnh sửa</button>
+    </div>
+  </div>
+</div>
+
 <!-- Chat FAB -->
 <button id="chatFab" onclick="toggleChat()" style="position:fixed;bottom:20px;right:20px;z-index:399;display:none;width:52px;height:52px;border-radius:50%;background:#0078D4;border:none;cursor:pointer;box-shadow:0 3.2px 7.2px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;transition:background .1s" onmouseover="this.style.background='#106EBE'" onmouseout="this.style.background='#0078D4'">
   <span style="font-size:22px">🤖</span>
@@ -2837,6 +3399,24 @@
   }
 
   // ==================== Task View ====================
+  // ==================== ISO Tab Navigation ====================
+  function showIsoTab(tabId) {
+    // Hide all ISO tabs
+    ['iso-dashboard','iso-docs','iso-approval','iso-version','iso-review','iso-distribute','iso-report','iso-ai'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    // Remove active from all ISO nav items
+    document.querySelectorAll('[id^="iso-nav-"]').forEach(el => el.classList.remove('active'));
+    // Show selected tab
+    const tab = document.getElementById(tabId);
+    if (tab) tab.style.display = 'block';
+    // Activate nav item
+    const navId = 'iso-nav-' + tabId.replace('iso-', '');
+    const navEl = document.getElementById(navId);
+    if (navEl) navEl.classList.add('active');
+  }
+
   function setTaskView(mode) {
     const kanban = document.getElementById('kanbanView');
     const list = document.getElementById('listView');
