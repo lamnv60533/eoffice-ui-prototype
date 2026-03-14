@@ -392,6 +392,17 @@
 <!-- ==================== MAIN APP SHELL ==================== -->
 <div id="screen-app" class="screen h-screen w-screen flex flex-col">
 
+  <!-- PROTOTYPE SCREEN SWITCHER BAR -->
+  <div style="background:#1a1a2e;padding:6px 16px;display:flex;align-items:center;gap:8px;flex-shrink:0;z-index:1000">
+    <span style="color:#aaa;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-right:4px">🎨 Prototype — Chọn màn hình:</span>
+    <button class="screen-tab active" data-screen="dashboard" onclick="switchTab(this,'dashboard')" style="background:#0078D4;color:white;border:none;padding:4px 12px;border-radius:3px;font-size:12px;cursor:pointer;font-family:inherit">🏠 Dashboard</button>
+    <button class="screen-tab" data-screen="documents" onclick="switchTab(this,'documents')" style="background:#2a2a3e;color:#ccc;border:none;padding:4px 12px;border-radius:3px;font-size:12px;cursor:pointer;font-family:inherit">📄 Văn bản</button>
+    <button class="screen-tab" data-screen="tasks" onclick="switchTab(this,'tasks')" style="background:#2a2a3e;color:#ccc;border:none;padding:4px 12px;border-radius:3px;font-size:12px;cursor:pointer;font-family:inherit">✅ Công việc</button>
+    <button class="screen-tab" data-screen="iso" onclick="switchTab(this,'iso')" style="background:#2a2a3e;color:#ccc;border:none;padding:4px 12px;border-radius:3px;font-size:12px;cursor:pointer;font-family:inherit">📋 ISO</button>
+    <button class="screen-tab" data-screen="salary" onclick="switchTab(this,'salary')" style="background:#2a2a3e;color:#ccc;border:none;padding:4px 12px;border-radius:3px;font-size:12px;cursor:pointer;font-family:inherit">💰 Lương</button>
+    <button onclick="switchTab(null,'login')" style="background:#2a2a3e;color:#ccc;border:none;padding:4px 12px;border-radius:3px;font-size:12px;cursor:pointer;font-family:inherit">🔐 Login</button>
+  </div>
+
   <!-- TOP BAR (Microsoft 365 style) -->
   <div class="h-12 bg-ms-blue flex items-center px-3 gap-2 flex-shrink-0 relative z-50">
     <!-- App launcher -->
@@ -1852,9 +1863,33 @@
     });
   });
 
+  // ==================== Screen Switcher ====================
+  function switchTab(btn, screen) {
+    // Update tab styles
+    document.querySelectorAll('.screen-tab').forEach(t => {
+      t.style.background = '#2a2a3e';
+      t.style.color = '#ccc';
+    });
+    if (btn) {
+      btn.style.background = '#0078D4';
+      btn.style.color = 'white';
+    }
+    // Show correct screen
+    if (screen === 'login') {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-login').classList.add('active');
+    } else {
+      // Make sure app shell is visible
+      document.getElementById('screen-login').classList.remove('active');
+      document.getElementById('screen-app').classList.add('active');
+      showScreen(screen);
+    }
+  }
+
   // ==================== Init ====================
-  // Show login on load
-  document.getElementById('screen-login').classList.add('active');
+  // Go directly to dashboard (skip login for prototype)
+  document.getElementById('screen-app').classList.add('active');
+  showScreen('dashboard');
 </script>
 </body>
 </html>
