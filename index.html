@@ -852,7 +852,7 @@
       </div>
 
       <!-- ===== DOCUMENTS SCREEN ===== -->
-      <div id="content-documents" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+      <div id="content-documents" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none;flex-direction:column">
         <div class="flex items-center justify-between">
           <div>
             <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
@@ -1025,7 +1025,7 @@
       </div>
 
       <!-- ===== TASKS SCREEN ===== -->
-      <div id="content-tasks" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+      <div id="content-tasks" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none;flex-direction:column">
         <div class="flex items-center justify-between">
           <div>
             <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
@@ -1392,7 +1392,7 @@
       </div>
 
       <!-- ===== SALARY SCREEN ===== -->
-      <div id="content-salary" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+      <div id="content-salary" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none;flex-direction:column">
         <div class="flex items-center justify-between">
           <div>
             <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
@@ -1746,7 +1746,8 @@
     // Show content
     const content = document.getElementById('content-' + name);
     if (content) {
-      content.style.display = 'flex';
+      // content-iso uses flex for its split layout, others use block
+      content.style.display = (name === 'iso') ? 'flex' : 'block';
       content.classList.add('fade-in');
     }
 
