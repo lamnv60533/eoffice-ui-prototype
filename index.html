@@ -561,11 +561,11 @@
           <svg class="w-3.5 h-3.5 flex-shrink-0 text-ms-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
           <span class="nav-label">Văn bản đến</span>
         </div>
-        <div class="nav-sub-item">
+        <div class="nav-sub-item" onclick="showScreen('doc-outgoing')">
           <svg class="w-3.5 h-3.5 flex-shrink-0 text-ms-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7M12 3v18"/></svg>
           <span class="nav-label">Văn bản đi</span>
         </div>
-        <div class="nav-sub-item">
+        <div class="nav-sub-item" onclick="showScreen('doc-internal')">
           <svg class="w-3.5 h-3.5 flex-shrink-0 text-ms-gray500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
           <span class="nav-label">Nội bộ</span>
         </div>
@@ -582,7 +582,7 @@
           <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
           <span class="nav-label">Tài liệu ISO</span>
         </div>
-        <div class="nav-sub-item">
+        <div class="nav-sub-item" onclick="showScreen('drawing')">
           <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
           <span class="nav-label">Bản vẽ kỹ thuật</span>
         </div>
@@ -592,17 +592,17 @@
           <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span class="nav-label">Bảng lương</span>
         </div>
-        <div class="nav-sub-item">
+        <div class="nav-sub-item" onclick="showScreen('hr')">
           <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           <span class="nav-label">Nhân sự</span>
         </div>
 
         <div class="nav-group-label">Báo cáo</div>
-        <div class="nav-item" data-tooltip="Báo cáo AI">
+        <div class="nav-item" onclick="showScreen('ai-report')" data-tooltip="Báo cáo AI">
           <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
           <span class="nav-label">Báo cáo AI</span>
         </div>
-        <div class="nav-item" data-tooltip="An toàn">
+        <div class="nav-item" onclick="showScreen('safety')" data-tooltip="An toàn">
           <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span class="nav-label">An toàn lao động</span>
         </div>
@@ -753,25 +753,25 @@
                   <td class="text-ms-gray500 whitespace-nowrap">14/03/2026</td>
                   <td><span class="badge badge-yellow">Đang xử lý</span></td>
                 </tr>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">TB-2026/012</td>
                   <td class="max-w-xs"><p class="truncate">Thông báo lịch họp Hội đồng quản trị tháng 3/2026</p></td>
                   <td class="text-ms-gray500 whitespace-nowrap">13/03/2026</td>
                   <td><span class="badge badge-green">Đã duyệt</span></td>
                 </tr>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">QĐ-2026/005</td>
                   <td class="max-w-xs"><p class="truncate">Quyết định bổ nhiệm Trưởng phòng Kỹ thuật</p></td>
                   <td class="text-ms-gray500 whitespace-nowrap">12/03/2026</td>
                   <td><span class="badge badge-green">Đã duyệt</span></td>
                 </tr>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">CV-2026/002</td>
                   <td class="max-w-xs"><p class="truncate">Đề xuất mua sắm thiết bị phòng thí nghiệm</p></td>
                   <td class="text-ms-gray500 whitespace-nowrap">11/03/2026</td>
                   <td><span class="badge badge-red">Chưa duyệt</span></td>
                 </tr>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">HD-2026/001</td>
                   <td class="max-w-xs"><p class="truncate">Hợp đồng cung cấp nguyên liệu thép phế Q2/2026</p></td>
                   <td class="text-ms-gray500 whitespace-nowrap">10/03/2026</td>
@@ -883,9 +883,9 @@
 
           <!-- Pivot tabs -->
           <div class="pivot px-4">
-            <div class="pivot-item active">Văn bản đến <span class="ml-1 badge badge-blue">24</span></div>
-            <div class="pivot-item">Văn bản đi <span class="ml-1 badge badge-teal">18</span></div>
-            <div class="pivot-item">Nội bộ <span class="ml-1 badge badge-gray">12</span></div>
+            <div class="pivot-item active" onclick="showScreen('documents')">Văn bản đến <span class="ml-1 badge badge-blue">24</span></div>
+            <div class="pivot-item" onclick="showScreen('doc-outgoing')">Văn bản đi <span class="ml-1 badge badge-teal">18</span></div>
+            <div class="pivot-item" onclick="showScreen('doc-internal')">Nội bộ <span class="ml-1 badge badge-gray">12</span></div>
           </div>
 
           <!-- Filters row -->
@@ -923,7 +923,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><span class="text-ms-blue font-medium">CV-2026/003</span></td>
                 <td><p class="max-w-xs truncate">Báo cáo kết quả kiểm tra chất lượng thép cuộn Q1/2026</p></td>
@@ -943,7 +943,7 @@
                   </div>
                 </td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><span class="text-ms-blue font-medium">TB-2026/012</span></td>
                 <td><p class="max-w-xs truncate">Thông báo lịch họp Hội đồng quản trị tháng 3/2026</p></td>
@@ -959,7 +959,7 @@
                 </td>
                 <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><span class="text-ms-blue font-medium">QĐ-2026/005</span></td>
                 <td><p class="max-w-xs truncate">Quyết định bổ nhiệm Trưởng phòng Kỹ thuật</p></td>
@@ -975,7 +975,7 @@
                 </td>
                 <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><span class="text-ms-blue font-medium">CV-2026/002</span></td>
                 <td><p class="max-w-xs truncate">Đề xuất mua sắm thiết bị phòng thí nghiệm</p></td>
@@ -991,7 +991,7 @@
                 </td>
                 <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><span class="text-ms-blue font-medium">HD-2026/001</span></td>
                 <td><p class="max-w-xs truncate">Hợp đồng cung cấp nguyên liệu thép phế Q2/2026</p></td>
@@ -1102,7 +1102,7 @@
                 </div>
               </div>
             </div>
-            <div class="kanban-card" style="border-left-color:#0078D4">
+            <div class="kanban-card" style="border-left-color:#0078D4;cursor:pointer" onclick="openModal('viewTaskModal')">
               <h4 class="text-sm font-semibold text-ms-gray900 mb-2">Cập nhật tài liệu ISO QP-KT-001</h4>
               <div class="flex flex-wrap gap-1 mb-3">
                 <span class="badge badge-blue">Thấp</span>
@@ -1133,8 +1133,8 @@
                 <span class="badge badge-blue">2</span>
               </div>
             </div>
-            <div class="kanban-card" style="border-left-color:#0078D4">
-              <h4 class="text-sm font-semibold text-ms-gray900 mb-2">Soạn thảo hợp đồng mua thép phế Q2</h4>
+             <div class="kanban-card" style="border-left-color:#0078D4;cursor:pointer" onclick="openModal('viewTaskModal')">
+              <h4 class="text-sm font-semibold text-ms-gray900 mb-2">Thẩm định hợp đồng cung cấp thép</h4>
               <div class="flex flex-wrap gap-1 mb-3">
                 <span class="badge badge-yellow">Bình thường</span>
                 <span class="badge badge-gray">Kinh doanh</span>
@@ -1207,7 +1207,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><p class="font-medium text-ms-gray900">Kiểm tra chất lượng thép cuộn Q1/2026</p><p class="text-xs text-ms-gray400">Văn bản: CV-2026/003</p></td>
                 <td><span class="badge badge-gray">Chờ xử lý</span></td>
@@ -1216,7 +1216,7 @@
                 <td class="text-ms-red font-medium">15/03/2026</td>
                 <td class="text-ms-gray500">10/03/2026</td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><p class="font-medium text-ms-gray900">Soạn thảo hợp đồng mua thép phế Q2</p></td>
                 <td><span class="badge badge-blue">Đang thực hiện</span></td>
@@ -1225,7 +1225,7 @@
                 <td class="text-ms-gray500">28/03/2026</td>
                 <td class="text-ms-gray500">12/03/2026</td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td><input type="checkbox" class="w-4 h-4 accent-ms-blue" /></td>
                 <td><p class="font-medium text-ms-gray900">Nộp báo cáo thuế tháng 2/2026</p></td>
                 <td><span class="badge badge-green">Hoàn thành</span></td>
@@ -1348,7 +1348,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">QP-KT-001</td>
                   <td>Quy trình kiểm tra chất lượng thép</td>
                   <td><span class="badge badge-purple">Rev.3</span></td>
@@ -1357,7 +1357,7 @@
                   <td><span class="badge badge-yellow">Chờ duyệt</span></td>
                   <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
                 </tr>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">HD-SX-015</td>
                   <td>Hướng dẫn vận hành lò luyện thép</td>
                   <td><span class="badge badge-purple">Rev.1</span></td>
@@ -1366,7 +1366,7 @@
                   <td><span class="badge badge-yellow">Chờ duyệt</span></td>
                   <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
                 </tr>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">QT-KD-003</td>
                   <td>Quy trình bán hàng và ký kết hợp đồng</td>
                   <td><span class="badge badge-gray">Rev.2</span></td>
@@ -1376,7 +1376,7 @@
                   <td><button class="btn-ghost p-1 text-ms-gray500 hover:text-ms-blue"><svg class="w-4 h-4" fill="none" stroke="currentColor
 " viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
                 </tr>
-                <tr class="cursor-pointer">
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                   <td class="text-ms-blue font-medium">BM-HC-008</td>
                   <td>Biểu mẫu đề xuất mua sắm vật tư</td>
                   <td><span class="badge badge-gray">Rev.4</span></td>
@@ -1479,7 +1479,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td class="font-medium text-ms-gray700">NV001</td>
                 <td>
                   <div class="flex items-center gap-2">
@@ -1495,7 +1495,7 @@
                 <td class="font-semibold text-ms-gray900">16,300,000</td>
                 <td><span class="badge badge-green">Đã duyệt</span></td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td class="font-medium text-ms-gray700">NV002</td>
                 <td>
                   <div class="flex items-center gap-2">
@@ -1511,7 +1511,7 @@
                 <td class="font-semibold text-ms-gray900">12,820,000</td>
                 <td><span class="badge badge-green">Đã duyệt</span></td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td class="font-medium text-ms-gray700">NV003</td>
                 <td>
                   <div class="flex items-center gap-2">
@@ -1527,7 +1527,7 @@
                 <td class="font-semibold text-ms-gray900">19,660,000</td>
                 <td><span class="badge badge-yellow">Chờ duyệt</span></td>
               </tr>
-              <tr class="cursor-pointer">
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
                 <td class="font-medium text-ms-gray700">NV004</td>
                 <td>
                   <div class="flex items-center gap-2">
@@ -1552,6 +1552,547 @@
               <button class="btn-primary text-xs px-2.5 py-1">1</button>
               <button class="btn-ghost text-xs px-2.5 py-1">2</button>
               <button class="btn-ghost text-xs px-2 py-1">Sau ›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== VĂN BẢN ĐI SCREEN ===== -->
+      <div id="content-doc-outgoing" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Văn bản đi</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Văn bản đi</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2" onclick="openModal('createDocModal')">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Tạo văn bản đi
+          </button>
+        </div>
+        <div class="ms-card">
+          <div class="command-bar px-4">
+            <button class="btn-ghost text-xs">&#9660; Lọc</button>
+            <button class="btn-ghost text-xs">&#8597; Sắp xếp</button>
+            <button class="btn-ghost text-xs">&#8593; Xuất Excel</button>
+            <div class="flex-1"></div>
+            <div class="ms-search w-56"><svg class="w-4 h-4 text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" placeholder="Tìm văn bản đi..." /></div>
+          </div>
+          <table class="ms-table">
+            <thead><tr><th>Số hiệu</th><th>Trích yếu nội dung</th><th>Nơi nhận</th><th>Ngày ký</th><th>Người ký</th><th>Trạng thái</th><th class="w-16"></th></tr></thead>
+            <tbody>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">CV-TSC/2026/018</td>
+                <td>Báo cáo tình hình sản xuất tháng 3/2026 gửi Tổng công ty</td>
+                <td class="text-ms-gray600">Tổng công ty Thép VN</td>
+                <td class="text-ms-gray500">14/03/2026</td>
+                <td><div class="flex items-center gap-1"><div class="persona bg-ms-blue" style="width:22px;height:22px;font-size:9px">GĐ</div><span class="text-xs">Giám đốc</span></div></td>
+                <td><span class="badge badge-green">Đã gửi</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">TB-TSC/2026/007</td>
+                <td>Thông báo điều chỉnh giá bán thép cuộn tháng 4/2026</td>
+                <td class="text-ms-gray600">Các đại lý phân phối</td>
+                <td class="text-ms-gray500">12/03/2026</td>
+                <td><div class="flex items-center gap-1"><div class="persona bg-ms-purple" style="width:22px;height:22px;font-size:9px">PGĐ</div><span class="text-xs">Phó GĐ</span></div></td>
+                <td><span class="badge badge-green">Đã gửi</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">CV-TSC/2026/015</td>
+                <td>Đề nghị gia hạn hợp đồng cung cấp nguyên liệu Q2/2026</td>
+                <td class="text-ms-gray600">Công ty TNHH Thép Miền Nam</td>
+                <td class="text-ms-gray500">10/03/2026</td>
+                <td><div class="flex items-center gap-1"><div class="persona bg-ms-teal" style="width:22px;height:22px;font-size:9px">TP</div><span class="text-xs">Trưởng phòng KD</span></div></td>
+                <td><span class="badge badge-yellow">Chờ ký</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">QĐ-TSC/2026/003</td>
+                <td>Quyết định ban hành quy chế lương thưởng năm 2026</td>
+                <td class="text-ms-gray600">Toàn thể CBCNV</td>
+                <td class="text-ms-gray500">05/03/2026</td>
+                <td><div class="flex items-center gap-1"><div class="persona bg-ms-blue" style="width:22px;height:22px;font-size:9px">GĐ</div><span class="text-xs">Giám đốc</span></div></td>
+                <td><span class="badge badge-green">Đã gửi</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="px-4 py-3 border-t border-ms-gray200 flex items-center justify-between">
+            <span class="text-xs text-ms-gray500">Hiển thị 1–4 / 18 văn bản</span>
+            <div class="flex items-center gap-1">
+              <button class="btn-ghost text-xs px-2 py-1">&#8249; Trước</button>
+              <button class="btn-primary text-xs px-2.5 py-1">1</button>
+              <button class="btn-ghost text-xs px-2.5 py-1">2</button>
+              <button class="btn-ghost text-xs px-2 py-1">Sau &#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== VĂN BẢN NỘI BỘ SCREEN ===== -->
+      <div id="content-doc-internal" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Văn bản nội bộ</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Văn bản nội bộ</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2" onclick="openModal('createDocModal')">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Tạo văn bản nội bộ
+          </button>
+        </div>
+        <div class="ms-card">
+          <div class="command-bar px-4">
+            <button class="btn-ghost text-xs">&#9660; Lọc</button>
+            <div class="flex-1"></div>
+            <div class="ms-search w-56"><svg class="w-4 h-4 text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" placeholder="Tìm văn bản nội bộ..." /></div>
+          </div>
+          <table class="ms-table">
+            <thead><tr><th>Số hiệu</th><th>Trích yếu nội dung</th><th>Phòng ban</th><th>Ngày ban hành</th><th>Người ban hành</th><th>Trạng thái</th><th class="w-16"></th></tr></thead>
+            <tbody>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">TB-NB/2026/012</td>
+                <td>Thông báo lịch họp giao ban tuần 11/2026</td>
+                <td class="text-ms-gray600">Ban Giám đốc</td>
+                <td class="text-ms-gray500">13/03/2026</td>
+                <td><div class="flex items-center gap-1"><div class="persona bg-ms-blue" style="width:22px;height:22px;font-size:9px">BGĐ</div><span class="text-xs">Ban GĐ</span></div></td>
+                <td><span class="badge badge-green">Đã ban hành</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">QĐ-NB/2026/005</td>
+                <td>Quyết định bổ nhiệm Trưởng phòng Kỹ thuật</td>
+                <td class="text-ms-gray600">Phòng Nhân sự</td>
+                <td class="text-ms-gray500">12/03/2026</td>
+                <td><div class="flex items-center gap-1"><div class="persona bg-ms-blue" style="width:22px;height:22px;font-size:9px">GĐ</div><span class="text-xs">Giám đốc</span></div></td>
+                <td><span class="badge badge-green">Đã ban hành</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">KH-NB/2026/003</td>
+                <td>Kế hoạch đào tạo an toàn lao động Q2/2026</td>
+                <td class="text-ms-gray600">Phòng Hành chính</td>
+                <td class="text-ms-gray500">08/03/2026</td>
+                <td><div class="flex items-center gap-1"><div class="persona bg-ms-teal" style="width:22px;height:22px;font-size:9px">TP</div><span class="text-xs">Trưởng phòng HC</span></div></td>
+                <td><span class="badge badge-yellow">Chờ duyệt</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="px-4 py-3 border-t border-ms-gray200 flex items-center justify-between">
+            <span class="text-xs text-ms-gray500">Hiển thị 1–3 / 12 văn bản</span>
+            <div class="flex items-center gap-1">
+              <button class="btn-ghost text-xs px-2 py-1">&#8249; Trước</button>
+              <button class="btn-primary text-xs px-2.5 py-1">1</button>
+              <button class="btn-ghost text-xs px-2.5 py-1">2</button>
+              <button class="btn-ghost text-xs px-2 py-1">Sau &#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BẢN VẼ KỸ THUẬT SCREEN ===== -->
+      <div id="content-drawing" class="flex-1 overflow-hidden flex fade-in" style="display:none">
+        <!-- Folder tree -->
+        <div class="w-56 border-r border-ms-gray200 bg-white flex flex-col flex-shrink-0">
+          <div class="px-3 py-3 border-b border-ms-gray200 flex items-center justify-between">
+            <span class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide">Dự án</span>
+            <button class="btn-ghost p-1 text-ms-gray500"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></button>
+          </div>
+          <div class="flex-1 overflow-y-auto p-2 space-y-0.5">
+            <div class="tree-item active"><svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg><span class="text-xs">Tất cả bản vẽ</span></div>
+            <div class="ml-3 space-y-0.5">
+              <div class="tree-item"><svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg><span class="text-xs">Lò luyện thép #1</span></div>
+              <div class="tree-item"><svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg><span class="text-xs">Dây chuyền cán thép</span></div>
+              <div class="tree-item"><svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg><span class="text-xs">Hệ thống làm nguội</span></div>
+              <div class="tree-item"><svg class="w-4 h-4 text-ms-yellow flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg><span class="text-xs">Nhà xưởng & Hạ tầng</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- Drawing content -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+                <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-ms-gray700">Bản vẽ kỹ thuật</span>
+              </div>
+              <h1 class="text-xl font-semibold text-ms-gray900">Bản vẽ kỹ thuật</h1>
+            </div>
+            <button class="btn-primary flex items-center gap-2 text-sm" onclick="openModal('createDocModal')">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              Upload bản vẽ
+            </button>
+          </div>
+          <div class="ms-card">
+            <div class="command-bar px-4">
+              <button class="btn-ghost text-xs">&#9660; Lọc</button>
+              <button class="btn-ghost text-xs">&#8597; Sắp xếp</button>
+              <div class="flex-1"></div>
+              <div class="ms-search w-56"><svg class="w-4 h-4 text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" placeholder="Tìm bản vẽ..." /></div>
+            </div>
+            <table class="ms-table">
+              <thead><tr><th>Mã bản vẽ</th><th>Tên bản vẽ</th><th>Dự án</th><th>Phiên bản</th><th>Ngày cập nhật</th><th>Định dạng</th><th>Trạng thái</th><th class="w-24"></th></tr></thead>
+              <tbody>
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                  <td class="text-ms-blue font-medium">BV-LL-001</td>
+                  <td>Sơ đồ tổng thể lò luyện thép #1</td>
+                  <td class="text-ms-gray600">Lò luyện thép #1</td>
+                  <td><span class="badge badge-purple">Rev.5</span></td>
+                  <td class="text-ms-gray500">10/03/2026</td>
+                  <td><span class="badge badge-gray">DWG</span></td>
+                  <td><span class="badge badge-green">Hiệu lực</span></td>
+                  <td class="flex gap-1"><button class="btn-ghost p-1 text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button><button class="btn-ghost p-1 text-ms-gray500" title="Tải về"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg></button></td>
+                </tr>
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                  <td class="text-ms-blue font-medium">BV-CT-003</td>
+                  <td>Bản vẽ chi tiết dây chuyền cán thép thanh</td>
+                  <td class="text-ms-gray600">Dây chuyền cán thép</td>
+                  <td><span class="badge badge-purple">Rev.2</span></td>
+                  <td class="text-ms-gray500">05/03/2026</td>
+                  <td><span class="badge badge-gray">PDF</span></td>
+                  <td><span class="badge badge-green">Hiệu lực</span></td>
+                  <td class="flex gap-1"><button class="btn-ghost p-1 text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button><button class="btn-ghost p-1 text-ms-gray500" title="Tải về"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg></button></td>
+                </tr>
+                <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                  <td class="text-ms-blue font-medium">BV-HT-007</td>
+                  <td>Sơ đồ hệ thống làm nguội và xử lý nước thải</td>
+                  <td class="text-ms-gray600">Hệ thống làm nguội</td>
+                  <td><span class="badge badge-yellow">Rev.3 (mới)</span></td>
+                  <td class="text-ms-gray500">14/03/2026</td>
+                  <td><span class="badge badge-gray">DWG</span></td>
+                  <td><span class="badge badge-yellow">Chờ duyệt</span></td>
+                  <td class="flex gap-1"><button class="btn-ghost p-1 text-ms-blue" title="Xem"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button><button class="btn-ghost p-1 text-ms-gray500" title="Tải về"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg></button></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="px-4 py-3 border-t border-ms-gray200 flex items-center justify-between">
+              <span class="text-xs text-ms-gray500">Hiển thị 1–3 / 47 bản vẽ</span>
+              <div class="flex items-center gap-1">
+                <button class="btn-ghost text-xs px-2 py-1">&#8249; Trước</button>
+                <button class="btn-primary text-xs px-2.5 py-1">1</button>
+                <button class="btn-ghost text-xs px-2.5 py-1">2</button>
+                <button class="btn-ghost text-xs px-2 py-1">Sau &#8250;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== NHÂN SỰ SCREEN ===== -->
+      <div id="content-hr" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Nhân sự</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Quản lý Nhân sự</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2" onclick="openModal('createTaskModal')">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Thêm nhân viên
+          </button>
+        </div>
+        <!-- Stat cards -->
+        <div class="grid grid-cols-4 gap-4">
+          <div class="stat-card" style="border-top-color:#0078D4">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Tổng nhân viên</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">248</p>
+            <p class="text-xs text-ms-gray400 mt-1">&#8593; 3 người so với tháng trước</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#107C10">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Đang làm việc</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">241</p>
+            <p class="text-xs text-ms-green mt-1">97.2% tỷ lệ hiện diện</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#CA5010">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Nghỉ phép</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">5</p>
+            <p class="text-xs text-ms-gray400 mt-1">2 chờ duyệt phép</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#8764B8">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Hợp đồng hết hạn</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">3</p>
+            <p class="text-xs text-ms-red mt-1">Trong 30 ngày tới</p>
+          </div>
+        </div>
+        <!-- Employee table -->
+        <div class="ms-card">
+          <div class="command-bar px-4">
+            <button class="btn-ghost text-xs">&#9660; Lọc</button>
+            <button class="btn-ghost text-xs">&#8597; Sắp xếp</button>
+            <button class="btn-ghost text-xs">&#8593; Xuất Excel</button>
+            <div class="flex-1"></div>
+            <div class="ms-search w-56"><svg class="w-4 h-4 text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="text" placeholder="Tìm nhân viên..." /></div>
+          </div>
+          <table class="ms-table">
+            <thead><tr><th>Mã NV</th><th>Họ và tên</th><th>Phòng ban</th><th>Chức vụ</th><th>Ngày vào làm</th><th>Loại HĐ</th><th>Trạng thái</th><th class="w-16"></th></tr></thead>
+            <tbody>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">NV-001</td>
+                <td><div class="flex items-center gap-2"><div class="persona bg-ms-blue" style="width:28px;height:28px;font-size:11px">NVA</div><span>Nguyễn Văn A</span></div></td>
+                <td class="text-ms-gray600">Phòng Kinh doanh</td>
+                <td class="text-ms-gray600">Nhân viên KD</td>
+                <td class="text-ms-gray500">01/03/2020</td>
+                <td><span class="badge badge-green">Vô thời hạn</span></td>
+                <td><span class="badge badge-green">Đang làm</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">NV-045</td>
+                <td><div class="flex items-center gap-2"><div class="persona bg-ms-teal" style="width:28px;height:28px;font-size:11px">TTH</div><span>Trần Thị Hoa</span></div></td>
+                <td class="text-ms-gray600">Phòng Kế toán</td>
+                <td class="text-ms-gray600">Kế toán trưởng</td>
+                <td class="text-ms-gray500">15/06/2018</td>
+                <td><span class="badge badge-green">Vô thời hạn</span></td>
+                <td><span class="badge badge-green">Đang làm</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">NV-112</td>
+                <td><div class="flex items-center gap-2"><div class="persona bg-ms-orange" style="width:28px;height:28px;font-size:11px">NM</div><span>Nguyễn Minh</span></div></td>
+                <td class="text-ms-gray600">Phòng Kỹ thuật</td>
+                <td class="text-ms-gray600">Kỹ sư cơ khí</td>
+                <td class="text-ms-gray500">20/01/2022</td>
+                <td><span class="badge badge-yellow">Hết hạn 31/03</span></td>
+                <td><span class="badge badge-green">Đang làm</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">NV-198</td>
+                <td><div class="flex items-center gap-2"><div class="persona bg-ms-purple" style="width:28px;height:28px;font-size:11px">LT</div><span>Lê Thanh</span></div></td>
+                <td class="text-ms-gray600">Phòng Sản xuất</td>
+                <td class="text-ms-gray600">Công nhân vận hành</td>
+                <td class="text-ms-gray500">10/08/2023</td>
+                <td><span class="badge badge-gray">2 năm (đến 09/2025)</span></td>
+                <td><span class="badge badge-red">Cần gia hạn</span></td>
+                <td><button class="btn-ghost p-1" onclick="event.stopPropagation();openModal('viewDocModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="px-4 py-3 border-t border-ms-gray200 flex items-center justify-between">
+            <span class="text-xs text-ms-gray500">Hiển thị 1–4 / 248 nhân viên</span>
+            <div class="flex items-center gap-1">
+              <button class="btn-ghost text-xs px-2 py-1">&#8249; Trước</button>
+              <button class="btn-primary text-xs px-2.5 py-1">1</button>
+              <button class="btn-ghost text-xs px-2.5 py-1">2</button>
+              <button class="btn-ghost text-xs px-2 py-1">Sau &#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BÁO CÁO AI SCREEN ===== -->
+      <div id="content-ai-report" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Báo cáo AI</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Báo cáo & Phân tích AI</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Xuất báo cáo
+          </button>
+        </div>
+        <!-- AI Usage Stats -->
+        <div class="grid grid-cols-4 gap-4">
+          <div class="stat-card" style="border-top-color:#0078D4">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Tổng lượt dùng AI</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">1,284</p>
+            <p class="text-xs text-ms-green mt-1">&#8593; 23% so với tháng trước</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#107C10">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Văn bản được tóm tắt</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">342</p>
+            <p class="text-xs text-ms-gray400 mt-1">Tiết kiệm ~68 giờ làm việc</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#8764B8">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Công việc được gợi ý</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">89</p>
+            <p class="text-xs text-ms-gray400 mt-1">78% được chấp nhận</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#CA5010">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Người dùng AI</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">47</p>
+            <p class="text-xs text-ms-gray400 mt-1">/ 248 nhân viên (19%)</p>
+          </div>
+        </div>
+        <!-- Charts placeholder -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="ms-card p-4">
+            <h3 class="font-semibold text-sm text-ms-gray900 mb-4">Lượt sử dụng AI theo phòng ban (tháng 3/2026)</h3>
+            <div class="space-y-3">
+              <div><div class="flex justify-between text-xs mb-1"><span>Phòng Kinh doanh</span><span class="font-medium">312 lượt</span></div><div class="progress-bar"><div class="progress-fill bg-ms-blue" style="width:85%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span>Phòng Kỹ thuật</span><span class="font-medium">287 lượt</span></div><div class="progress-bar"><div class="progress-fill bg-ms-teal" style="width:78%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span>Ban Giám đốc</span><span class="font-medium">245 lượt</span></div><div class="progress-bar"><div class="progress-fill bg-ms-purple" style="width:67%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span>Phòng Kế toán</span><span class="font-medium">198 lượt</span></div><div class="progress-bar"><div class="progress-fill bg-ms-orange" style="width:54%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span>Phòng Sản xuất</span><span class="font-medium">156 lượt</span></div><div class="progress-bar"><div class="progress-fill bg-ms-green" style="width:43%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span>Phòng Hành chính</span><span class="font-medium">86 lượt</span></div><div class="progress-bar"><div class="progress-fill bg-ms-gray400" style="width:23%"></div></div></div>
+            </div>
+          </div>
+          <div class="ms-card p-4">
+            <h3 class="font-semibold text-sm text-ms-gray900 mb-4">Top tính năng AI được dùng nhiều nhất</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-2 rounded hover:bg-ms-gray50">
+                <div class="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-sm">&#128196;</div>
+                <div class="flex-1"><p class="text-sm font-medium">Tóm tắt văn bản</p><p class="text-xs text-ms-gray500">342 lần sử dụng</p></div>
+                <span class="badge badge-blue text-xs">27%</span>
+              </div>
+              <div class="flex items-center gap-3 p-2 rounded hover:bg-ms-gray50">
+                <div class="w-8 h-8 rounded bg-green-100 flex items-center justify-center text-sm">&#128269;</div>
+                <div class="flex-1"><p class="text-sm font-medium">Tìm kiếm thông minh</p><p class="text-xs text-ms-gray500">298 lần sử dụng</p></div>
+                <span class="badge badge-green text-xs">23%</span>
+              </div>
+              <div class="flex items-center gap-3 p-2 rounded hover:bg-ms-gray50">
+                <div class="w-8 h-8 rounded bg-purple-100 flex items-center justify-center text-sm">&#9997;</div>
+                <div class="flex-1"><p class="text-sm font-medium">Soạn thảo văn bản</p><p class="text-xs text-ms-gray500">215 lần sử dụng</p></div>
+                <span class="badge badge-purple text-xs">17%</span>
+              </div>
+              <div class="flex items-center gap-3 p-2 rounded hover:bg-ms-gray50">
+                <div class="w-8 h-8 rounded bg-orange-100 flex items-center justify-center text-sm">&#9889;</div>
+                <div class="flex-1"><p class="text-sm font-medium">Giao việc tự động (RAG)</p><p class="text-xs text-ms-gray500">189 lần sử dụng</p></div>
+                <span class="badge badge-yellow text-xs">15%</span>
+              </div>
+              <div class="flex items-center gap-3 p-2 rounded hover:bg-ms-gray50">
+                <div class="w-8 h-8 rounded bg-teal-100 flex items-center justify-center text-sm">&#128202;</div>
+                <div class="flex-1"><p class="text-sm font-medium">Phân tích báo cáo</p><p class="text-xs text-ms-gray500">240 lần sử dụng</p></div>
+                <span class="badge badge-gray text-xs">18%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== AN TOÀN LAO ĐỘNG SCREEN ===== -->
+      <div id="content-safety" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">An toàn lao động</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">An toàn lao động</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2" onclick="openModal('createTaskModal')">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Báo cáo sự cố
+          </button>
+        </div>
+        <!-- Safety stats -->
+        <div class="grid grid-cols-4 gap-4">
+          <div class="stat-card" style="border-top-color:#107C10">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Ngày không tai nạn</p>
+            <p class="text-3xl font-semibold text-ms-green mt-1">127</p>
+            <p class="text-xs text-ms-gray400 mt-1">Kỷ lục: 312 ngày</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#D13438">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Sự cố tháng này</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">2</p>
+            <p class="text-xs text-ms-red mt-1">1 đang xử lý</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#CA5010">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Kiểm tra định kỳ</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">8</p>
+            <p class="text-xs text-ms-gray400 mt-1">3 sắp đến hạn</p>
+          </div>
+          <div class="stat-card" style="border-top-color:#8764B8">
+            <p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Đào tạo ATLĐ</p>
+            <p class="text-3xl font-semibold text-ms-gray900 mt-1">94%</p>
+            <p class="text-xs text-ms-gray400 mt-1">234/248 nhân viên</p>
+          </div>
+        </div>
+        <!-- Safety incidents table -->
+        <div class="ms-card">
+          <div class="px-4 py-3 border-b border-ms-gray200 flex items-center justify-between">
+            <h3 class="font-semibold text-sm text-ms-gray900">Báo cáo sự cố gần đây</h3>
+            <button class="btn-ghost text-xs">Xem tất cả &#8594;</button>
+          </div>
+          <table class="ms-table">
+            <thead><tr><th>Mã sự cố</th><th>Mô tả</th><th>Khu vực</th><th>Ngày xảy ra</th><th>Mức độ</th><th>Trạng thái</th><th class="w-24"></th></tr></thead>
+            <tbody>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">SC-2026/003</td>
+                <td>Công nhân bị bỏng nhẹ khi vận hành lò luyện</td>
+                <td class="text-ms-gray600">Phân xưởng luyện</td>
+                <td class="text-ms-gray500">10/03/2026</td>
+                <td><span class="badge badge-yellow">Nhẹ</span></td>
+                <td><span class="badge badge-yellow">Đang xử lý</span></td>
+                <td class="flex gap-1">
+                  <button class="btn-ghost text-xs px-2 py-1 text-ms-blue">Xem</button>
+                  <button class="btn-ghost text-xs px-2 py-1">Cập nhật</button>
+                </td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">SC-2026/002</td>
+                <td>Rò rỉ dầu thủy lực tại máy cán thép</td>
+                <td class="text-ms-gray600">Phân xưởng cán</td>
+                <td class="text-ms-gray500">02/03/2026</td>
+                <td><span class="badge badge-orange">Trung bình</span></td>
+                <td><span class="badge badge-green">Đã xử lý</span></td>
+                <td class="flex gap-1">
+                  <button class="btn-ghost text-xs px-2 py-1 text-ms-blue">Xem</button>
+                  <button class="btn-ghost text-xs px-2 py-1" disabled>Đã đóng</button>
+                </td>
+              </tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')">
+                <td class="text-ms-blue font-medium">SC-2026/001</td>
+                <td>Công nhân trượt ngã tại khu vực làm nguội</td>
+                <td class="text-ms-gray600">Khu làm nguội</td>
+                <td class="text-ms-gray500">15/01/2026</td>
+                <td><span class="badge badge-yellow">Nhẹ</span></td>
+                <td><span class="badge badge-green">Đã xử lý</span></td>
+                <td class="flex gap-1">
+                  <button class="btn-ghost text-xs px-2 py-1 text-ms-blue">Xem</button>
+                  <button class="btn-ghost text-xs px-2 py-1" disabled>Đã đóng</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Training schedule -->
+        <div class="ms-card p-4">
+          <h3 class="font-semibold text-sm text-ms-gray900 mb-3">Lịch đào tạo ATLĐ sắp tới</h3>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 p-2 rounded border border-ms-gray200 hover:bg-ms-gray50">
+              <div class="w-10 h-10 rounded bg-red-50 flex flex-col items-center justify-center flex-shrink-0">
+                <span class="text-xs font-bold text-ms-red">18</span>
+                <span class="text-xs text-ms-gray400">T3</span>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium">Đào tạo PCCC và thoát hiểm</p>
+                <p class="text-xs text-ms-gray500">Phân xưởng luyện · 8:00 - 11:00</p>
+              </div>
+              <span class="badge badge-yellow">Sắp diễn ra</span>
+              <button class="btn-primary text-xs px-3 py-1">Đăng ký</button>
+            </div>
+            <div class="flex items-center gap-3 p-2 rounded border border-ms-gray200 hover:bg-ms-gray50">
+              <div class="w-10 h-10 rounded bg-blue-50 flex flex-col items-center justify-center flex-shrink-0">
+                <span class="text-xs font-bold text-ms-blue">25</span>
+                <span class="text-xs text-ms-gray400">T3</span>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium">Vận hành an toàn thiết bị nâng hạ</p>
+                <p class="text-xs text-ms-gray500">Kho thành phẩm · 13:30 - 17:00</p>
+              </div>
+              <span class="badge badge-gray">Chưa mở</span>
+              <button class="btn-secondary text-xs px-3 py-1">Xem chi tiết</button>
             </div>
           </div>
         </div>
@@ -1669,6 +2210,114 @@
   </div>
 </div>
 
+<!-- View Document Modal -->
+<div id="viewDocModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('viewDocModal')">
+  <div class="modal-box" style="max-width:680px">
+    <div class="modal-header">
+      <div>
+        <h3 class="font-semibold text-ms-gray900">CV-2026/003</h3>
+        <p class="text-xs text-ms-gray500 mt-0.5">Báo cáo kết quả kiểm tra chất lượng thép cuộn Q1/2026</p>
+      </div>
+      <button class="btn-ghost p-1" onclick="closeModal('viewDocModal')">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="grid grid-cols-3 gap-4 mb-4 p-3 bg-ms-gray50 rounded">
+        <div><p class="text-xs text-ms-gray500">Số hiệu</p><p class="text-sm font-semibold text-ms-blue">CV-2026/003</p></div>
+        <div><p class="text-xs text-ms-gray500">Ngày ký</p><p class="text-sm font-medium">10/03/2026</p></div>
+        <div><p class="text-xs text-ms-gray500">Ngày đến</p><p class="text-sm font-medium">14/03/2026</p></div>
+        <div><p class="text-xs text-ms-gray500">Cơ quan ban hành</p><p class="text-sm font-medium">Phòng Kỹ thuật</p></div>
+        <div><p class="text-xs text-ms-gray500">Trạng thái</p><span class="badge badge-yellow">Đang xử lý</span></div>
+        <div><p class="text-xs text-ms-gray500">Người xử lý</p><div class="flex items-center gap-1 mt-0.5"><div class="persona bg-ms-blue" style="width:20px;height:20px;font-size:8px">NVA</div><span class="text-sm">Nguyễn Văn A</span></div></div>
+      </div>
+      <div class="mb-4">
+        <p class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide mb-2">Nội dung trích yếu</p>
+        <div class="p-3 border border-ms-gray200 rounded bg-white text-sm text-ms-gray700 leading-relaxed">
+          Báo cáo kết quả kiểm tra chất lượng thép cuộn Q1/2026. Theo kết quả kiểm tra, lô hàng thép cuộn số TC-2026-0312 đạt tiêu chuẩn TCVN 1765:2023 về cơ tính và thành phần hóa học. Đề nghị Ban Giám đốc phê duyệt xuất kho.
+        </div>
+      </div>
+      <div class="mb-4">
+        <p class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide mb-2">File đính kèm</p>
+        <div class="flex items-center gap-2 p-2 border border-ms-gray200 rounded hover:bg-ms-gray50 cursor-pointer">
+          <svg class="w-8 h-8 text-ms-red flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 17v-1h8v1H8zm0-3v-1h8v1H8zm0-3V10h5v1H8z"/></svg>
+          <div class="flex-1">
+            <p class="text-sm font-medium">BC-KT-Q1-2026.pdf</p>
+            <p class="text-xs text-ms-gray400">2.4 MB · PDF</p>
+          </div>
+          <button class="btn-ghost text-xs px-2 py-1 text-ms-blue">Tải về</button>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide mb-2">Lịch sử xử lý</p>
+        <div class="space-y-2">
+          <div class="flex gap-3">
+            <div class="flex flex-col items-center"><div class="w-6 h-6 rounded-full bg-ms-blue flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><div class="w-0.5 h-6 bg-ms-gray200 mt-1"></div></div>
+            <div class="pb-2"><p class="text-sm font-medium">Tiếp nhận văn bản</p><p class="text-xs text-ms-gray400">14/03/2026 08:30 · Hệ thống</p></div>
+          </div>
+          <div class="flex gap-3">
+            <div class="flex flex-col items-center"><div class="w-6 h-6 rounded-full bg-ms-yellow flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div></div>
+            <div><p class="text-sm font-medium">Giao xử lý cho Nguyễn Văn A</p><p class="text-xs text-ms-gray400">14/03/2026 09:15 · Trưởng phòng</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('viewDocModal')">Đóng</button>
+      <button class="btn-ghost flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg> Chuyển tiếp</button>
+      <button class="btn-primary flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Phê duyệt</button>
+    </div>
+  </div>
+</div>
+
+<!-- View Task Modal -->
+<div id="viewTaskModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('viewTaskModal')">
+  <div class="modal-box" style="max-width:620px">
+    <div class="modal-header">
+      <div>
+        <h3 class="font-semibold text-ms-gray900">Kiểm tra chất lượng lô thép TC-2026-0312</h3>
+        <span class="badge badge-yellow text-xs mt-1">Đang thực hiện</span>
+      </div>
+      <button class="btn-ghost p-1" onclick="closeModal('viewTaskModal')">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body space-y-4">
+      <div class="grid grid-cols-2 gap-4 p-3 bg-ms-gray50 rounded">
+        <div><p class="text-xs text-ms-gray500">Người thực hiện</p><div class="flex items-center gap-1 mt-0.5"><div class="persona bg-ms-blue" style="width:20px;height:20px;font-size:8px">NVA</div><span class="text-sm">Nguyễn Văn A</span></div></div>
+        <div><p class="text-xs text-ms-gray500">Hạn hoàn thành</p><p class="text-sm font-medium text-ms-red">16/03/2026</p></div>
+        <div><p class="text-xs text-ms-gray500">Mức ưu tiên</p><span class="badge badge-red">Cao</span></div>
+        <div><p class="text-xs text-ms-gray500">Tiến độ</p>
+          <div class="flex items-center gap-2 mt-1"><div class="progress-bar flex-1"><div class="progress-fill bg-ms-blue" style="width:65%"></div></div><span class="text-xs font-medium">65%</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide mb-2">Mô tả công việc</p>
+        <p class="text-sm text-ms-gray700">Kiểm tra toàn bộ các chỉ tiêu cơ lý hóa của lô thép cuộn TC-2026-0312 theo tiêu chuẩn TCVN 1765:2023. Lập báo cáo kết quả và trình Ban Giám đốc phê duyệt xuất kho.</p>
+      </div>
+      <div>
+        <p class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide mb-2">Checklist (3/5 hoàn thành)</p>
+        <div class="space-y-1.5">
+          <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" checked class="accent-ms-blue" /> Kiểm tra cơ tính (kéo, uốn, cứng)</label>
+          <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" checked class="accent-ms-blue" /> Phân tích thành phần hóa học</label>
+          <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" checked class="accent-ms-blue" /> Kiểm tra kích thước hình học</label>
+          <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="accent-ms-blue" /> Lập báo cáo kết quả</label>
+          <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="accent-ms-blue" /> Trình ký phê duyệt</label>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold text-ms-gray600 uppercase tracking-wide mb-2">Ghi chú</p>
+        <textarea class="ms-input" rows="2" placeholder="Thêm ghi chú..."></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('viewTaskModal')">Đóng</button>
+      <button class="btn-ghost flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg> Chuyển giao</button>
+      <button class="btn-primary flex items-center gap-1" onclick="closeModal('viewTaskModal')"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Hoàn thành</button>
+    </div>
+  </div>
+</div>
+
 <!-- AI Chat Widget -->
 <div id="chatWidget" style="position:fixed;bottom:20px;right:20px;z-index:400;display:none">
   <div class="ms-card w-80" style="height:420px;display:flex;flex-direction:column;box-shadow:0 6.4px 14.4px rgba(0,0,0,.2)">
@@ -1746,8 +2395,9 @@
     // Show content
     const content = document.getElementById('content-' + name);
     if (content) {
-      // content-iso uses flex for its split layout, others use block
-      content.style.display = (name === 'iso') ? 'flex' : 'block';
+      // content-iso and content-drawing use flex for split layout, others use block
+      const flexScreens = ['iso', 'drawing'];
+      content.style.display = flexScreens.includes(name) ? 'flex' : 'block';
       content.classList.add('fade-in');
     }
 
