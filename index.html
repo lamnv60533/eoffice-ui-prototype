@@ -546,16 +546,18 @@
 
       <!-- Nav items -->
       <nav class="flex-1 overflow-y-auto py-2 px-2 space-y-0.5">
-        <div class="nav-group-label">Chính</div>
+
+        <!-- Tổng quan -->
         <div class="nav-item active" onclick="showScreen('dashboard')" data-tooltip="Tổng quan">
-          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
           <span class="nav-label">Tổng quan</span>
         </div>
 
-        <div class="nav-group-label">Văn bản</div>
-        <div class="nav-item" onclick="showScreen('documents')" data-tooltip="Văn bản đến">
+        <!-- Văn thư -->
+        <div class="nav-item" onclick="showScreen('documents')" data-tooltip="Văn thư">
           <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          <span class="nav-label">Quản lý văn bản</span>
+          <span class="nav-label">Văn thư</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
         <div class="nav-sub-item" onclick="showScreen('documents')">
           <svg class="w-3.5 h-3.5 flex-shrink-0 text-ms-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
@@ -570,42 +572,166 @@
           <span class="nav-label">Nội bộ</span>
         </div>
 
-        <div class="nav-group-label">Công việc</div>
-        <div class="nav-item" onclick="showScreen('tasks')" data-tooltip="Công việc">
-          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-          <span class="nav-label">Công việc</span>
-          <span class="nav-label ml-auto badge badge-red text-xs" style="padding:1px 6px">5</span>
+        <!-- Website -->
+        <div class="nav-item" onclick="showScreen('website')" data-tooltip="Website">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="nav-label">Website</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('website')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+          <span class="nav-label">Tin tức</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('website')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="nav-label">Banner / Ảnh</span>
         </div>
 
-        <div class="nav-group-label">Chất lượng</div>
-        <div class="nav-item" onclick="showScreen('iso')" data-tooltip="ISO">
-          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-          <span class="nav-label">Tài liệu ISO</span>
+        <!-- Hành chính -->
+        <div class="nav-item" onclick="showScreen('admin')" data-tooltip="Hành chính">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span class="nav-label">Hành chính</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
-        <div class="nav-sub-item" onclick="showScreen('drawing')">
-          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
-          <span class="nav-label">Bản vẽ kỹ thuật</span>
+        <div class="nav-sub-item" onclick="showScreen('admin')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          <span class="nav-label">Văn bản hành chính</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('admin')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="nav-label">Lịch công tác</span>
         </div>
 
-        <div class="nav-group-label">Nhân sự & Lương</div>
-        <div class="nav-item" onclick="showScreen('salary')" data-tooltip="Lương">
-          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span class="nav-label">Bảng lương</span>
+        <!-- Nhân sự -->
+        <div class="nav-item" onclick="showScreen('hr')" data-tooltip="Nhân sự">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c0 1.306.835 2.417 2 2.83V21h-2v-2.17A3.001 3.001 0 017 16z"/></svg>
+          <span class="nav-label">Nhân sự</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
         <div class="nav-sub-item" onclick="showScreen('hr')">
           <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span class="nav-label">Nhân sự</span>
+          <span class="nav-label">Danh sách nhân viên</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('hr')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          <span class="nav-label">Hợp đồng lao động</span>
         </div>
 
-        <div class="nav-group-label">Báo cáo</div>
-        <div class="nav-item" onclick="showScreen('ai-report')" data-tooltip="Báo cáo AI">
-          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-          <span class="nav-label">Báo cáo AI</span>
+        <!-- Lưu trữ -->
+        <div class="nav-item" onclick="showScreen('archive')" data-tooltip="Lưu trữ">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+          <span class="nav-label">Lưu trữ</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
-        <div class="nav-item" onclick="showScreen('safety')" data-tooltip="An toàn">
-          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <div class="nav-sub-item" onclick="showScreen('archive')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+          <span class="nav-label">Hồ sơ văn bản</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('archive')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <span class="nav-label">Tìm kiếm hồ sơ</span>
+        </div>
+
+        <!-- Zalo -->
+        <div class="nav-item" onclick="showScreen('zalo')" data-tooltip="Zalo">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <span class="nav-label">Zalo</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('zalo')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          <span class="nav-label">Gửi thông báo</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('zalo')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          <span class="nav-label">Lịch sử gửi</span>
+        </div>
+
+        <!-- Lịch làm việc -->
+        <div class="nav-item" onclick="showScreen('calendar')" data-tooltip="Lịch làm việc">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="nav-label">Lịch làm việc</span>
+        </div>
+
+        <!-- Công việc -->
+        <div class="nav-item" onclick="showScreen('tasks')" data-tooltip="Công việc">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          <span class="nav-label">Công việc</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <span class="nav-label ml-1 badge badge-red text-xs" style="padding:1px 6px">5</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('tasks')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="nav-label">Danh sách công việc</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('tasks')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+          <span class="nav-label">Kanban board</span>
+        </div>
+
+        <!-- Tài liệu / Bản vẽ -->
+        <div class="nav-item" onclick="showScreen('drawing')" data-tooltip="Tài liệu/Bản vẽ">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+          <span class="nav-label">Tài liệu/Bản vẽ</span>
+        </div>
+
+        <!-- Quản lý tài liệu ISO -->
+        <div class="nav-item" onclick="showScreen('iso')" data-tooltip="Quản lý tài liệu ISO">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          <span class="nav-label">Quản lý tài liệu ISO</span>
+        </div>
+
+        <!-- Lương -->
+        <div class="nav-item" onclick="showScreen('salary')" data-tooltip="Lương">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          <span class="nav-label">Lương</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('salary')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          <span class="nav-label">Bảng lương</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('salary')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="nav-label">Chấm công</span>
+        </div>
+
+        <!-- Báo cáo thống kê -->
+        <div class="nav-item" onclick="showScreen('ai-report')" data-tooltip="Báo cáo thống kê">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <span class="nav-label">Báo cáo thống kê</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('ai-report')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          <span class="nav-label">Thống kê tổng hợp</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('safety')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span class="nav-label">An toàn lao động</span>
         </div>
+
+        <!-- Cài đặt hệ thống -->
+        <div class="nav-item" onclick="showScreen('settings')" data-tooltip="Cài đặt hệ thống">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span class="nav-label">Cài đặt hệ thống</span>
+        </div>
+
+        <!-- Quản trị -->
+        <div class="nav-item" onclick="showScreen('sysadmin')" data-tooltip="Quản trị">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="nav-label">Quản trị</span>
+          <svg class="nav-chevron w-3.5 h-3.5 ml-auto text-ms-gray400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('sysadmin')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <span class="nav-label">Quản lý người dùng</span>
+        </div>
+        <div class="nav-sub-item" onclick="showScreen('sysadmin')">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span class="nav-label">Phân quyền</span>
+        </div>
+
       </nav>
 
       <!-- Sidebar footer -->
@@ -2095,6 +2221,295 @@
               <button class="btn-secondary text-xs px-3 py-1">Xem chi tiết</button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Website -->
+      <div id="content-website" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Website</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Quản lý Website</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2" onclick="openModal('createDocModal')">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Đăng bài mới
+          </button>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="stat-card" style="border-top-color:#0078D4"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Tổng bài viết</p><p class="text-3xl font-semibold text-ms-gray900 mt-1">142</p><p class="text-xs text-ms-blue mt-1">↑3 bài tháng này</p></div>
+          <div class="stat-card" style="border-top-color:#107C10"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Đã xuất bản</p><p class="text-3xl font-semibold text-ms-green mt-1">138</p><p class="text-xs text-ms-gray400 mt-1">97% tổng số</p></div>
+          <div class="stat-card" style="border-top-color:#CA5010"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Chờ duyệt</p><p class="text-3xl font-semibold text-ms-orange mt-1">4</p><p class="text-xs text-ms-gray400 mt-1">Cần phê duyệt</p></div>
+        </div>
+        <div class="ms-card">
+          <div class="px-4 py-3 border-b border-ms-gray200 flex items-center justify-between">
+            <h3 class="font-semibold text-sm text-ms-gray900">Danh sách bài viết</h3>
+            <div class="flex gap-2">
+              <div class="pivot"><div class="pivot-item active">Tất cả</div><div class="pivot-item">Tin tức</div><div class="pivot-item">Sản phẩm</div><div class="pivot-item">Tuyển dụng</div></div>
+            </div>
+          </div>
+          <table class="ms-table">
+            <thead><tr><th><input type="checkbox" class="w-4 h-4 accent-ms-blue"/></th><th>Tiêu đề</th><th>Danh mục</th><th>Tác giả</th><th>Ngày đăng</th><th>Trạng thái</th><th class="w-24"></th></tr></thead>
+            <tbody>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td><input type="checkbox" class="w-4 h-4 accent-ms-blue"/></td><td class="font-medium text-ms-blue">Thép Tây Đô kỷ niệm 30 năm thành lập</td><td><span class="badge badge-blue">Tin tức</span></td><td class="text-ms-gray600">Nguyễn Văn A</td><td class="text-ms-gray500">14/03/2026</td><td><span class="badge badge-green">Đã xuất bản</span></td><td><button class="btn-ghost text-xs px-2 py-1 text-ms-blue">Sửa</button></td></tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td><input type="checkbox" class="w-4 h-4 accent-ms-blue"/></td><td class="font-medium text-ms-blue">Tuyển dụng kỹ sư cơ khí Q2/2026</td><td><span class="badge badge-purple">Tuyển dụng</span></td><td class="text-ms-gray600">Trần T. Hoa</td><td class="text-ms-gray500">12/03/2026</td><td><span class="badge badge-yellow">Chờ duyệt</span></td><td><button class="btn-ghost text-xs px-2 py-1 text-ms-blue">Sửa</button></td></tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td><input type="checkbox" class="w-4 h-4 accent-ms-blue"/></td><td class="font-medium text-ms-blue">Giới thiệu dòng sản phẩm thép cuộn mới</td><td><span class="badge badge-teal">Sản phẩm</span></td><td class="text-ms-gray600">Lê Thanh</td><td class="text-ms-gray500">10/03/2026</td><td><span class="badge badge-green">Đã xuất bản</span></td><td><button class="btn-ghost text-xs px-2 py-1 text-ms-blue">Sửa</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Hành chính -->
+      <div id="content-admin" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Hành chính</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Hành chính</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2" onclick="openModal('createDocModal')">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Tạo văn bản
+          </button>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="ms-card p-4">
+            <h3 class="font-semibold text-sm text-ms-gray900 mb-3">Lịch công tác tuần này</h3>
+            <div class="space-y-2">
+              <div class="flex gap-3 p-2 rounded border border-ms-gray200 hover:bg-ms-gray50 cursor-pointer">
+                <div class="w-10 h-10 rounded bg-blue-50 flex flex-col items-center justify-center flex-shrink-0"><span class="text-xs font-bold text-ms-blue">16</span><span class="text-xs text-ms-gray400">T2</span></div>
+                <div><p class="text-sm font-medium">Họi nghị Ban Giám đốc</p><p class="text-xs text-ms-gray500">8:00 - 10:00 · Phòng họi nghị A</p></div>
+              </div>
+              <div class="flex gap-3 p-2 rounded border border-ms-gray200 hover:bg-ms-gray50 cursor-pointer">
+                <div class="w-10 h-10 rounded bg-green-50 flex flex-col items-center justify-center flex-shrink-0"><span class="text-xs font-bold text-ms-green">17</span><span class="text-xs text-ms-gray400">T3</span></div>
+                <div><p class="text-sm font-medium">Kiểm tra định kỳ thiết bị</p><p class="text-xs text-ms-gray500">14:00 - 16:00 · Phân xưởng sản xuất</p></div>
+              </div>
+              <div class="flex gap-3 p-2 rounded border border-ms-gray200 hover:bg-ms-gray50 cursor-pointer">
+                <div class="w-10 h-10 rounded bg-purple-50 flex flex-col items-center justify-center flex-shrink-0"><span class="text-xs font-bold" style="color:#8764B8">19</span><span class="text-xs text-ms-gray400">T5</span></div>
+                <div><p class="text-sm font-medium">Họi nghị tổng kết tháng 3</p><p class="text-xs text-ms-gray500">9:00 - 11:30 · Hội trường</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="ms-card p-4">
+            <h3 class="font-semibold text-sm text-ms-gray900 mb-3">Văn bản hành chính gần đây</h3>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 p-2 rounded hover:bg-ms-gray50 cursor-pointer" onclick="openModal('viewDocModal')">
+                <svg class="w-8 h-8 text-ms-red flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5z"/></svg>
+                <div class="flex-1"><p class="text-sm font-medium">QĐ-HC-2026/012 - Bổ nhiệm Trưởng phòng</p><p class="text-xs text-ms-gray400">11/03/2026</p></div>
+                <span class="badge badge-green">Đã ký</span>
+              </div>
+              <div class="flex items-center gap-3 p-2 rounded hover:bg-ms-gray50 cursor-pointer" onclick="openModal('viewDocModal')">
+                <svg class="w-8 h-8 text-ms-blue flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5z"/></svg>
+                <div class="flex-1"><p class="text-sm font-medium">TB-HC-2026/008 - Thông báo nghỉ lễ 30/4</p><p class="text-xs text-ms-gray400">10/03/2026</p></div>
+                <span class="badge badge-green">Đã gửi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lưu trữ -->
+      <div id="content-archive" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Lưu trữ</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Lưu trữ hồ sơ</h1>
+          </div>
+        </div>
+        <div class="ms-card p-4">
+          <div class="flex gap-2 mb-4">
+            <input type="text" class="ms-input flex-1" placeholder="Tìm kiếm hồ sơ theo số hiệu, nội dung, người lưu..." />
+            <button class="btn-primary px-4">Tìm kiếm</button>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="border border-ms-gray200 rounded p-3 hover:bg-ms-gray50 cursor-pointer" onclick="openModal('viewDocModal')">
+              <div class="flex items-center gap-2 mb-2"><svg class="w-8 h-8 text-ms-yellow" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg><div><p class="text-sm font-semibold">Hồ sơ 2025</p><p class="text-xs text-ms-gray400">248 văn bản</p></div></div>
+            </div>
+            <div class="border border-ms-gray200 rounded p-3 hover:bg-ms-gray50 cursor-pointer" onclick="openModal('viewDocModal')">
+              <div class="flex items-center gap-2 mb-2"><svg class="w-8 h-8 text-ms-yellow" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg><div><p class="text-sm font-semibold">Hồ sơ 2024</p><p class="text-xs text-ms-gray400">312 văn bản</p></div></div>
+            </div>
+            <div class="border border-ms-gray200 rounded p-3 hover:bg-ms-gray50 cursor-pointer" onclick="openModal('viewDocModal')">
+              <div class="flex items-center gap-2 mb-2"><svg class="w-8 h-8 text-ms-yellow" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg><div><p class="text-sm font-semibold">Hồ sơ 2023</p><p class="text-xs text-ms-gray400">289 văn bản</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zalo -->
+      <div id="content-zalo" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Zalo</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Zalo OA — Thông báo nội bộ</h1>
+          </div>
+          <button class="btn-primary flex items-center gap-2" onclick="openModal('createDocModal')">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Gửi thông báo
+          </button>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="stat-card" style="border-top-color:#0068FF"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Thành viên OA</p><p class="text-3xl font-semibold text-ms-gray900 mt-1">248</p><p class="text-xs text-ms-blue mt-1">Toàn bộ nhân viên</p></div>
+          <div class="stat-card" style="border-top-color:#107C10"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Đã gửi tháng này</p><p class="text-3xl font-semibold text-ms-green mt-1">12</p><p class="text-xs text-ms-gray400 mt-1">Thông báo</p></div>
+          <div class="stat-card" style="border-top-color:#CA5010"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Tỷ lệ đọc</p><p class="text-3xl font-semibold text-ms-orange mt-1">94%</p><p class="text-xs text-ms-gray400 mt-1">TB toàn công ty</p></div>
+        </div>
+        <div class="ms-card">
+          <div class="px-4 py-3 border-b border-ms-gray200"><h3 class="font-semibold text-sm text-ms-gray900">Lịch sử gửi thông báo</h3></div>
+          <table class="ms-table">
+            <thead><tr><th>Nội dung</th><th>Nhóm nhận</th><th>Người gửi</th><th>Thời gian</th><th>Đã đọc</th><th>Trạng thái</th></tr></thead>
+            <tbody>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td class="font-medium">Thông báo nghỉ lễ 30/4 và 1/5/2026</td><td><span class="badge badge-blue">Toàn công ty</span></td><td class="text-ms-gray600">Nguyễn Văn A</td><td class="text-ms-gray500">14/03 09:00</td><td><span class="text-ms-green font-medium">96%</span></td><td><span class="badge badge-green">Đã gửi</span></td></tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td class="font-medium">Lịch họi nghị tổng kết tháng 3</td><td><span class="badge badge-purple">Ban lãnh đạo</span></td><td class="text-ms-gray600">Trần T. Hoa</td><td class="text-ms-gray500">13/03 14:30</td><td><span class="text-ms-green font-medium">100%</span></td><td><span class="badge badge-green">Đã gửi</span></td></tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td class="font-medium">Nhắc nhở nộp báo cáo tuần</td><td><span class="badge badge-teal">Trưởng phòng</span></td><td class="text-ms-gray600">Hệ thống</td><td class="text-ms-gray500">10/03 08:00</td><td><span class="text-ms-green font-medium">88%</span></td><td><span class="badge badge-green">Đã gửi</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Lịch làm việc -->
+      <div id="content-calendar" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+              <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <span class="text-ms-gray700">Lịch làm việc</span>
+            </div>
+            <h1 class="text-xl font-semibold text-ms-gray900">Lịch làm việc tháng 3/2026</h1>
+          </div>
+          <div class="flex gap-2">
+            <button class="btn-secondary">&#8592; Tháng trước</button>
+            <button class="btn-primary">Tháng sau &#8594;</button>
+          </div>
+        </div>
+        <div class="ms-card p-4">
+          <div class="grid grid-cols-7 gap-1 mb-2">
+            <div class="text-center text-xs font-semibold text-ms-gray500 py-2">CN</div>
+            <div class="text-center text-xs font-semibold text-ms-gray500 py-2">T2</div>
+            <div class="text-center text-xs font-semibold text-ms-gray500 py-2">T3</div>
+            <div class="text-center text-xs font-semibold text-ms-gray500 py-2">T4</div>
+            <div class="text-center text-xs font-semibold text-ms-gray500 py-2">T5</div>
+            <div class="text-center text-xs font-semibold text-ms-gray500 py-2">T6</div>
+            <div class="text-center text-xs font-semibold text-ms-gray500 py-2">T7</div>
+          </div>
+          <div class="grid grid-cols-7 gap-1">
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray300"></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">3</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">4</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">5</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">6</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">7</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">8</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">9</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">10</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">11</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">12</div><div class="bg-ms-blue text-white rounded px-1 truncate">Họi nghị BGD</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">13</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">14</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">15</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">16</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">17</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">18</div><div class="bg-green-100 text-ms-green rounded px-1 truncate">Đào tạo ATLĐ</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">19</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">20</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">21</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">22</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">23</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">24</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">25</div><div class="bg-purple-100 text-purple-700 rounded px-1 truncate">Tổng kết T3</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">26</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">27</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">28</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">29</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs text-ms-gray400 bg-ms-gray50"><div class="font-semibold mb-1">30</div></div>
+            <div class="h-20 rounded border border-ms-gray200 p-1 text-xs"><div class="font-semibold mb-1">31</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cài đặt hệ thống -->
+      <div id="content-settings" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div>
+          <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+            <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span class="text-ms-gray700">Cài đặt hệ thống</span>
+          </div>
+          <h1 class="text-xl font-semibold text-ms-gray900">Cài đặt hệ thống</h1>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="ms-card p-4 space-y-4">
+            <h3 class="font-semibold text-sm text-ms-gray900 border-b border-ms-gray200 pb-2">Thông tin công ty</h3>
+            <div><label class="ms-label">Tên công ty</label><input type="text" class="ms-input" value="Công ty CP Thép Tây Đô" /></div>
+            <div><label class="ms-label">Mã số thuế</label><input type="text" class="ms-input" value="1800123456" /></div>
+            <div><label class="ms-label">Website</label><input type="text" class="ms-input" value="https://theptaydo.com" /></div>
+            <div><label class="ms-label">Email liên hệ</label><input type="text" class="ms-input" value="info@theptaydo.com" /></div>
+            <button class="btn-primary">Lưu thay đổi</button>
+          </div>
+          <div class="ms-card p-4 space-y-4">
+            <h3 class="font-semibold text-sm text-ms-gray900 border-b border-ms-gray200 pb-2">Cấu hình hệ thống</h3>
+            <div class="flex items-center justify-between py-2 border-b border-ms-gray100">
+              <div><p class="text-sm font-medium">Thông báo Zalo tự động</p><p class="text-xs text-ms-gray400">Gửi thông báo khi có văn bản mới</p></div>
+              <div class="w-10 h-6 bg-ms-blue rounded-full relative cursor-pointer"><div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1"></div></div>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-ms-gray100">
+              <div><p class="text-sm font-medium">Xác thực 2 bước</p><p class="text-xs text-ms-gray400">Yêu cầu OTP khi đăng nhập</p></div>
+              <div class="w-10 h-6 bg-ms-blue rounded-full relative cursor-pointer"><div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1"></div></div>
+            </div>
+            <div class="flex items-center justify-between py-2">
+              <div><p class="text-sm font-medium">Chế độ tối (Dark mode)</p><p class="text-xs text-ms-gray400">Giao diện nền tối</p></div>
+              <div class="w-10 h-6 bg-ms-gray300 rounded-full relative cursor-pointer"><div class="w-4 h-4 bg-white rounded-full absolute left-1 top-1"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quản trị -->
+      <div id="content-sysadmin" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div>
+          <div class="flex items-center gap-1 text-xs text-ms-gray500 mb-1">
+            <span onclick="showScreen('dashboard')" class="cursor-pointer hover:text-ms-blue">e-Office</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span class="text-ms-gray700">Quản trị</span>
+          </div>
+          <h1 class="text-xl font-semibold text-ms-gray900">Quản trị hệ thống</h1>
+        </div>
+        <div class="grid grid-cols-4 gap-4">
+          <div class="stat-card" style="border-top-color:#0078D4"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Tổng người dùng</p><p class="text-3xl font-semibold text-ms-gray900 mt-1">248</p><p class="text-xs text-ms-blue mt-1">12 admin</p></div>
+          <div class="stat-card" style="border-top-color:#107C10"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Đang hoạt động</p><p class="text-3xl font-semibold text-ms-green mt-1">231</p><p class="text-xs text-ms-gray400 mt-1">93% tổng số</p></div>
+          <div class="stat-card" style="border-top-color:#CA5010"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Phiên đăng nhập</p><p class="text-3xl font-semibold text-ms-orange mt-1">47</p><p class="text-xs text-ms-gray400 mt-1">Hiện tại</p></div>
+          <div class="stat-card" style="border-top-color:#8764B8"><p class="text-xs text-ms-gray500 font-medium uppercase tracking-wide">Dung lượng</p><p class="text-3xl font-semibold text-ms-gray900 mt-1">68%</p><p class="text-xs text-ms-gray400 mt-1">34GB / 50GB</p></div>
+        </div>
+        <div class="ms-card">
+          <div class="px-4 py-3 border-b border-ms-gray200 flex items-center justify-between">
+            <h3 class="font-semibold text-sm text-ms-gray900">Danh sách người dùng</h3>
+            <button class="btn-primary text-xs px-3 py-1.5 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              Thêm người dùng
+            </button>
+          </div>
+          <table class="ms-table">
+            <thead><tr><th>Họ tên</th><th>Email</th><th>Phòng ban</th><th>Vai trò</th><th>Trạng thái</th><th>Lần cuối đăng nhập</th><th class="w-24"></th></tr></thead>
+            <tbody>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td><div class="flex items-center gap-2"><div class="persona bg-ms-blue" style="width:28px;height:28px;font-size:10px">NVA</div><span class="font-medium">Nguyễn Văn A</span></div></td><td class="text-ms-gray600">nva@theptaydo.com</td><td class="text-ms-gray600">Phòng Kỹ thuật</td><td><span class="badge badge-blue">Admin</span></td><td><span class="badge badge-green">Đang hoạt động</span></td><td class="text-ms-gray500">14/03/2026 08:45</td><td class="flex gap-1"><button class="btn-ghost text-xs px-2 py-1">Sửa</button><button class="btn-ghost text-xs px-2 py-1 text-ms-red">Khóa</button></td></tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td><div class="flex items-center gap-2"><div class="persona bg-ms-green" style="width:28px;height:28px;font-size:10px">TTH</div><span class="font-medium">Trần Thị Hoa</span></div></td><td class="text-ms-gray600">tth@theptaydo.com</td><td class="text-ms-gray600">Phòng Kế toán</td><td><span class="badge badge-gray">Người dùng</span></td><td><span class="badge badge-green">Đang hoạt động</span></td><td class="text-ms-gray500">14/03/2026 07:52</td><td class="flex gap-1"><button class="btn-ghost text-xs px-2 py-1">Sửa</button><button class="btn-ghost text-xs px-2 py-1 text-ms-red">Khóa</button></td></tr>
+              <tr class="cursor-pointer" onclick="openModal('viewDocModal')"><td><div class="flex items-center gap-2"><div class="persona bg-ms-purple" style="width:28px;height:28px;font-size:10px">NM</div><span class="font-medium">Nguyễn Minh</span></div></td><td class="text-ms-gray600">nm@theptaydo.com</td><td class="text-ms-gray600">Phòng Kỹ thuật</td><td><span class="badge badge-gray">Người dùng</span></td><td><span class="badge badge-green">Đang hoạt động</span></td><td class="text-ms-gray500">13/03/2026 17:20</td><td class="flex gap-1"><button class="btn-ghost text-xs px-2 py-1">Sửa</button><button class="btn-ghost text-xs px-2 py-1 text-ms-red">Khóa</button></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
