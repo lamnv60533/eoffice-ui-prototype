@@ -1322,7 +1322,6 @@
           </div>
         </div>
       </div>
-      </div>
 
       <!-- ===== TASKS SCREEN ===== -->
       <div id="content-tasks" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none;flex-direction:column">
@@ -3847,9 +3846,19 @@
     // Show content
     const content = document.getElementById('content-' + name);
     if (content) {
-      // content-iso and content-drawing use flex for split layout, others use block
-      const flexScreens = ['iso', 'drawing'];
-      content.style.display = flexScreens.includes(name) ? 'flex' : 'block';
+      // iso and drawing use flex for split layout
+      // doc-outgoing, doc-internal, documents, tasks use flex+column to fill height
+      const flexSplitScreens = ['iso', 'drawing'];
+      const flexColScreens = ['doc-outgoing', 'doc-internal', 'documents', 'tasks'];
+      if (flexSplitScreens.includes(name)) {
+        content.style.display = 'flex';
+        content.style.flexDirection = '';
+      } else if (flexColScreens.includes(name)) {
+        content.style.display = 'flex';
+        content.style.flexDirection = 'column';
+      } else {
+        content.style.display = 'block';
+      }
       content.classList.add('fade-in');
     }
 
