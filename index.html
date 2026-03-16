@@ -2154,7 +2154,7 @@
                 </div>
                 <div style="display:flex;gap:8px;margin-top:8px">
                   <button class="ms-btn" style="flex:1;justify-content:center">Lưu</button>
-                  <button class="btn-ghost" style="flex:1;justify-content:center" onclick="toggleRightSidebar('noibo')">Dóng</button>
+                  <button class="btn-ghost" style="flex:1;justify-content:center" onclick="toggleRightSidebar('noibo')">Đóng</button>
                 </div>
               </div>
             </div>
@@ -2849,6 +2849,287 @@
         </div>
       </div>
 
+      <!-- ==================== ISO SCREEN ==================== -->
+      <div id="content-iso" class="flex-1 overflow-hidden fade-in" style="display:none">
+        <!-- ISO Left Sidebar Nav -->
+        <div style="width:200px;flex-shrink:0;background:#fff;border-right:1px solid #EDEBE9;display:flex;flex-direction:column">
+          <div style="padding:16px 12px 8px;border-bottom:1px solid #EDEBE9">
+            <div style="font-size:13px;font-weight:700;color:#201F1E">📋 Quản lý ISO</div>
+            <div style="font-size:11px;color:#605E5C;margin-top:2px">Tài liệu hệ thống chất lượng</div>
+          </div>
+          <nav style="padding:8px 0;flex:1;overflow-y:auto">
+            <div id="iso-nav-dashboard" class="nav-sub-item active" onclick="showIsoTab('iso-dashboard')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">📊 Tổng quan</div>
+            <div id="iso-nav-docs" class="nav-sub-item" onclick="showIsoTab('iso-docs')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">📄 Danh sách tài liệu</div>
+            <div id="iso-nav-approval" class="nav-sub-item" onclick="showIsoTab('iso-approval')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">✅ Phê duyệt tài liệu</div>
+            <div id="iso-nav-version" class="nav-sub-item" onclick="showIsoTab('iso-version')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">🔄 Lịch sử phiên bản</div>
+            <div id="iso-nav-review" class="nav-sub-item" onclick="showIsoTab('iso-review')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">📅 Lịch xem xét</div>
+            <div id="iso-nav-distribute" class="nav-sub-item" onclick="showIsoTab('iso-distribute')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">📤 Phân phối tài liệu</div>
+            <div id="iso-nav-report" class="nav-sub-item" onclick="showIsoTab('iso-report')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">📈 Báo cáo ISO</div>
+            <div id="iso-nav-ai" class="nav-sub-item" onclick="showIsoTab('iso-ai')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">🤖 Trợ lý AI</div>
+          </nav>
+          <div style="padding:12px;border-top:1px solid #EDEBE9">
+            <button class="btn-primary w-full text-xs" onclick="openModal('isoNewDocModal')">+ Tạo tài liệu mới</button>
+          </div>
+        </div>
+        <!-- ISO Main Content -->
+        <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column">
+          <!-- ISO Dashboard Tab -->
+          <div id="iso-dashboard" style="padding:24px;display:block">
+            <div style="margin-bottom:20px">
+              <div style="font-size:11px;color:#605E5C;margin-bottom:4px">e-Office › Quản lý ISO</div>
+              <h1 style="font-size:20px;font-weight:600;color:#201F1E">Tổng quan ISO</h1>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
+              <div class="stat-card" style="border-top-color:#0078D4"><p style="font-size:11px;color:#605E5C">Tổng tài liệu</p><p style="font-size:28px;font-weight:700;color:#0078D4">47</p><p style="font-size:11px;color:#605E5C">Đang hiệu lực</p></div>
+              <div class="stat-card" style="border-top-color:#CA5010"><p style="font-size:11px;color:#605E5C">Chờ phê duyệt</p><p style="font-size:28px;font-weight:700;color:#CA5010">5</p><p style="font-size:11px;color:#605E5C">Cần xử lý</p></div>
+              <div class="stat-card" style="border-top-color:#107C10"><p style="font-size:11px;color:#605E5C">Đã phê duyệt tháng này</p><p style="font-size:28px;font-weight:700;color:#107C10">8</p><p style="font-size:11px;color:#605E5C">Tháng 3/2026</p></div>
+              <div class="stat-card" style="border-top-color:#8764B8"><p style="font-size:11px;color:#605E5C">Sắp hết hạn xem xét</p><p style="font-size:28px;font-weight:700;color:#8764B8">3</p><p style="font-size:11px;color:#605E5C">Trong 30 ngày</p></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="ms-card">
+                <div style="padding:12px 16px;border-bottom:1px solid #EDEBE9;font-size:13px;font-weight:600">Tài liệu cần xử lý</div>
+                <table class="ms-table">
+                  <thead><tr><th>Mã tài liệu</th><th>Tên tài liệu</th><th>Loại</th><th>Trạng thái</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td style="font-size:12px;font-weight:600;color:#0078D4">QP-KT-001</td><td style="font-size:12px">Quy trình kiểm tra chất lượng thép cuộn</td><td><span class="badge badge-blue">Quy trình</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td><td><button class="btn-primary text-xs px-2 py-1" onclick="openModal('isoApproveModal')">Duyệt</button></td></tr>
+                    <tr><td style="font-size:12px;font-weight:600;color:#0078D4">HD-SX-003</td><td style="font-size:12px">Hướng dẫn vận hành lò luyện thép</td><td><span class="badge badge-gray">Hướng dẫn</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td><td><button class="btn-primary text-xs px-2 py-1" onclick="openModal('isoApproveModal')">Duyệt</button></td></tr>
+                    <tr><td style="font-size:12px;font-weight:600;color:#0078D4">BM-KT-012</td><td style="font-size:12px">Biểu mẫu kiểm tra nguyên liệu đầu vào</td><td><span class="badge badge-green">Biểu mẫu</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td><td><button class="btn-primary text-xs px-2 py-1" onclick="openModal('isoApproveModal')">Duyệt</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="ms-card">
+                <div style="padding:12px 16px;border-bottom:1px solid #EDEBE9;font-size:13px;font-weight:600">Phân bổ tài liệu theo loại</div>
+                <div style="padding:16px;display:flex;flex-direction:column;gap:10px">
+                  <div style="display:flex;align-items:center;gap:10px"><div style="width:12px;height:12px;border-radius:2px;background:#0078D4;flex-shrink:0"></div><div style="flex:1;font-size:12px">Quy trình (QP)</div><div style="font-size:12px;font-weight:600">14</div><div style="flex:1;background:#F3F2F1;border-radius:4px;height:8px"><div style="background:#0078D4;height:100%;border-radius:4px;width:70%"></div></div></div>
+                  <div style="display:flex;align-items:center;gap:10px"><div style="width:12px;height:12px;border-radius:2px;background:#107C10;flex-shrink:0"></div><div style="flex:1;font-size:12px">Hướng dẫn (HD)</div><div style="font-size:12px;font-weight:600">11</div><div style="flex:1;background:#F3F2F1;border-radius:4px;height:8px"><div style="background:#107C10;height:100%;border-radius:4px;width:55%"></div></div></div>
+                  <div style="display:flex;align-items:center;gap:10px"><div style="width:12px;height:12px;border-radius:2px;background:#CA5010;flex-shrink:0"></div><div style="flex:1;font-size:12px">Biểu mẫu (BM)</div><div style="font-size:12px;font-weight:600">18</div><div style="flex:1;background:#F3F2F1;border-radius:4px;height:8px"><div style="background:#CA5010;height:100%;border-radius:4px;width:90%"></div></div></div>
+                  <div style="display:flex;align-items:center;gap:10px"><div style="width:12px;height:12px;border-radius:2px;background:#8764B8;flex-shrink:0"></div><div style="flex:1;font-size:12px">Quy định (QĐ)</div><div style="font-size:12px;font-weight:600">4</div><div style="flex:1;background:#F3F2F1;border-radius:4px;height:8px"><div style="background:#8764B8;height:100%;border-radius:4px;width:20%"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ISO Docs List Tab -->
+          <div id="iso-docs" style="padding:24px;display:none">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+              <h1 style="font-size:20px;font-weight:600;color:#201F1E">Danh sách tài liệu ISO</h1>
+              <div style="display:flex;gap:8px">
+                <input type="text" class="ms-input" placeholder="Tìm tài liệu..." style="width:220px"/>
+                <button class="btn-primary" onclick="openModal('isoNewDocModal')">+ Tạo mới</button>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;margin-bottom:16px">
+              <button class="btn-primary text-xs px-3 py-1.5">Tất cả (47)</button>
+              <button class="btn-ghost text-xs px-3 py-1.5">Quy trình (14)</button>
+              <button class="btn-ghost text-xs px-3 py-1.5">Hướng dẫn (11)</button>
+              <button class="btn-ghost text-xs px-3 py-1.5">Biểu mẫu (18)</button>
+              <button class="btn-ghost text-xs px-3 py-1.5">Quy định (4)</button>
+            </div>
+            <div class="ms-card">
+              <table class="ms-table">
+                <thead><tr><th>Mã tài liệu</th><th>Tên tài liệu</th><th>Phiên bản</th><th>Phòng ban</th><th>Ngày ban hành</th><th>Ngày xem xét</th><th>Trạng thái</th><th class="w-24"></th></tr></thead>
+                <tbody>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')"><td style="font-weight:600;color:#0078D4;font-size:12px">QP-KT-001</td><td style="font-size:12px">Quy trình kiểm tra chất lượng thép cuộn</td><td style="font-size:12px">v3.0</td><td style="font-size:12px">Phòng Kỹ thuật</td><td style="font-size:12px">01/01/2026</td><td style="font-size:12px;color:#CA5010">01/07/2026</td><td><span class="badge badge-green">Hiệu lực</span></td><td><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoDocDetailModal');event.stopPropagation()">Xem</button></td></tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')"><td style="font-weight:600;color:#0078D4;font-size:12px">HD-SX-003</td><td style="font-size:12px">Hướng dẫn vận hành lò luyện thép</td><td style="font-size:12px">v2.1</td><td style="font-size:12px">Phòng Sản xuất</td><td style="font-size:12px">15/02/2026</td><td style="font-size:12px">15/08/2026</td><td><span class="badge badge-green">Hiệu lực</span></td><td><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoDocDetailModal');event.stopPropagation()">Xem</button></td></tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')"><td style="font-weight:600;color:#0078D4;font-size:12px">BM-KT-012</td><td style="font-size:12px">Biểu mẫu kiểm tra nguyên liệu đầu vào</td><td style="font-size:12px">v1.5</td><td style="font-size:12px">Phòng Kỹ thuật</td><td style="font-size:12px">10/03/2026</td><td style="font-size:12px">10/09/2026</td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td><td><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoApproveModal');event.stopPropagation()">Duyệt</button></td></tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')"><td style="font-weight:600;color:#0078D4;font-size:12px">QP-HC-002</td><td style="font-size:12px">Quy trình quản lý văn bản và hồ sơ</td><td style="font-size:12px">v4.0</td><td style="font-size:12px">Phòng Hành chính</td><td style="font-size:12px">01/01/2026</td><td style="font-size:12px">01/07/2026</td><td><span class="badge badge-green">Hiệu lực</span></td><td><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoDocDetailModal');event.stopPropagation()">Xem</button></td></tr>
+                  <tr class="cursor-pointer" onclick="openModal('isoDocDetailModal')"><td style="font-weight:600;color:#0078D4;font-size:12px">HD-AT-001</td><td style="font-size:12px">Hướng dẫn an toàn lao động trong phân xưởng</td><td style="font-size:12px">v2.0</td><td style="font-size:12px">Phòng An toàn</td><td style="font-size:12px">01/03/2026</td><td style="font-size:12px">01/09/2026</td><td><span class="badge badge-green">Hiệu lực</span></td><td><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoDocDetailModal');event.stopPropagation()">Xem</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ISO Approval Tab -->
+          <div id="iso-approval" style="padding:24px;display:none">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+              <h1 style="font-size:20px;font-weight:600;color:#201F1E">Phê duyệt tài liệu ISO</h1>
+              <span style="font-size:12px;color:#605E5C">5 tài liệu chờ phê duyệt</span>
+            </div>
+            <div class="ms-card">
+              <table class="ms-table">
+                <thead><tr><th>Mã tài liệu</th><th>Tên tài liệu</th><th>Người soạn</th><th>Ngày trình</th><th>Loại thay đổi</th><th>Trạng thái</th><th class="w-32"></th></tr></thead>
+                <tbody>
+                  <tr><td style="font-weight:600;color:#0078D4;font-size:12px">QP-KT-001</td><td style="font-size:12px">Quy trình kiểm tra chất lượng thép cuộn</td><td style="font-size:12px">Nguyễn Văn A</td><td style="font-size:12px">12/03/2026</td><td><span class="badge badge-blue">Sửa đổi lớn</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td><td style="display:flex;gap:4px"><button class="btn-primary text-xs px-2 py-1" onclick="openModal('isoApproveModal')">Duyệt</button><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoRejectModal')">Từ chối</button></td></tr>
+                  <tr><td style="font-weight:600;color:#0078D4;font-size:12px">BM-KT-012</td><td style="font-size:12px">Biểu mẫu kiểm tra nguyên liệu đầu vào</td><td style="font-size:12px">Trần Thị Hoa</td><td style="font-size:12px">10/03/2026</td><td><span class="badge badge-gray">Sửa đổi nhỏ</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td><td style="display:flex;gap:4px"><button class="btn-primary text-xs px-2 py-1" onclick="openModal('isoApproveModal')">Duyệt</button><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoRejectModal')">Từ chối</button></td></tr>
+                  <tr><td style="font-weight:600;color:#0078D4;font-size:12px">HD-SX-003</td><td style="font-size:12px">Hướng dẫn vận hành lò luyện thép</td><td style="font-size:12px">Lê Văn C</td><td style="font-size:12px">08/03/2026</td><td><span class="badge badge-blue">Sửa đổi lớn</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td><td style="display:flex;gap:4px"><button class="btn-primary text-xs px-2 py-1" onclick="openModal('isoApproveModal')">Duyệt</button><button class="btn-ghost text-xs px-2 py-1" onclick="openModal('isoRejectModal')">Từ chối</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ISO Version History Tab -->
+          <div id="iso-version" style="padding:24px;display:none">
+            <h1 style="font-size:20px;font-weight:600;color:#201F1E;margin-bottom:16px">Lịch sử phiên bản</h1>
+            <div class="ms-card">
+              <table class="ms-table">
+                <thead><tr><th>Mã tài liệu</th><th>Tên tài liệu</th><th>Phiên bản cũ</th><th>Phiên bản mới</th><th>Ngày ban hành</th><th>Người duyệt</th><th>Lý do thay đổi</th></tr></thead>
+                <tbody>
+                  <tr><td style="font-weight:600;color:#0078D4;font-size:12px">QP-KT-001</td><td style="font-size:12px">Quy trình kiểm tra chất lượng</td><td style="font-size:12px">v2.1</td><td style="font-size:12px;font-weight:600">v3.0</td><td style="font-size:12px">01/01/2026</td><td style="font-size:12px">Giám đốc KT</td><td style="font-size:12px">Cập nhật theo tiêu chuẩn ISO 9001:2015</td></tr>
+                  <tr><td style="font-weight:600;color:#0078D4;font-size:12px">HD-SX-003</td><td style="font-size:12px">Hướng dẫn vận hành lò luyện</td><td style="font-size:12px">v2.0</td><td style="font-size:12px;font-weight:600">v2.1</td><td style="font-size:12px">15/02/2026</td><td style="font-size:12px">Trưởng phòng SX</td><td style="font-size:12px">Bổ sung quy trình an toàn mới</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ISO Review Schedule Tab -->
+          <div id="iso-review" style="padding:24px;display:none">
+            <h1 style="font-size:20px;font-weight:600;color:#201F1E;margin-bottom:16px">Lịch xem xét tài liệu</h1>
+            <div class="ms-card">
+              <table class="ms-table">
+                <thead><tr><th>Mã tài liệu</th><th>Tên tài liệu</th><th>Chu kỳ xem xét</th><th>Lần xem xét cuối</th><th>Ngày xem xét tiếp</th><th>Trạng thái</th></tr></thead>
+                <tbody>
+                  <tr><td style="font-weight:600;color:#0078D4;font-size:12px">QP-KT-001</td><td style="font-size:12px">Quy trình kiểm tra chất lượng</td><td style="font-size:12px">6 tháng</td><td style="font-size:12px">01/01/2026</td><td style="font-size:12px;color:#CA5010;font-weight:600">01/07/2026</td><td><span class="badge badge-green">Đúng hạn</span></td></tr>
+                  <tr><td style="font-weight:600;color:#0078D4;font-size:12px">HD-AT-001</td><td style="font-size:12px">Hướng dẫn an toàn lao động</td><td style="font-size:12px">12 tháng</td><td style="font-size:12px">01/03/2025</td><td style="font-size:12px;color:#D13438;font-weight:600">01/03/2026</td><td><span class="badge badge-red">Quá hạn</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ISO Distribute Tab -->
+          <div id="iso-distribute" style="padding:24px;display:none">
+            <h1 style="font-size:20px;font-weight:600;color:#201F1E;margin-bottom:16px">Phân phối tài liệu</h1>
+            <div class="ms-card" style="padding:16px">
+              <p style="font-size:13px;color:#605E5C;margin-bottom:12px">Gửi thông báo thay đổi tài liệu (TBTDTL) đến các phòng ban liên quan</p>
+              <button class="btn-primary" onclick="openModal('isoNotifyModal')">📤 Tạo thông báo phân phối</button>
+            </div>
+          </div>
+          <!-- ISO Report Tab -->
+          <div id="iso-report" style="padding:24px;display:none">
+            <h1 style="font-size:20px;font-weight:600;color:#201F1E;margin-bottom:16px">Báo cáo ISO</h1>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+              <div class="stat-card" style="border-top-color:#0078D4"><p style="font-size:11px;color:#605E5C">Tỷ lệ tài liệu hiệu lực</p><p style="font-size:28px;font-weight:700;color:#0078D4">89%</p></div>
+              <div class="stat-card" style="border-top-color:#107C10"><p style="font-size:11px;color:#605E5C">Tài liệu được xem xét đúng hạn</p><p style="font-size:28px;font-weight:700;color:#107C10">94%</p></div>
+              <div class="stat-card" style="border-top-color:#CA5010"><p style="font-size:11px;color:#605E5C">Tài liệu quá hạn xem xét</p><p style="font-size:28px;font-weight:700;color:#CA5010">6%</p></div>
+            </div>
+          </div>
+          <!-- ISO AI Tab -->
+          <div id="iso-ai" style="padding:24px;display:none">
+            <h1 style="font-size:20px;font-weight:600;color:#201F1E;margin-bottom:16px">🤖 Trợ lý AI ISO</h1>
+            <div class="ms-card" style="padding:16px;max-width:700px">
+              <p style="font-size:13px;color:#605E5C;margin-bottom:12px">Hỏi AI về các yêu cầu ISO, cách soạn thảo tài liệu, hoặc kiểm tra tính tuân thủ.</p>
+              <div style="background:#F3F2F1;border-radius:8px;padding:16px;margin-bottom:12px">
+                <div style="font-size:12px;color:#605E5C;margin-bottom:8px">🤖 AI: Xin chào! Tôi có thể giúp bạn về:</div>
+                <ul style="font-size:12px;color:#201F1E;padding-left:16px;line-height:1.8">
+                  <li>Soạn thảo tài liệu ISO theo chuẩn</li>
+                  <li>Kiểm tra tính tuân thủ ISO 9001:2015</li>
+                  <li>Hướng dẫn quy trình phê duyệt</li>
+                  <li>Tư vấn cải tiến quy trình</li>
+                </ul>
+              </div>
+              <div style="display:flex;gap:8px">
+                <input type="text" class="ms-input flex-1" placeholder="Nhập câu hỏi về ISO..." style="font-size:13px"/>
+                <button class="btn-primary">Gửi</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== TASKS SCREEN ==================== -->
+      <div id="content-tasks" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div>
+            <div style="font-size:11px;color:#605E5C;margin-bottom:4px">e-Office › Công việc</div>
+            <h1 style="font-size:20px;font-weight:600;color:#201F1E">Quản lý công việc</h1>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button id="btnKanban" class="btn-ghost text-xs px-3 py-1.5" onclick="setTaskView('kanban')" style="background:#0078D4;color:white">⊞ Kanban</button>
+            <button id="btnList" class="btn-ghost text-xs px-3 py-1.5" onclick="setTaskView('list')">☰ Danh sách</button>
+            <button class="btn-primary text-xs px-3 py-1.5">+ Tạo công việc</button>
+          </div>
+        </div>
+        <!-- Kanban View -->
+        <div id="kanbanView" style="display:flex;gap:16px;overflow-x:auto;padding-bottom:8px">
+          <div style="min-width:260px;background:#F3F2F1;border-radius:8px;padding:12px">
+            <div style="font-size:12px;font-weight:700;color:#605E5C;margin-bottom:12px;display:flex;justify-content:space-between"><span>📋 CẦN LÀM</span><span style="background:#0078D4;color:white;border-radius:10px;padding:1px 8px">3</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div class="ms-card" style="padding:12px;cursor:pointer"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Kiểm tra chất lượng thép cuộn Q1</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Phòng Kỹ thuật</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#D13438">⏰ 15/03/2026</span><span class="badge badge-red">Gấp</span></div></div>
+              <div class="ms-card" style="padding:12px;cursor:pointer"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Lập báo cáo tiêu thụ điện tháng 3</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Phòng Kỹ thuật</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#605E5C">⏰ 20/03/2026</span><span class="badge badge-gray">Bình thường</span></div></div>
+              <div class="ms-card" style="padding:12px;cursor:pointer"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Cập nhật tài liệu ISO QP-KT-001</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Phòng Kỹ thuật</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#605E5C">⏰ 25/03/2026</span><span class="badge badge-green">Thấp</span></div></div>
+            </div>
+          </div>
+          <div style="min-width:260px;background:#F3F2F1;border-radius:8px;padding:12px">
+            <div style="font-size:12px;font-weight:700;color:#605E5C;margin-bottom:12px;display:flex;justify-content:space-between"><span>🔄 ĐANG LÀM</span><span style="background:#CA5010;color:white;border-radius:10px;padding:1px 8px">2</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div class="ms-card" style="padding:12px;cursor:pointer"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Soạn báo cáo sản xuất tháng 3</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Phòng Kinh doanh</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#605E5C">⏰ 18/03/2026</span><span class="badge badge-blue">Đang làm</span></div></div>
+              <div class="ms-card" style="padding:12px;cursor:pointer"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Họp giao ban tuần 11</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Ban Giám đốc</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#605E5C">⏰ 16/03/2026</span><span class="badge badge-blue">Đang làm</span></div></div>
+            </div>
+          </div>
+          <div style="min-width:260px;background:#F3F2F1;border-radius:8px;padding:12px">
+            <div style="font-size:12px;font-weight:700;color:#605E5C;margin-bottom:12px;display:flex;justify-content:space-between"><span>👀 CHỜ DUYỆT</span><span style="background:#8764B8;color:white;border-radius:10px;padding:1px 8px">1</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div class="ms-card" style="padding:12px;cursor:pointer"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Đề xuất mua thiết bị phòng thí nghiệm</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Phòng Kỹ thuật</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#605E5C">⏰ 22/03/2026</span><span class="badge badge-gray">Chờ duyệt</span></div></div>
+            </div>
+          </div>
+          <div style="min-width:260px;background:#F3F2F1;border-radius:8px;padding:12px">
+            <div style="font-size:12px;font-weight:700;color:#605E5C;margin-bottom:12px;display:flex;justify-content:space-between"><span>✅ HOÀN THÀNH</span><span style="background:#107C10;color:white;border-radius:10px;padding:1px 8px">5</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div class="ms-card" style="padding:12px;cursor:pointer;opacity:0.7"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Kiểm tra thiết bị an toàn Q1</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Phòng An toàn</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#107C10">✓ 10/03/2026</span><span class="badge badge-green">Hoàn thành</span></div></div>
+              <div class="ms-card" style="padding:12px;cursor:pointer;opacity:0.7"><div style="font-size:12px;font-weight:600;margin-bottom:6px">Nộp báo cáo môi trường Q1</div><div style="font-size:11px;color:#605E5C;margin-bottom:8px">Phòng Kỹ thuật</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#107C10">✓ 08/03/2026</span><span class="badge badge-green">Hoàn thành</span></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- List View -->
+        <div id="listView" style="display:none">
+          <div class="ms-card">
+            <table class="ms-table">
+              <thead><tr><th>Tiêu đề</th><th>Phòng ban</th><th>Người thực hiện</th><th>Hạn</th><th>Ưu tiên</th><th>Trạng thái</th></tr></thead>
+              <tbody>
+                <tr><td style="font-size:12px;font-weight:600">Kiểm tra chất lượng thép cuộn Q1</td><td style="font-size:12px">Phòng Kỹ thuật</td><td style="font-size:12px">Nguyễn Văn A</td><td style="font-size:12px;color:#D13438">15/03/2026</td><td><span class="badge badge-red">Gấp</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Cần làm</span></td></tr>
+                <tr><td style="font-size:12px;font-weight:600">Soạn báo cáo sản xuất tháng 3</td><td style="font-size:12px">Phòng Kinh doanh</td><td style="font-size:12px">Trần Thị Hoa</td><td style="font-size:12px">18/03/2026</td><td><span class="badge badge-blue">Bình thường</span></td><td><span class="badge badge-blue">Đang làm</span></td></tr>
+                <tr><td style="font-size:12px;font-weight:600">Cập nhật tài liệu ISO QP-KT-001</td><td style="font-size:12px">Phòng Kỹ thuật</td><td style="font-size:12px">Nguyễn Văn A</td><td style="font-size:12px">25/03/2026</td><td><span class="badge badge-gray">Thấp</span></td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Cần làm</span></td></tr>
+                <tr><td style="font-size:12px;font-weight:600">Kiểm tra thiết bị an toàn Q1</td><td style="font-size:12px">Phòng An toàn</td><td style="font-size:12px">Lê Văn C</td><td style="font-size:12px;color:#107C10">10/03/2026</td><td><span class="badge badge-gray">Bình thường</span></td><td><span class="badge badge-green">Hoàn thành</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== SALARY SCREEN ==================== -->
+      <div id="content-salary" class="flex-1 overflow-y-auto p-6 space-y-4 fade-in" style="display:none">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div>
+            <div style="font-size:11px;color:#605E5C;margin-bottom:4px">e-Office › Lương</div>
+            <h1 style="font-size:20px;font-weight:600;color:#201F1E">Bảng lương tháng 3/2026</h1>
+          </div>
+          <div style="display:flex;gap:8px">
+            <select class="ms-input" style="width:160px;font-size:12px"><option>Tháng 3/2026</option><option>Tháng 2/2026</option><option>Tháng 1/2026</option></select>
+            <button class="btn-ghost text-xs px-3 py-1.5">📥 Xuất Excel</button>
+            <button class="btn-primary text-xs px-3 py-1.5">✅ Chốt lương</button>
+          </div>
+        </div>
+        <!-- Salary Stats -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+          <div class="stat-card" style="border-top-color:#0078D4"><p style="font-size:11px;color:#605E5C">Tổng quỹ lương</p><p style="font-size:24px;font-weight:700;color:#0078D4">2.84 tỷ</p><p style="font-size:11px;color:#605E5C">Tháng 3/2026</p></div>
+          <div class="stat-card" style="border-top-color:#107C10"><p style="font-size:11px;color:#605E5C">Số nhân viên</p><p style="font-size:24px;font-weight:700;color:#107C10">142</p><p style="font-size:11px;color:#605E5C">Đang làm việc</p></div>
+          <div class="stat-card" style="border-top-color:#CA5010"><p style="font-size:11px;color:#605E5C">Lương bình quân</p><p style="font-size:24px;font-weight:700;color:#CA5010">20 triệu</p><p style="font-size:11px;color:#605E5C">Trước thuế</p></div>
+          <div class="stat-card" style="border-top-color:#8764B8"><p style="font-size:11px;color:#605E5C">Trạng thái</p><p style="font-size:24px;font-weight:700;color:#8764B8">Chưa chốt</p><p style="font-size:11px;color:#605E5C">Hạn: 20/03/2026</p></div>
+        </div>
+        <!-- Salary Table -->
+        <div class="ms-card">
+          <div style="padding:12px 16px;border-bottom:1px solid #EDEBE9;display:flex;align-items:center;justify-content:space-between">
+            <span style="font-size:13px;font-weight:600">Chi tiết bảng lương</span>
+            <input type="text" class="ms-input" placeholder="Tìm nhân viên..." style="width:200px;font-size:12px"/>
+          </div>
+          <table class="ms-table">
+            <thead><tr><th>Họ tên</th><th>Phòng ban</th><th>Chức vụ</th><th>Lương cơ bản</th><th>Phụ cấp</th><th>Thưởng</th><th>Khấu trừ</th><th>Thực lĩnh</th><th>Trạng thái</th></tr></thead>
+            <tbody>
+              <tr><td><div style="display:flex;align-items:center;gap:8px"><div class="persona bg-ms-blue" style="width:28px;height:28px;font-size:10px">NVA</div><span style="font-size:12px;font-weight:600">Nguyễn Văn A</span></div></td><td style="font-size:12px">Phòng Kỹ thuật</td><td style="font-size:12px">Trưởng phòng</td><td style="font-size:12px">25,000,000</td><td style="font-size:12px">3,500,000</td><td style="font-size:12px;color:#107C10">2,000,000</td><td style="font-size:12px;color:#D13438">-3,200,000</td><td style="font-size:12px;font-weight:700">27,300,000</td><td><span class="badge badge-green">Đã duyệt</span></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:8px"><div class="persona bg-ms-green" style="width:28px;height:28px;font-size:10px">TTH</div><span style="font-size:12px;font-weight:600">Trần Thị Hoa</span></div></td><td style="font-size:12px">Phòng Kế toán</td><td style="font-size:12px">Kế toán viên</td><td style="font-size:12px">18,000,000</td><td style="font-size:12px">2,000,000</td><td style="font-size:12px;color:#107C10">1,500,000</td><td style="font-size:12px;color:#D13438">-2,450,000</td><td style="font-size:12px;font-weight:700">19,050,000</td><td><span class="badge badge-green">Đã duyệt</span></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:8px"><div class="persona bg-ms-purple" style="width:28px;height:28px;font-size:10px">NM</div><span style="font-size:12px;font-weight:600">Nguyễn Minh</span></div></td><td style="font-size:12px">Phòng Kỹ thuật</td><td style="font-size:12px">Kỹ sư</td><td style="font-size:12px">20,000,000</td><td style="font-size:12px">2,500,000</td><td style="font-size:12px;color:#107C10">1,000,000</td><td style="font-size:12px;color:#D13438">-2,750,000</td><td style="font-size:12px;font-weight:700">20,750,000</td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td></tr>
+              <tr><td><div style="display:flex;align-items:center;gap:8px"><div class="persona bg-ms-red" style="width:28px;height:28px;font-size:10px">LT</div><span style="font-size:12px;font-weight:600">Lê Thanh</span></div></td><td style="font-size:12px">Phòng Sản xuất</td><td style="font-size:12px">Công nhân</td><td style="font-size:12px">12,000,000</td><td style="font-size:12px">1,500,000</td><td style="font-size:12px;color:#107C10">500,000</td><td style="font-size:12px;color:#D13438">-1,650,000</td><td style="font-size:12px;font-weight:700">12,350,000</td><td><span class="badge" style="background:#FFF4CE;color:#8A6914">Chờ duyệt</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Attendance Summary -->
+        <div class="ms-card">
+          <div style="padding:12px 16px;border-bottom:1px solid #EDEBE9;font-size:13px;font-weight:600">Tổng hợp chấm công tháng 3/2026</div>
+          <table class="ms-table">
+            <thead><tr><th>Họ tên</th><th>Ngày công chuẩn</th><th>Ngày công thực tế</th><th>Nghỉ phép</th><th>Nghỉ không lương</th><th>Tăng ca (giờ)</th><th>Ghi chú</th></tr></thead>
+            <tbody>
+              <tr><td style="font-size:12px;font-weight:600">Nguyễn Văn A</td><td style="font-size:12px">22</td><td style="font-size:12px">22</td><td style="font-size:12px">0</td><td style="font-size:12px">0</td><td style="font-size:12px;color:#0078D4">8</td><td style="font-size:12px">—</td></tr>
+              <tr><td style="font-size:12px;font-weight:600">Trần Thị Hoa</td><td style="font-size:12px">22</td><td style="font-size:12px">21</td><td style="font-size:12px">1</td><td style="font-size:12px">0</td><td style="font-size:12px;color:#0078D4">0</td><td style="font-size:12px">Nghỉ phép 13/03</td></tr>
+              <tr><td style="font-size:12px;font-weight:600">Nguyễn Minh</td><td style="font-size:12px">22</td><td style="font-size:12px">20</td><td style="font-size:12px">0</td><td style="font-size:12px">2</td><td style="font-size:12px;color:#0078D4">4</td><td style="font-size:12px">Nghỉ không lương 11-12/03</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </main>
   </div>
 </div>
@@ -3361,6 +3642,10 @@
       if (flexSplitScreens.includes(name)) {
         content.style.display = 'flex';
         content.style.flexDirection = '';
+        // Init ISO tab on first open
+        if (name === 'iso') {
+          showIsoTab('iso-dashboard');
+        }
       } else if (flexColScreens.includes(name)) {
         content.style.display = 'flex';
         content.style.flexDirection = 'column';
