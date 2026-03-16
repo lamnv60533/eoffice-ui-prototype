@@ -3737,6 +3737,15 @@
     const list = el.closest('.vanthu-list-body');
     if (list) list.querySelectorAll('.vanthu-card').forEach(c => c.classList.remove('active'));
     el.classList.add('active');
+    // Auto-open right sidebar with doc info
+    const layout = el.closest('.vanthu-layout');
+    if (layout) {
+      const sidebar = layout.querySelector('.vanthu-right-sidebar');
+      if (sidebar) {
+        sidebar.classList.remove('collapsed');
+        sidebar.classList.add('open');
+      }
+    }
   }
 
   function toggleRightSidebar(tab) {
