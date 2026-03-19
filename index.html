@@ -2868,7 +2868,7 @@
             <div id="iso-nav-ai" class="nav-sub-item" onclick="showIsoTab('iso-ai')" style="padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px">🤖 Trợ lý AI</div>
           </nav>
           <div style="padding:12px;border-top:1px solid #EDEBE9">
-            <button class="btn-primary w-full text-xs" onclick="openModal('isoNewDocModal')">+ Tạo tài liệu mới</button>
+            <button class="btn-primary w-full text-xs" onclick="openIsoWizard()">+ Tạo tài liệu mới</button>
           </div>
         </div>
         <!-- ISO Main Content -->
@@ -2914,7 +2914,7 @@
               <h1 style="font-size:20px;font-weight:600;color:#201F1E">Danh sách tài liệu ISO</h1>
               <div style="display:flex;gap:8px">
                 <input type="text" class="ms-input" placeholder="Tìm tài liệu..." style="width:220px"/>
-                <button class="btn-primary" onclick="openModal('isoNewDocModal')">+ Tạo mới</button>
+                <button class="btn-primary" onclick="openIsoWizard()">+ Tạo mới</button>
               </div>
             </div>
             <div style="display:flex;gap:8px;margin-bottom:16px">
@@ -3394,35 +3394,374 @@
   </div>
 </div>
 
-<!-- ISO New Document Modal -->
-<div id="isoNewDocModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('isoNewDocModal')">
-  <div class="modal-box" style="width:560px">
-    <div class="modal-header">
-      <h2 class="text-base font-semibold text-ms-gray900">Tạo tài liệu ISO mới</h2>
-      <button class="btn-ghost p-1" onclick="closeModal('isoNewDocModal')"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+<!-- ISO Create Wizard - Full Page Overlay -->
+<div id="isoCreateWizard" style="display:none;position:fixed;inset:0;z-index:2000;background:#F3F2F1;flex-direction:column;overflow:hidden">
+  <!-- Wizard Header -->
+  <div style="background:#fff;border-bottom:1px solid #EDEBE9;padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+    <div style="display:flex;align-items:center;gap:12px">
+      <button onclick="closeIsoWizard()" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;color:#605E5C;font-size:13px;padding:4px 8px;border-radius:4px" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Tài liệu ISO
+      </button>
+      <span style="color:#EDEBE9">›</span>
+      <span style="font-size:14px;font-weight:600;color:#201F1E">Tạo tài liệu ISO mới</span>
     </div>
-    <div class="modal-body space-y-4">
-      <div class="grid grid-cols-2 gap-4">
-        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Loại tài liệu <span class="text-red-500">*</span></label><select class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm"><option>QP - Quy trình</option><option>HD - Hướng dẫn công việc</option><option>BM - Biểu mẫu</option><option>QĐ - Quy định</option><option>KH - Kế hoạch chất lượng</option></select></div>
-        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Mã tài liệu <span class="text-red-500">*</span></label><input type="text" class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" placeholder="VD: QP-KT-005"/></div>
+    <button onclick="closeIsoWizard()" style="background:none;border:none;cursor:pointer;padding:6px;border-radius:4px;color:#605E5C" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'">
+      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <!-- Step Progress Bar -->
+  <div style="background:#fff;border-bottom:1px solid #EDEBE9;padding:0;flex-shrink:0">
+    <div style="display:flex;height:44px">
+      <div id="iso-wiz-step1" class="iso-wiz-step done" onclick="isoWizGoTo(1)" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;cursor:pointer;border-bottom:3px solid #107C10;color:#107C10;font-weight:500">
+        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        1. Chọn thư mục
       </div>
-      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Tên tài liệu <span class="text-red-500">*</span></label><input type="text" class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" placeholder="Nhập tên tài liệu..."/></div>
-      <div class="grid grid-cols-2 gap-4">
-        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Phòng ban phụ trách</label><select class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm"><option>Phòng Kỹ thuật</option><option>Phòng Kinh doanh</option><option>Phòng Sản xuất</option><option>Phòng Hành chính</option><option>Phòng Nhân sự</option></select></div>
-        <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Chu kỳ xem xét</label><select class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm"><option>6 tháng</option><option>1 năm</option><option>2 năm</option></select></div>
+      <div id="iso-wiz-step2" class="iso-wiz-step done" onclick="isoWizGoTo(2)" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;cursor:pointer;border-bottom:3px solid #107C10;color:#107C10;font-weight:500">
+        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        2. Chọn mẫu
       </div>
-      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Mô tả / Phạm vi áp dụng</label><textarea class="w-full border border-ms-gray300 rounded px-3 py-2 text-sm" rows="3" placeholder="Mô tả ngắn về tài liệu và phạm vi áp dụng..."></textarea></div>
-      <div><label class="block text-xs font-medium text-ms-gray700 mb-1">Đính kèm file tài liệu</label><div class="border-2 border-dashed border-ms-gray300 rounded p-4 text-center"><p class="text-sm text-ms-gray500">Kéo thả file hoặc <span class="text-ms-blue cursor-pointer">chọn file</span></p><p class="text-xs text-ms-gray400 mt-1">Hỗ trợ: .docx, .pdf, .xlsx (tối đa 20MB)</p></div></div>
-      <div class="bg-ms-gray50 rounded p-3">
-        <p class="text-xs font-medium text-ms-gray700 mb-2">Luồng phê duyệt sẽ được áp dụng:</p>
-        <div class="flex items-center gap-2 text-xs text-ms-gray600">
-          <span class="badge badge-blue">1. Soạn thảo</span><span>→</span><span class="badge badge-gray">2. KS QMR</span><span>→</span><span class="badge badge-gray">3. PD BLĐ</span><span>→</span><span class="badge badge-gray">4. Phát hành</span>
+      <div id="iso-wiz-step3" class="iso-wiz-step active" onclick="isoWizGoTo(3)" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;cursor:pointer;border-bottom:3px solid #0078D4;color:#0078D4;font-weight:600;background:#F0F6FF">
+        3. Upload &amp; Tạo
+      </div>
+      <div id="iso-wiz-step4" class="iso-wiz-step" onclick="isoWizGoTo(4)" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;cursor:pointer;border-bottom:3px solid transparent;color:#A19F9D">
+        4. Soạn thảo
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Upload & Tạo -->
+  <div id="iso-wiz-panel3" style="flex:1;overflow-y:auto;padding:32px;display:flex;flex-direction:column;gap:20px;max-width:900px;margin:0 auto;width:100%">
+    <!-- Thông tin tài liệu -->
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:6px;padding:24px">
+      <h3 style="font-size:14px;font-weight:600;color:#201F1E;margin-bottom:16px">Thông tin tài liệu</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <label style="display:block;font-size:12px;font-weight:500;color:#323130;margin-bottom:6px">Tiêu đề <span style="color:#D13438">*</span></label>
+          <input id="iso-wiz-title" type="text" class="ms-input" placeholder="Nhập tiêu đề tài liệu" style="width:100%"/>
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:500;color:#323130;margin-bottom:6px">Mã tài liệu <span style="color:#D13438">*</span></label>
+          <input id="iso-wiz-code" type="text" class="ms-input" value="TPL-QP-002" style="width:100%"/>
         </div>
       </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn-secondary" onclick="closeModal('isoNewDocModal')">Hủy</button>
-      <button class="btn-primary" onclick="closeModal('isoNewDocModal')">Tạo & Gửi duyệt</button>
+    <!-- File tài liệu -->
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:6px;padding:24px">
+      <h3 style="font-size:14px;font-weight:600;color:#201F1E;margin-bottom:16px">File tài liệu</h3>
+      <div id="iso-wiz-file-selected" style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#F0F6FF;border:1.5px solid #0078D4;border-radius:6px;cursor:pointer" onclick="isoWizSelectFile()">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg width="20" height="20" fill="none" stroke="#0078D4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#0078D4">Sử dụng file từ mẫu</div>
+            <div style="font-size:11px;color:#605E5C;margin-top:1px">Mẫu Quy trình</div>
+          </div>
+        </div>
+        <button onclick="event.stopPropagation();isoWizUploadOther()" style="font-size:12px;color:#0078D4;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:4px">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+          Tải lên file khác
+        </button>
+      </div>
+    </div>
+    <!-- Quy trình phê duyệt -->
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:6px;padding:24px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <h3 style="font-size:14px;font-weight:600;color:#201F1E">Quy trình phê duyệt</h3>
+        <button style="font-size:12px;color:#0078D4;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:4px">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          Thêm bước
+        </button>
+      </div>
+      <!-- Step row 1 -->
+      <div style="display:grid;grid-template-columns:32px 1fr 1fr 1fr 40px;gap:12px;align-items:center;margin-bottom:12px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+          <button style="background:none;border:none;cursor:pointer;color:#A19F9D;font-size:10px;line-height:1">▲</button>
+          <span style="font-size:11px;font-weight:600;color:#605E5C">#1</span>
+          <button style="background:none;border:none;cursor:pointer;color:#A19F9D;font-size:10px;line-height:1">▼</button>
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:#605E5C;margin-bottom:4px">Tên bước</label>
+          <input type="text" class="ms-input" value="Soạn thảo" style="width:100%"/>
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:#605E5C;margin-bottom:4px">Vai trò</label>
+          <select class="ms-input" style="width:100%"><option>Trưởng phòng</option><option>Quản trị viên</option><option>Ban Giám đốc</option><option>QMR</option></select>
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:#605E5C;margin-bottom:4px">Người duyệt (tùy chọn)</label>
+          <div style="display:flex;align-items:center;gap:6px;border:1px solid #EDEBE9;border-radius:4px;padding:6px 10px;background:#fff">
+            <div style="width:22px;height:22px;border-radius:50%;background:#0078D4;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">NV</div>
+            <span style="font-size:12px;color:#0078D4">Nguyễn Văn A</span>
+            <button style="margin-left:auto;background:none;border:none;cursor:pointer;color:#A19F9D;font-size:14px">×</button>
+          </div>
+        </div>
+        <button style="background:none;border:none;cursor:pointer;color:#D13438;padding:4px">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+        </button>
+      </div>
+      <!-- Step row 2 -->
+      <div style="display:grid;grid-template-columns:32px 1fr 1fr 1fr 40px;gap:12px;align-items:center">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+          <button style="background:none;border:none;cursor:pointer;color:#A19F9D;font-size:10px;line-height:1">▲</button>
+          <span style="font-size:11px;font-weight:600;color:#605E5C">#2</span>
+          <button style="background:none;border:none;cursor:pointer;color:#A19F9D;font-size:10px;line-height:1">▼</button>
+        </div>
+        <div>
+          <input type="text" class="ms-input" value="Phê duyệt" style="width:100%"/>
+        </div>
+        <div>
+          <select class="ms-input" style="width:100%"><option>Quản trị viên hệ thống</option><option>Trưởng phòng</option><option>Ban Giám đốc</option></select>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;border:1px solid #EDEBE9;border-radius:4px;padding:6px 10px;background:#fff">
+            <div style="width:22px;height:22px;border-radius:50%;background:#0078D4;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">NV</div>
+            <span style="font-size:12px;color:#0078D4">Nguyễn Văn A</span>
+            <button style="margin-left:auto;background:none;border:none;cursor:pointer;color:#A19F9D;font-size:14px">×</button>
+          </div>
+        </div>
+        <button style="background:none;border:none;cursor:pointer;color:#D13438;padding:4px">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Footer actions -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:8px">
+      <button onclick="isoWizGoTo(2)" class="btn-secondary">Quay lại</button>
+      <button onclick="isoWizGoTo(4)" class="btn-primary" style="display:flex;align-items:center;gap:8px">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Tạo &amp; Mở soạn thảo
+      </button>
+    </div>
+  </div>
+
+  <!-- Step 4: Soạn thảo - Word Editor + AI Chat side by side -->
+  <div id="iso-wiz-panel4" style="flex:1;display:none;overflow:hidden">
+    <!-- Editor Toolbar (Word-like) -->
+    <div style="background:#fff;border-bottom:1px solid #EDEBE9;padding:4px 12px;display:flex;align-items:center;gap:2px;flex-wrap:wrap;flex-shrink:0">
+      <!-- File group -->
+      <div style="display:flex;align-items:center;gap:1px;padding-right:8px;border-right:1px solid #EDEBE9;margin-right:4px">
+        <button class="editor-btn" title="Lưu" onclick="isoEditorSave()" style="display:flex;align-items:center;gap:4px;padding:4px 8px;border:none;background:none;cursor:pointer;border-radius:3px;font-size:12px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
+          Lưu
+        </button>
+        <button class="editor-btn" title="In" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        </button>
+      </div>
+      <!-- Undo/Redo -->
+      <div style="display:flex;align-items:center;gap:1px;padding-right:8px;border-right:1px solid #EDEBE9;margin-right:4px">
+        <button onclick="document.execCommand('undo')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Hoàn tác">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/></svg>
+        </button>
+        <button onclick="document.execCommand('redo')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Làm lại">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"/></svg>
+        </button>
+      </div>
+      <!-- Font family -->
+      <select onchange="document.execCommand('fontName',false,this.value)" style="font-size:12px;border:1px solid #EDEBE9;border-radius:3px;padding:3px 6px;color:#323130;background:#fff;cursor:pointer;margin-right:4px">
+        <option>Times New Roman</option><option>Arial</option><option>Calibri</option><option>Tahoma</option>
+      </select>
+      <!-- Font size -->
+      <select onchange="document.execCommand('fontSize',false,this.value)" style="font-size:12px;border:1px solid #EDEBE9;border-radius:3px;padding:3px 6px;color:#323130;background:#fff;cursor:pointer;width:52px;margin-right:4px">
+        <option value="2">10</option><option value="3" selected>12</option><option value="4">14</option><option value="5">16</option><option value="6">18</option><option value="7">24</option>
+      </select>
+      <!-- Text formatting -->
+      <div style="display:flex;align-items:center;gap:1px;padding-right:8px;border-right:1px solid #EDEBE9;margin-right:4px">
+        <button onclick="document.execCommand('bold')" style="padding:4px 7px;border:none;background:none;cursor:pointer;border-radius:3px;font-weight:700;font-size:13px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Đậm">B</button>
+        <button onclick="document.execCommand('italic')" style="padding:4px 7px;border:none;background:none;cursor:pointer;border-radius:3px;font-style:italic;font-size:13px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Nghiêng">I</button>
+        <button onclick="document.execCommand('underline')" style="padding:4px 7px;border:none;background:none;cursor:pointer;border-radius:3px;text-decoration:underline;font-size:13px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Gạch chân">U</button>
+        <button onclick="document.execCommand('strikeThrough')" style="padding:4px 7px;border:none;background:none;cursor:pointer;border-radius:3px;text-decoration:line-through;font-size:13px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Gạch ngang">S</button>
+      </div>
+      <!-- Alignment -->
+      <div style="display:flex;align-items:center;gap:1px;padding-right:8px;border-right:1px solid #EDEBE9;margin-right:4px">
+        <button onclick="document.execCommand('justifyLeft')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Căn trái">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm0 4h12v2H3V9zm0 4h18v2H3v-2zm0 4h12v2H3v-2z"/></svg>
+        </button>
+        <button onclick="document.execCommand('justifyCenter')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Căn giữa">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm3 4h12v2H6V9zm-3 4h18v2H3v-2zm3 4h12v2H6v-2z"/></svg>
+        </button>
+        <button onclick="document.execCommand('justifyRight')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Căn phải">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm6 4h12v2H9V9zm-6 4h18v2H3v-2zm6 4h12v2H9v-2z"/></svg>
+        </button>
+        <button onclick="document.execCommand('justifyFull')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Căn đều">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm0 4h18v2H3V9zm0 4h18v2H3v-2zm0 4h18v2H3v-2z"/></svg>
+        </button>
+      </div>
+      <!-- Lists -->
+      <div style="display:flex;align-items:center;gap:1px;padding-right:8px;border-right:1px solid #EDEBE9;margin-right:4px">
+        <button onclick="document.execCommand('insertUnorderedList')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Danh sách">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h2v2H4V6zm0 5h2v2H4v-2zm0 5h2v2H4v-2zm4-10h12v2H8V6zm0 5h12v2H8v-2zm0 5h12v2H8v-2z"/></svg>
+        </button>
+        <button onclick="document.execCommand('insertOrderedList')" style="padding:4px 6px;border:none;background:none;cursor:pointer;border-radius:3px;color:#323130" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Danh sách số">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h1v4H4V7H3V6h1zm-1 9.5c0-.28.22-.5.5-.5H5v1H3.5a.5.5 0 01-.5-.5zm1 2.5v-1h2v1H4zm4-11h12v2H8V7zm0 5h12v2H8v-2zm0 5h12v2H8v-2z"/></svg>
+        </button>
+      </div>
+      <!-- Insert table -->
+      <button style="padding:4px 8px;border:none;background:none;cursor:pointer;border-radius:3px;font-size:12px;color:#323130;display:flex;align-items:center;gap:4px" onmouseover="this.style.background='#F3F2F1'" onmouseout="this.style.background='none'" title="Chèn bảng">
+        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 3v18M14 3v18M3 3h18v18H3z"/></svg>
+        Bảng
+      </button>
+      <!-- Spacer + Submit button -->
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
+        <span id="iso-editor-save-status" style="font-size:11px;color:#107C10;display:none">✓ Đã lưu</span>
+        <button onclick="isoSubmitForApproval()" style="display:flex;align-items:center;gap:6px;padding:5px 14px;background:#0078D4;color:#fff;border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer" onmouseover="this.style.background='#106EBE'" onmouseout="this.style.background='#0078D4'">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          Gửi phê duyệt
+        </button>
+      </div>
+    </div>
+
+    <!-- Two-column layout: Editor + AI Chat -->
+    <div style="display:flex;flex:1;overflow:hidden;height:calc(100% - 44px)">
+      <!-- LEFT: Word Editor -->
+      <div style="flex:1;overflow-y:auto;background:#E8E8E8;padding:24px 32px;display:flex;flex-direction:column;align-items:center">
+        <!-- Page shadow wrapper -->
+        <div style="width:100%;max-width:794px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.15);border-radius:2px;min-height:1123px;padding:72px 80px;position:relative">
+          <!-- Document header -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #0078D4">
+            <div>
+              <div style="font-size:10px;color:#605E5C;text-transform:uppercase;letter-spacing:0.5px">CÔNG TY TNHH MTV THÉP TÂY ĐÔ</div>
+              <div style="font-size:10px;color:#605E5C">Mã tài liệu: <span id="iso-editor-code" style="font-weight:600">TPL-QP-002</span></div>
+              <div style="font-size:10px;color:#605E5C">Phiên bản: 1.0 | Ngày: <span id="iso-editor-date"></span></div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:10px;color:#605E5C">Hệ thống quản lý chất lượng</div>
+              <div style="font-size:10px;color:#605E5C">ISO 9001:2015</div>
+            </div>
+          </div>
+          <!-- Editable content -->
+          <div id="iso-editor-content" contenteditable="true" spellcheck="false"
+            style="outline:none;font-family:'Times New Roman',serif;font-size:13px;line-height:1.8;color:#201F1E;min-height:900px"
+            onkeydown="isoEditorKeydown(event)"
+          >
+            <h1 style="font-size:16px;font-weight:700;text-align:center;text-transform:uppercase;margin-bottom:8px;color:#201F1E" id="iso-editor-h1">QUY TRÌNH</h1>
+            <h2 style="font-size:14px;font-weight:600;text-align:center;margin-bottom:32px;color:#201F1E" id="iso-editor-h2">Nhập tiêu đề tài liệu tại đây</h2>
+            <p style="margin-bottom:12px"><strong>1. MỤC ĐÍCH</strong></p>
+            <p style="margin-bottom:16px;text-indent:2em">Quy trình này nhằm mục đích...</p>
+            <p style="margin-bottom:12px"><strong>2. PHẠM VI ÁP DỤNG</strong></p>
+            <p style="margin-bottom:16px;text-indent:2em">Áp dụng cho tất cả các bộ phận...</p>
+            <p style="margin-bottom:12px"><strong>3. TÀI LIỆU THAM CHIẾU</strong></p>
+            <p style="margin-bottom:16px;text-indent:2em">- ISO 9001:2015<br>- Các quy định nội bộ liên quan</p>
+            <p style="margin-bottom:12px"><strong>4. ĐỊNH NGHĨA VÀ VIẾT TẮT</strong></p>
+            <p style="margin-bottom:16px;text-indent:2em">...</p>
+            <p style="margin-bottom:12px"><strong>5. NỘI DUNG QUY TRÌNH</strong></p>
+            <p style="margin-bottom:8px;text-indent:2em">5.1. Bước 1: ...</p>
+            <p style="margin-bottom:8px;text-indent:2em">5.2. Bước 2: ...</p>
+            <p style="margin-bottom:8px;text-indent:2em">5.3. Bước 3: ...</p>
+            <p style="margin-bottom:12px"><strong>6. TRÁCH NHIỆM</strong></p>
+            <p style="margin-bottom:16px;text-indent:2em">...</p>
+            <p style="margin-bottom:12px"><strong>7. HỒ SƠ LƯU TRỮ</strong></p>
+            <p style="margin-bottom:16px;text-indent:2em">...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: AI Chat Panel -->
+      <div style="width:360px;flex-shrink:0;background:#fff;border-left:1px solid #EDEBE9;display:flex;flex-direction:column;overflow:hidden">
+        <!-- Chat header -->
+        <div style="padding:12px 16px;border-bottom:1px solid #EDEBE9;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0078D4,#6B69D6);display:flex;align-items:center;justify-content:center">
+              <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#201F1E">Trợ lý AI</div>
+              <div style="font-size:10px;color:#107C10">● Đang hoạt động</div>
+            </div>
+          </div>
+          <button onclick="isoAiClear()" style="background:none;border:none;cursor:pointer;color:#A19F9D;padding:4px" title="Xóa lịch sử" onmouseover="this.style.color='#D13438'" onmouseout="this.style.color='#A19F9D'">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+          </button>
+        </div>
+        <!-- Context pill -->
+        <div style="padding:8px 12px;background:#F0F6FF;border-bottom:1px solid #EDEBE9;font-size:11px;color:#0078D4;display:flex;align-items:center;gap:6px;flex-shrink:0">
+          <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span id="iso-ai-context-title">Chưa có tiêu đề</span>
+          <span style="color:#A19F9D">· Mẫu Quy trình</span>
+        </div>
+        <!-- Chat messages -->
+        <div id="iso-ai-messages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <!-- AI greeting -->
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#0078D4,#6B69D6);flex-shrink:0;display:flex;align-items:center;justify-content:center">
+              <svg width="12" height="12" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            </div>
+            <div style="background:#F3F2F1;border-radius:0 8px 8px 8px;padding:10px 12px;max-width:280px">
+              <p style="font-size:12px;color:#201F1E;line-height:1.5;margin:0">Xin chào! Tôi có thể giúp bạn <strong>lên kế hoạch, thảo luận ý tưởng</strong> và <strong>gợi ý nội dung</strong> cho tài liệu đang soạn thảo.</p>
+              <p style="font-size:12px;color:#201F1E;line-height:1.5;margin:8px 0 0">Hãy hỏi tôi bất cứ điều gì — cấu trúc, nội dung từng mục, tiêu chuẩn ISO, hoặc cách diễn đạt.</p>
+            </div>
+          </div>
+          <!-- Quick prompts -->
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <p style="font-size:11px;color:#A19F9D;margin:0">Gợi ý nhanh:</p>
+            <button onclick="isoAiQuickPrompt(this)" data-prompt="Đề xuất cấu trúc cho quy trình này" style="text-align:left;padding:7px 10px;border:1px solid #EDEBE9;border-radius:6px;background:#fff;cursor:pointer;font-size:12px;color:#0078D4" onmouseover="this.style.background='#F0F6FF'" onmouseout="this.style.background='#fff'">💡 Đề xuất cấu trúc quy trình</button>
+            <button onclick="isoAiQuickPrompt(this)" data-prompt="Viết nội dung mục 5 - Nội dung quy trình" style="text-align:left;padding:7px 10px;border:1px solid #EDEBE9;border-radius:6px;background:#fff;cursor:pointer;font-size:12px;color:#0078D4" onmouseover="this.style.background='#F0F6FF'" onmouseout="this.style.background='#fff'">✍️ Viết nội dung mục 5</button>
+            <button onclick="isoAiQuickPrompt(this)" data-prompt="Kiểm tra tài liệu có đáp ứng tiêu chuẩn ISO 9001:2015 không" style="text-align:left;padding:7px 10px;border:1px solid #EDEBE9;border-radius:6px;background:#fff;cursor:pointer;font-size:12px;color:#0078D4" onmouseover="this.style.background='#F0F6FF'" onmouseout="this.style.background='#fff'">✅ Kiểm tra chuẩn ISO 9001</button>
+            <button onclick="isoAiQuickPrompt(this)" data-prompt="Tóm tắt nội dung tài liệu hiện tại" style="text-align:left;padding:7px 10px;border:1px solid #EDEBE9;border-radius:6px;background:#fff;cursor:pointer;font-size:12px;color:#0078D4" onmouseover="this.style.background='#F0F6FF'" onmouseout="this.style.background='#fff'">📋 Tóm tắt nội dung</button>
+          </div>
+        </div>
+        <!-- Chat input -->
+        <div style="padding:12px;border-top:1px solid #EDEBE9;flex-shrink:0">
+          <div style="display:flex;gap:8px;align-items:flex-end">
+            <textarea id="iso-ai-input" placeholder="Nhập câu hỏi... (Enter để gửi, Shift+Enter xuống dòng)" rows="2"
+              style="flex:1;border:1px solid #EDEBE9;border-radius:6px;padding:8px 10px;font-size:12px;resize:none;outline:none;font-family:inherit;line-height:1.5;color:#201F1E"
+              onkeydown="isoAiInputKeydown(event)"
+              onfocus="this.style.borderColor='#0078D4'" onblur="this.style.borderColor='#EDEBE9'"
+            ></textarea>
+            <button onclick="isoAiSend()" id="iso-ai-send-btn"
+              style="padding:8px 10px;background:#0078D4;color:#fff;border:none;border-radius:6px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center"
+              onmouseover="this.style.background='#106EBE'" onmouseout="this.style.background='#0078D4'"
+            >
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </button>
+          </div>
+          <p style="font-size:10px;color:#A19F9D;margin:6px 0 0">AI có thể mắc lỗi. Hãy kiểm tra thông tin quan trọng.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steps 1 & 2 placeholder panels -->
+  <div id="iso-wiz-panel1" style="flex:1;overflow-y:auto;padding:32px;display:none;flex-direction:column;gap:20px;max-width:900px;margin:0 auto;width:100%">
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:6px;padding:32px;text-align:center">
+      <div style="font-size:40px;margin-bottom:12px">📁</div>
+      <h3 style="font-size:16px;font-weight:600;color:#201F1E;margin-bottom:8px">Chọn thư mục lưu trữ</h3>
+      <p style="font-size:13px;color:#605E5C;margin-bottom:24px">Chọn thư mục trong cây tài liệu ISO để lưu tài liệu mới</p>
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:400px;margin:0 auto">
+        <div onclick="isoWizSelectFolder(this)" style="padding:10px 16px;border:1.5px solid #EDEBE9;border-radius:6px;cursor:pointer;text-align:left;font-size:13px;display:flex;align-items:center;gap:8px" onmouseover="this.style.borderColor='#0078D4'" onmouseout="this.style.borderColor='#EDEBE9'">📂 Quy trình (QP)</div>
+        <div onclick="isoWizSelectFolder(this)" style="padding:10px 16px;border:1.5px solid #EDEBE9;border-radius:6px;cursor:pointer;text-align:left;font-size:13px;display:flex;align-items:center;gap:8px" onmouseover="this.style.borderColor='#0078D4'" onmouseout="this.style.borderColor='#EDEBE9'">📂 Hướng dẫn công việc (HD)</div>
+        <div onclick="isoWizSelectFolder(this)" style="padding:10px 16px;border:1.5px solid #EDEBE9;border-radius:6px;cursor:pointer;text-align:left;font-size:13px;display:flex;align-items:center;gap:8px" onmouseover="this.style.borderColor='#0078D4'" onmouseout="this.style.borderColor='#EDEBE9'">📂 Biểu mẫu (BM)</div>
+        <div onclick="isoWizSelectFolder(this)" style="padding:10px 16px;border:1.5px solid #EDEBE9;border-radius:6px;cursor:pointer;text-align:left;font-size:13px;display:flex;align-items:center;gap:8px" onmouseover="this.style.borderColor='#0078D4'" onmouseout="this.style.borderColor='#EDEBE9'">📂 Quy định (QĐ)</div>
+      </div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end">
+        <button onclick="isoWizGoTo(2)" class="btn-primary">Tiếp theo →</button>
+      </div>
+    </div>
+  </div>
+  <div id="iso-wiz-panel2" style="flex:1;overflow-y:auto;padding:32px;display:none;flex-direction:column;gap:20px;max-width:900px;margin:0 auto;width:100%">
+    <div style="background:#fff;border:1px solid #EDEBE9;border-radius:6px;padding:32px">
+      <h3 style="font-size:16px;font-weight:600;color:#201F1E;margin-bottom:20px">Chọn mẫu tài liệu</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+        <div onclick="isoWizSelectTemplate(this)" style="padding:20px;border:2px solid #0078D4;border-radius:8px;cursor:pointer;text-align:center;background:#F0F6FF">
+          <div style="font-size:32px;margin-bottom:8px">📋</div>
+          <div style="font-size:13px;font-weight:600;color:#0078D4">Mẫu Quy trình</div>
+          <div style="font-size:11px;color:#605E5C;margin-top:4px">Cấu trúc chuẩn ISO 9001</div>
+        </div>
+        <div onclick="isoWizSelectTemplate(this)" style="padding:20px;border:1.5px solid #EDEBE9;border-radius:8px;cursor:pointer;text-align:center" onmouseover="this.style.borderColor='#0078D4'" onmouseout="this.style.borderColor='#EDEBE9'">
+          <div style="font-size:32px;margin-bottom:8px">📖</div>
+          <div style="font-size:13px;font-weight:600;color:#323130">Mẫu Hướng dẫn</div>
+          <div style="font-size:11px;color:#605E5C;margin-top:4px">Work Instruction</div>
+        </div>
+        <div onclick="isoWizSelectTemplate(this)" style="padding:20px;border:1.5px solid #EDEBE9;border-radius:8px;cursor:pointer;text-align:center" onmouseover="this.style.borderColor='#0078D4'" onmouseout="this.style.borderColor='#EDEBE9'">
+          <div style="font-size:32px;margin-bottom:8px">📊</div>
+          <div style="font-size:13px;font-weight:600;color:#323130">Mẫu Biểu mẫu</div>
+          <div style="font-size:11px;color:#605E5C;margin-top:4px">Form / Record</div>
+        </div>
+      </div>
+      <div style="margin-top:24px;display:flex;justify-content:space-between">
+        <button onclick="isoWizGoTo(1)" class="btn-secondary">← Quay lại</button>
+        <button onclick="isoWizGoTo(3)" class="btn-primary">Tiếp theo →</button>
+      </div>
     </div>
   </div>
 </div>
@@ -3863,7 +4202,192 @@
     document.getElementById(id).style.display = 'none';
   }
 
-  // ==================== Chat ====================
+  // ==================== ISO Create Wizard ====================
+  let isoCurrentStep = 3;
+
+  function openIsoWizard() {
+    const wiz = document.getElementById('isoCreateWizard');
+    wiz.style.display = 'flex';
+    isoWizGoTo(3);
+    // Set today's date in editor header
+    const d = new Date();
+    const dateEl = document.getElementById('iso-editor-date');
+    if (dateEl) dateEl.textContent = d.toLocaleDateString('vi-VN');
+  }
+
+  function closeIsoWizard() {
+    document.getElementById('isoCreateWizard').style.display = 'none';
+  }
+
+  function isoWizGoTo(step) {
+    isoCurrentStep = step;
+    // Hide all panels
+    [1,2,3,4].forEach(s => {
+      const p = document.getElementById('iso-wiz-panel' + s);
+      if (p) p.style.display = 'none';
+    });
+    // Show current panel
+    const panel = document.getElementById('iso-wiz-panel' + step);
+    if (panel) {
+      panel.style.display = (step === 4) ? 'flex' : 'flex';
+      panel.style.flexDirection = (step === 4) ? 'column' : 'column';
+    }
+    // Update step indicators
+    [1,2,3,4].forEach(s => {
+      const el = document.getElementById('iso-wiz-step' + s);
+      if (!el) return;
+      if (s < step) {
+        el.style.borderBottom = '3px solid #107C10';
+        el.style.color = '#107C10';
+        el.style.fontWeight = '500';
+        el.style.background = '';
+        el.innerHTML = '<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> ' + ['1. Chọn thư mục','2. Chọn mẫu','3. Upload &amp; Tạo','4. Soạn thảo'][s-1];
+      } else if (s === step) {
+        el.style.borderBottom = '3px solid #0078D4';
+        el.style.color = '#0078D4';
+        el.style.fontWeight = '600';
+        el.style.background = '#F0F6FF';
+        el.textContent = ['1. Chọn thư mục','2. Chọn mẫu','3. Upload & Tạo','4. Soạn thảo'][s-1];
+      } else {
+        el.style.borderBottom = '3px solid transparent';
+        el.style.color = '#A19F9D';
+        el.style.fontWeight = '400';
+        el.style.background = '';
+        el.textContent = ['1. Chọn thư mục','2. Chọn mẫu','3. Upload & Tạo','4. Soạn thảo'][s-1];
+      }
+    });
+    // Sync title to editor when entering step 4
+    if (step === 4) {
+      const titleVal = document.getElementById('iso-wiz-title') ? document.getElementById('iso-wiz-title').value : '';
+      const codeVal = document.getElementById('iso-wiz-code') ? document.getElementById('iso-wiz-code').value : '';
+      const h1 = document.getElementById('iso-editor-h1');
+      const h2 = document.getElementById('iso-editor-h2');
+      const codeEl = document.getElementById('iso-editor-code');
+      const ctxTitle = document.getElementById('iso-ai-context-title');
+      if (h2 && titleVal) h2.textContent = titleVal;
+      if (codeEl && codeVal) codeEl.textContent = codeVal;
+      if (ctxTitle) ctxTitle.textContent = titleVal || 'Chưa có tiêu đề';
+    }
+  }
+
+  function isoWizSelectFolder(el) {
+    document.querySelectorAll('#iso-wiz-panel1 [onclick]').forEach(e => {
+      e.style.borderColor = '#EDEBE9';
+      e.style.background = '';
+    });
+    el.style.borderColor = '#0078D4';
+    el.style.background = '#F0F6FF';
+    setTimeout(() => isoWizGoTo(2), 300);
+  }
+
+  function isoWizSelectTemplate(el) {
+    document.querySelectorAll('#iso-wiz-panel2 [onclick]').forEach(e => {
+      e.style.borderColor = '#EDEBE9';
+      e.style.background = '';
+      const title = e.querySelector('div:nth-child(2)');
+      if (title) title.style.color = '#323130';
+    });
+    el.style.borderColor = '#0078D4';
+    el.style.background = '#F0F6FF';
+    const title = el.querySelector('div:nth-child(2)');
+    if (title) title.style.color = '#0078D4';
+  }
+
+  function isoWizSelectFile() { /* prototype: already selected */ }
+  function isoWizUploadOther() { /* prototype: show file picker */ }
+
+  function isoEditorSave() {
+    const status = document.getElementById('iso-editor-save-status');
+    if (status) {
+      status.style.display = 'inline';
+      setTimeout(() => { status.style.display = 'none'; }, 2000);
+    }
+  }
+
+  function isoEditorKeydown(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      document.execCommand('insertHTML', false, '&nbsp;&nbsp;&nbsp;&nbsp;');
+    }
+  }
+
+  function isoSubmitForApproval() {
+    closeIsoWizard();
+    // Show success toast
+    const toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#107C10;color:#fff;padding:12px 20px;border-radius:6px;font-size:13px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,0.2);display:flex;align-items:center;gap:8px';
+    toast.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Tài liệu đã được gửi phê duyệt!';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // ISO AI Chat
+  const isoAiResponses = {
+    default: 'Tôi hiểu yêu cầu của bạn. Hãy để tôi giúp bạn phát triển nội dung này cho tài liệu ISO.',
+    'cấu trúc': 'Dưới đây là cấu trúc đề xuất cho quy trình ISO:<br><br><strong>1. Mục đích</strong> — Nêu rõ mục tiêu của quy trình<br><strong>2. Phạm vi áp dụng</strong> — Xác định phạm vi<br><strong>3. Tài liệu tham chiếu</strong> — Liệt kê tài liệu liên quan<br><strong>4. Định nghĩa</strong> — Giải thích thuật ngữ<br><strong>5. Nội dung quy trình</strong> — Các bước thực hiện<br><strong>6. Trách nhiệm</strong> — Phân công rõ ràng<br><strong>7. Hồ sơ lưu trữ</strong> — Biểu mẫu, hồ sơ',
+    'mục 5': 'Nội dung gợi ý cho <strong>Mục 5 — Nội dung quy trình</strong>:<br><br>5.1. Tiếp nhận yêu cầu<br>&nbsp;&nbsp;&nbsp;• Người thực hiện: [vai trò]<br>&nbsp;&nbsp;&nbsp;• Thời gian: [thời gian]<br><br>5.2. Xử lý và kiểm tra<br>&nbsp;&nbsp;&nbsp;• Kiểm tra điều kiện đầu vào<br>&nbsp;&nbsp;&nbsp;• Thực hiện theo hướng dẫn<br><br>5.3. Phê duyệt và ban hành<br>&nbsp;&nbsp;&nbsp;• Trình ký duyệt<br>&nbsp;&nbsp;&nbsp;• Phát hành theo danh sách',
+    'iso 9001': 'Để đáp ứng <strong>ISO 9001:2015</strong>, tài liệu cần có:<br><br>✅ Mã tài liệu và phiên bản rõ ràng<br>✅ Ngày ban hành và người phê duyệt<br>✅ Phạm vi áp dụng cụ thể<br>✅ Các bước quy trình có thể đo lường<br>✅ Trách nhiệm phân công rõ ràng<br>✅ Hồ sơ lưu trữ theo quy định<br><br>Tài liệu hiện tại đã có cấu trúc cơ bản phù hợp.',
+    'tóm tắt': 'Dựa trên cấu trúc hiện tại, tài liệu đang được soạn thảo gồm 7 mục chính theo chuẩn ISO 9001:2015. Các mục 1-4 đã có nội dung cơ bản. Cần bổ sung chi tiết cho mục 5 (Nội dung quy trình) và mục 6 (Trách nhiệm).'
+  };
+
+  function isoAiQuickPrompt(btn) {
+    const prompt = btn.getAttribute('data-prompt');
+    const input = document.getElementById('iso-ai-input');
+    if (input) {
+      input.value = prompt;
+      isoAiSend();
+    }
+  }
+
+  function isoAiInputKeydown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      isoAiSend();
+    }
+  }
+
+  function isoAiSend() {
+    const input = document.getElementById('iso-ai-input');
+    const messages = document.getElementById('iso-ai-messages');
+    if (!input || !messages || !input.value.trim()) return;
+    const text = input.value.trim();
+    input.value = '';
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.style.cssText = 'display:flex;justify-content:flex-end';
+    userMsg.innerHTML = '<div style="background:#0078D4;color:#fff;border-radius:8px 0 8px 8px;padding:10px 12px;max-width:260px;font-size:12px;line-height:1.5">' + text + '</div>';
+    messages.appendChild(userMsg);
+    messages.scrollTop = messages.scrollHeight;
+    // Show typing indicator
+    const typing = document.createElement('div');
+    typing.style.cssText = 'display:flex;gap:8px;align-items:flex-start';
+    typing.innerHTML = '<div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#0078D4,#6B69D6);flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div style="background:#F3F2F1;border-radius:0 8px 8px 8px;padding:10px 12px"><span style="font-size:12px;color:#605E5C">Trợ lý đang suy nghĩ...</span></div>';
+    messages.appendChild(typing);
+    messages.scrollTop = messages.scrollHeight;
+    // Generate response
+    setTimeout(() => {
+      messages.removeChild(typing);
+      let response = isoAiResponses.default;
+      const lower = text.toLowerCase();
+      if (lower.includes('cấu trúc') || lower.includes('structure')) response = isoAiResponses['cấu trúc'];
+      else if (lower.includes('mục 5') || lower.includes('nội dung quy trình')) response = isoAiResponses['mục 5'];
+      else if (lower.includes('iso 9001') || lower.includes('kiểm tra')) response = isoAiResponses['iso 9001'];
+      else if (lower.includes('tóm tắt') || lower.includes('summary')) response = isoAiResponses['tóm tắt'];
+      const aiMsg = document.createElement('div');
+      aiMsg.style.cssText = 'display:flex;gap:8px;align-items:flex-start';
+      aiMsg.innerHTML = '<div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#0078D4,#6B69D6);flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div style="background:#F3F2F1;border-radius:0 8px 8px 8px;padding:10px 12px;max-width:280px;font-size:12px;color:#201F1E;line-height:1.6">' + response + '</div>';
+      messages.appendChild(aiMsg);
+      messages.scrollTop = messages.scrollHeight;
+    }, 900);
+  }
+
+  function isoAiClear() {
+    const messages = document.getElementById('iso-ai-messages');
+    if (!messages) return;
+    messages.innerHTML = '<div style="display:flex;gap:8px;align-items:flex-start"><div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#0078D4,#6B69D6);flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div style="background:#F3F2F1;border-radius:0 8px 8px 8px;padding:10px 12px;max-width:280px"><p style="font-size:12px;color:#201F1E;line-height:1.5;margin:0">Lịch sử đã được xóa. Tôi sẵn sàng hỗ trợ bạn!</p></div></div>';
+  }
+
+  // ==================== Chat =====================
   let chatOpen = false;
   function toggleChat() {
     chatOpen = !chatOpen;
